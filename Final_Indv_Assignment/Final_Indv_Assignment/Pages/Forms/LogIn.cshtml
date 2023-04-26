@@ -1,0 +1,34 @@
+﻿@page
+@model Final_Indv_Assignment.Pages.Shared.LogInModel
+@{
+	ViewData["Title"] = "Log In";
+	Layout ="_LayoutLogIn";
+}
+
+	
+
+	<div class="login-container">
+		<div class="loginbox">
+			<img class="avatar" src="~/images/login/account.jpg" />
+			<div class="LogInTitle"><h1>Log In</h1></div>
+			
+			<form method="post">
+				<label asp-for="Username" class="form-label">Username </label>
+				<span class="text-danger" asp-validation-for="Username"></span>
+				<input type="username"asp-for="Username" class="form-control" required value="" >
+
+				<label asp-for="Password" class="form-label">Password </label>
+				<span class="text-danger" asp-validation-for="Password"> </span>
+				<input type="password" asp-for="Password" class="form-control"required value="" >
+			
+			
+				<div class="separator"></div>
+				<input type="submit" name="" value="Sign Up" formaction="/Forms/Registration" />
+
+				<input type="submit" name="login" value="Login" />
+				<a asp-area="" asp-page="/Forms/Registration">Sign Up</a>
+				<a href="#">Lost your password?</a><br>
+				<a href="#">Don't have an account?</a>
+			</form>
+		</div>
+	</div>

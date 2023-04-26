@@ -1,0 +1,57 @@
+﻿@page 
+@model Final_Indv_Assignment.Pages.Forms.RegistrationModel
+@{
+	ViewData["Title"] = "Registration";
+	Layout = "_LayoutRegistration";
+}
+
+    <div class="registration-container">
+        <div class="registerbox">
+
+			<div class="RegisterTitle"><h1>Register</h1></div>
+        
+            <form method="post">
+                <label asp-for="FirstName" class="form-label">First Name </label>
+                <span class="text-danger" asp-validation-for="FirstName"></span>
+                <input type="firstname" asp-for="FirstName" class="form-control" required value="">
+
+                <label asp-for="LastName" class="form-label">Last Name </label>
+                <span class="text-danger" asp-validation-for="LastName"></span>
+                <input type="lastname" asp-for="LastName" class="form-control" required value="">
+
+                <label asp-for="Username" class="form-label">Username </label>
+                <span class="text-danger" asp-validation-for="Username"></span>
+                <input type="username" asp-for="Username" class="form-control" required value="">
+
+                <label asp-for="Password" class="form-label">Password </label>
+                <span class="text-danger" asp-validation-for="Password"> </span>
+                <input type="password" asp-for="Password" class="form-control" required value="">
+
+                <label asp-for="Email" class="form-label">Email </label>
+                <span class="text-danger" asp-validation-for="Email"></span>
+                <input type="email" asp-for="Email" class="form-control" required value="">
+
+                <label asp-for="PhoneNumber" class="form-label">Phone Number </label>
+                <span class="text-danger" asp-validation-for="Username"></span>
+                <input type="number" asp-for="PhoneNumber" class="form-control" required value="">
+
+                <label asp-for="BirthDate" class="form-label">Date of Birth </label>
+                <span class="text-danger" asp-validation-for="BirthDate"></span>
+                <input type="date" asp-for="BirthDate" class="form-control" required value="">
+
+                <label asp-for="Adress" class="form-label">Adress </label>
+                <span class="text-danger" asp-validation-for="Adress"></span>
+                <input type="adress" asp-for="Adress" class="form-control" required value="">
+
+
+            
+
+                <input type="submit" name="register" value="Register" />
+            
+            </form>
+        </div>
+	</div>
+	
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

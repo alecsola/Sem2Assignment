@@ -1,0 +1,169 @@
+﻿@page
+@using LogicLayer.Class
+@model Final_Indv_Assignment.Pages.Forms.SeasonTicketsModel
+@{
+    ViewData["Title"] = "Season Tickets";
+    Layout = "_LayoutSeasonTickets";
+}
+
+    <div class="titulo">
+        <h1><b>Season Tickets</b></h1>
+    </div>
+@*<div class="employee-overview">
+    @foreach (Employee employee in Model.Employees)
+    {
+        <a asp-page="Details" asp-route-id="@employee.Id">
+            <div>
+                <p>@employee.FirstName @employee.LastName</p>
+                <img src="@employee.Avatar" />
+            </div>
+        </a>
+    }
+</div>*@
+
+ 
+    <div class="container">
+        @foreach (SeasonTickets seasonTickets in Model.seasonTickets){
+
+        <div class="item-container">
+            <div class="img-container">
+                <img src="@seasonTickets.Image" />
+            </div>
+
+            <div class="body-container">
+                <div class="overlay"></div>
+
+                <div class="ticket-info">
+                    <p class="title">@seasonTickets.SeasonTicketName</p>
+                    <div class="separator"></div>
+                    <p class="price">@seasonTickets.Price</p>
+
+                    <div class="additional-info">
+                        <p class="info">
+                            <i class="fas fa-calendar-alt"></i>
+                            1 Year
+                        </p>
+                        <p class="info description">
+                            @seasonTickets.Description    <span>More...</span>
+                        </p>
+                    </div>
+                </div>
+                <button class="buy"> Buy</button>
+            </div>
+        </div>
+
+    }
+        
+        @*<div class="item-container">
+            <div class="img-container">
+                <img src="~/images/seasontickets/train3.jpg" />
+            </div>
+
+            <div class="body-container">
+                <div class="overlay"></div>
+
+                <div class="ticket-info">
+                    <p class="title">@Model.Tickets[3].name</p>
+                    <div class="separator"></div>
+                    <p class="price">@Model.Tickets[2].price€</p>
+
+                    <div class="additional-info">
+                        <p class="info">
+                            <i class="fas fa-calendar-alt"></i>
+                           6 Months
+                        </p>
+                        <p class="info description">
+                            With this train ticket, you have the ability to travel wherever and whenever you want
+                            for <b>6months</b>. Since it's a subscription, the ticket will reboot after six months
+                            unless you cancel the subscription.      
+                            <span>More...</span>
+                        </p>
+                    </div>
+                </div>
+                <button class="buy"> Buy</button>
+            </div>
+        </div>
+        <div class="item-container">
+            <div class="img-container">
+                <img src="~/images/seasontickets/train4.jpg" />
+            </div>
+
+            <div class="body-container">
+                <div class="overlay"></div>
+
+                <div class="ticket-info">
+                    <p class="title">Month Ticket</p>
+                    <div class="separator"></div>
+                    <p class="price">100€</p>
+
+                    <div class="additional-info">
+                        <p class="info">
+                            <i class="fas fa-calendar-alt"></i>
+                           1 Month
+                        </p>
+                        <p class="info description">
+                            With this train ticket, you have the ability to travel wherever and whenever you want
+                            for 1 <b>month</b>. Since it's a subscription, the ticket will reboot after one month
+                            unless you cancel the subscription.      <span>More...</span>
+                        </p>
+                    </div>
+                </div>
+                <button class="buy"> Buy</button>
+            </div>
+        </div>
+        <div class="item-container">
+            <div class="img-container">
+                <img src="~/images/seasontickets/penya.jpg" />
+            </div>
+
+            <div class="body-container">
+                <div class="overlay"></div>
+
+                <div class="ticket-info">
+                    <p class="title">Young Ticket</p>
+                    <div class="separator"></div>
+                    <p class="price">10€/Month</p>
+
+                    <div class="additional-info">
+                        <p class="info">
+                            <i class="fas fa-calendar-alt"></i>
+                            Monthly
+                        </p>
+                        <p class="info description">
+                            If you are a young citizen and you still <b>haven't reached the age of 19</b>, you can pay 10€ a month to travel wherever you want.
+                            <span>More...</span>
+                        </p>
+                    </div>
+                </div>
+            <button class="buy" onclick="addToCart('Young Ticket', '10€/Month',' If you are a young citizen and you still haven't reached the age of 19, you can pay 10€ a month to travel wherever you want.')"> Buy</button>
+            </div>
+        </div>
+        <div class="item-container">
+            <div class="img-container">
+                <img src="~/images/seasontickets/ninyo.jpg" />
+            </div>
+
+            <div class="body-container">
+                <div class="overlay"></div>
+
+                <div class="ticket-info">
+                    <p class="title">Child Ticket</p>
+                    <div class="separator"></div>
+                    <p class="price">FREE</p>
+
+                    <div class="additional-info">
+                        <p class="info">
+                            <i class="fas fa-calendar-alt"></i>
+                            Unlimited
+                        </p>
+                        <p class="info description">
+                            While a child is <b>less than 14 years old,</b> he is able to travel for free.
+                            <span>More...</span>
+                        </p>
+                    </div>
+                </div>
+                <button class="buy"> Buy</button>
+            </div>
+        </div>*@
+    </div>
+
