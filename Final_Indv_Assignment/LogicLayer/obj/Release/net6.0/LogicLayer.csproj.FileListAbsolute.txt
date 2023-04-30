@@ -10,3 +10,15 @@ C:\Users\solaa\OneDrive - Office 365 Fontys\Documents\Final_Indv_Assignment\Logi
 C:\Users\solaa\OneDrive - Office 365 Fontys\Documents\Final_Indv_Assignment\LogicLayer\obj\Release\net6.0\refint\LogicLayer.dll
 C:\Users\solaa\OneDrive - Office 365 Fontys\Documents\Final_Indv_Assignment\LogicLayer\obj\Release\net6.0\LogicLayer.pdb
 C:\Users\solaa\OneDrive - Office 365 Fontys\Documents\Final_Indv_Assignment\LogicLayer\obj\Release\net6.0\ref\LogicLayer.dll
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\LogicLayer\bin\Release\net6.0\LogicLayer.deps.json
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\LogicLayer\bin\Release\net6.0\LogicLayer.dll
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\LogicLayer\bin\Release\net6.0\LogicLayer.pdb
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\LogicLayer\obj\Release\net6.0\LogicLayer.csproj.AssemblyReference.cache
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\LogicLayer\obj\Release\net6.0\LogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\LogicLayer\obj\Release\net6.0\LogicLayer.AssemblyInfoInputs.cache
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\LogicLayer\obj\Release\net6.0\LogicLayer.AssemblyInfo.cs
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\LogicLayer\obj\Release\net6.0\LogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\LogicLayer\obj\Release\net6.0\LogicLayer.dll
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\LogicLayer\obj\Release\net6.0\refint\LogicLayer.dll
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\LogicLayer\obj\Release\net6.0\LogicLayer.pdb
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\LogicLayer\obj\Release\net6.0\ref\LogicLayer.dll

@@ -8,21 +8,11 @@
 
     <div class="titulo">
         <h1><b>Season Tickets</b></h1>
-    </div>
-@*<div class="employee-overview">
-    @foreach (Employee employee in Model.Employees)
-    {
-        <a asp-page="Details" asp-route-id="@employee.Id">
-            <div>
-                <p>@employee.FirstName @employee.LastName</p>
-                <img src="@employee.Avatar" />
-            </div>
-        </a>
-    }
-</div>*@
+   
 
- 
-    <div class="container">
+
+
+<div id="container" class="container">
         @foreach (SeasonTickets seasonTickets in Model.seasonTickets){
 
         <div class="item-container">
@@ -167,3 +157,4 @@
         </div>*@
     </div>
 
+ </div>

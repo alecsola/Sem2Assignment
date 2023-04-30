@@ -19,56 +19,37 @@
     <title>Season Tickets</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Final_Indv_Assignment.styles.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 </head>
 <body>
-
-    
-        <nav>
-            <div class="logo">
-                <h2>Ease<span>Express</span></h2>
-
-            </div>
-            <div class="links">
-                <ul>
-                @*@if (ViewContext.HttpContext.Session.GetString("username") != null)
-                    {
-                    <li><a class="active" href="/Forms/LogIn">Log Out</a></li>
-                    }*@
-                @*else{*@
-                    @if (User.Identity?.IsAuthenticated ?? false)
-                    {
-                        <li><a class="active" href="/Forms/LogOut">Log Out</a></li>
-                    }
-                    else
-                    {
-                        <li><a class="active" href="/Forms/LogIn">Log In</a></li>
-                    }
-
-                @*}*@
-				
-                    <li><a href="#">Travel</a></li>
-				<li><a href="/Forms/SeasonTickets">Season Tickets</a></li>
-                    
-                </ul>
-            </div>
-        </nav>
  
-    
-    @*<div class="header">
-        <div class="inner-header">
-            <div class="logo-container">
-                <h1>Ease<span>Express</span></h1>
-            </div>
-           <ul class="navigation">
-                <li><a asp-area="" asp-page="">Log In</a></li>
-               <li><a>Home</a></li>
-				<li><a>About</a></li>
-                <li><a asp-area=""asp-page="">Season Tickets</a></li>
-			</ul>
-                
-            
+    <nav>
+        <div class="logo">
+            <h2>Ease<span>Express</span></h2>
         </div>
-    </div>*@
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                <li><a class="active" href="/Forms/LogOut">Log Out</a></li>
+            }
+            else
+            {
+                <li><a class="active" href="/Forms/LogIn">Log In</a></li>
+            }
+            <li><a class="normals" href="#">Travel</a></li>
+            <li><a class="normals" href="/Forms/SeasonTickets">Season Tickets</a></li>
+        </ul>
+    </nav>
+    
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

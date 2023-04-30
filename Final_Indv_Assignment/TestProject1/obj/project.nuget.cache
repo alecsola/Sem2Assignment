@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2GiCqYZB/j24TsXPxFcMUYKmMZHIRuJzWTeRVzZpKqNfhMOv3nhkX7npIxP5Y+orACOOr0GLe371xgOYq9vMtw==",
+  "dgSpecHash": "n2iTX2/w7FTT27HKwJiECtq3BGmWmwKA8YOmdQVt8JeLfvwB4SDWAWrrXdhOt/0wrmCuLfnNHC0i6W1BYSwAyw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\solaa\\OneDrive - Office 365 Fontys\\Documents\\Final_Indv_Assignment\\TestProject1\\TestProject1.csproj",
+  "projectFilePath": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\TestProject1\\TestProject1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\solaa\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

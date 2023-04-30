@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CFEnxQNaEMrXC+yiba3H6T9v2thAmPA0zhOKXrzNtZCV1GWAv3lXilEIw/Q5fOcP9FOGuIGDwtmke7QFcde0yg==",
+  "dgSpecHash": "tEp7i5EB0qTtlQmqvVcQ2woEsEPtI8CfZftEVUzOHIwLc3RfO7IgbkS4awKeAshEzVNXOSoDJ65kCMc3K/rWVg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\solaa\\OneDrive - Office 365 Fontys\\Documents\\Final_Indv_Assignment\\LogicLayer\\LogicLayer.csproj",
+  "projectFilePath": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\LogicLayer\\LogicLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\solaa\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

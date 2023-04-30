@@ -15,3 +15,20 @@ C:\Users\solaa\OneDrive - Office 365 Fontys\Documents\Final_Indv_Assignment\Fact
 C:\Users\solaa\OneDrive - Office 365 Fontys\Documents\Final_Indv_Assignment\Factory\obj\Release\net6.0\refint\Factory.dll
 C:\Users\solaa\OneDrive - Office 365 Fontys\Documents\Final_Indv_Assignment\Factory\obj\Release\net6.0\Factory.pdb
 C:\Users\solaa\OneDrive - Office 365 Fontys\Documents\Final_Indv_Assignment\Factory\obj\Release\net6.0\ref\Factory.dll
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\bin\Release\net6.0\Factory.deps.json
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\bin\Release\net6.0\Factory.dll
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\bin\Release\net6.0\Factory.pdb
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\bin\Release\net6.0\DataLayer.dll
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\bin\Release\net6.0\LogicLayer.dll
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\bin\Release\net6.0\DataLayer.pdb
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\bin\Release\net6.0\LogicLayer.pdb
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\obj\Release\net6.0\Factory.csproj.AssemblyReference.cache
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\obj\Release\net6.0\Factory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\obj\Release\net6.0\Factory.AssemblyInfoInputs.cache
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\obj\Release\net6.0\Factory.AssemblyInfo.cs
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\obj\Release\net6.0\Factory.csproj.CoreCompileInputs.cache
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\obj\Release\net6.0\Factory.csproj.CopyComplete
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\obj\Release\net6.0\Factory.dll
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\obj\Release\net6.0\refint\Factory.dll
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\obj\Release\net6.0\Factory.pdb
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Factory\obj\Release\net6.0\ref\Factory.dll

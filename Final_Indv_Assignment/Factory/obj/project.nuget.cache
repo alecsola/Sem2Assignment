@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6IOqPWCj/PBfebqvftpIEc4vtN2FlwmB0bZB+cTbZ8edNCHDMIbGroM3D16hH4F7jzA7RPut/fSZJSagBI5uDA==",
+  "dgSpecHash": "BBHqUDt8EIoG84J1JQ0vqctwv1ewM1jjevAIRtmc0M4T74BgzwuZRoUaMttPSJQK80z3GyDW3X06p9abpmwWZw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\solaa\\OneDrive - Office 365 Fontys\\Documents\\Final_Indv_Assignment\\Factory\\Factory.csproj",
+  "projectFilePath": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\Factory\\Factory.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\solaa\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
