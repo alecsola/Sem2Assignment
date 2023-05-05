@@ -21,26 +21,7 @@ namespace DataLayer.DataConvertingToObject
             seasonTickets.Image = (string)row["ImageURL"];
 
             return seasonTickets;
-            //User user = new User("", "", "", "", "", "", "", "", "");
-            ////Roles roles = new Roles();
-
-            //user.FirstName = (string)row["FirstName"];
-            //user.LastName = (string)row["LastName"];
-            //user.Username = (string)row["Username"];
-            ////user.Password = (string)row["Password"];
-            //user.Salt = (string)row["Salt"];
-            //user.HashedPassword = (string)row["HashedPassword"];
-            //user.Email = (string)row["Email"];
-
-            //user.PhoneNumber = (string)row["PhoneNumber"];
-            //user.BirthDate = ((DateTime)row["DateOfBirth"]).ToString("yyyy-MM-dd");
-
-
-            //user.Adress = (string)row["Adress"];
-            //// roles.JobId = (int)row["JobId"];
-
-
-            //return user;
+            
         }
     }
 }

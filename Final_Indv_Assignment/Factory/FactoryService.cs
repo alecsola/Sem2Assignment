@@ -8,7 +8,8 @@ namespace Factory
     public class FactoryService
     {
         public static LogInService logIn { get; } = new LogInService(new UserDataTraffic());
-        public static SeasonTicketsService seasonTickets = new SeasonTicketsService(new SeasonTicketDataTraffic());
+        public static SeasonTicketsService seasonTickets { get; } = new SeasonTicketsService(new SeasonTicketDataTraffic());
+        public static StationService station { get; } = new StationService(new StationDataTraffic());
 
         public static LogInService createlogInUser()
         {
@@ -17,6 +18,10 @@ namespace Factory
         public static SeasonTicketsService createseasonTickets()
         {
             return new SeasonTicketsService(new SeasonTicketDataTraffic());
+        }
+        public static StationService createStation()
+        {
+            return new StationService(new StationDataTraffic());
         }
     }
 }
