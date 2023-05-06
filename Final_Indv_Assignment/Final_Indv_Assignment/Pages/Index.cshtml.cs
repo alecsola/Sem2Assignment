@@ -33,6 +33,10 @@ namespace Final_Indv_Assignment.Pages
 
         [BindProperty]
         public int EndingStationId { get; set; }
+        [BindProperty]
+        public double Distance { get; set; }
+        [BindProperty]
+        public decimal Price { get; set; }
 
         public Tickets Tickets { get; set; }
 
@@ -62,8 +66,10 @@ namespace Final_Indv_Assignment.Pages
                 if (startingStation != null && endingStation != null)
                 {
                     Tickets = new Tickets(startingStation, endingStation);
+                    Distance = Tickets.Distance;
+                    Price = Tickets.Price;
                 }
-                return RedirectToPage("/Index");
+                return Page();
             }
             catch
             {

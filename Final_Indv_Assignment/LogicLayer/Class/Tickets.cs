@@ -20,7 +20,7 @@ namespace LogicLayer.Class
            
             StartingStation = startingStation;
             DestinationStation = destinationStation;
-            Distance = StartingStation.CalculateDistance(destinationStation);
+            Distance = StartingStation.CalculateDistance(destinationStation, startingStation);
             CalculatePrice();
         }
 
@@ -29,7 +29,7 @@ namespace LogicLayer.Class
             const decimal basePrice = 2.50m; // Base price for the ticket
             const decimal pricePerKm = 0.10m; // Price per kilometer
 
-            decimal distanceInKm = (decimal)Distance / 1000; // Convert distance to kilometers
+            decimal distanceInKm = (decimal)Distance; 
             decimal price = basePrice + (distanceInKm * pricePerKm); // Calculate ticket price
 
             Price = Math.Round(price, 2); // Round the price to two decimal places

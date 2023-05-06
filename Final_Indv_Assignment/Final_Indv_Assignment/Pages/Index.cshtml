@@ -14,7 +14,7 @@
 
     <form method="post">
         <label for="startingStation">Starting Station:</label>
-        <select id="startingStation" name="startingStation">
+        <select id="startingStation" name="StartingStationId">
             <option value="">--Select a station--</option>
             @foreach (var station in Model.stations)
             {
@@ -22,10 +22,10 @@
             }
         </select>
 
-        <br />
+       
 
         <label for="endingStation">Ending Station:</label>
-        <select id="endingStation" name="endingStation">
+        <select id="endingStation" name="EndingStationId">
             <option value="">--Select a station--</option>
             @foreach (var station in Model.stations)
             {
@@ -33,16 +33,15 @@
             }
         </select>
 
-        <br />
+        
 
         <input type="submit" name="login" value="Login" />
-    </form>
-
-    @if (Request.Method == "POST" && Model.Tickets != null)
-    {
-        <p>Distance: @Model.Tickets.Distance km</p>
-        <p>Price: $@Model.Tickets.Price</p>
-    }
+       
+    </form>    
+    
+        <p>Distance: @Model.Distance km</p>
+        <p>Price: $@Model.Price</p>
+    
     
 
 

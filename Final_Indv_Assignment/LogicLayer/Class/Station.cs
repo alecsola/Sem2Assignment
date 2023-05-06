@@ -15,13 +15,13 @@ namespace LogicLayer.Class
         public double Longitude { get; set; }
 
 
-        public double CalculateDistance(Station destinationStation)
+        public double CalculateDistance(Station destinationStation, Station startingDestination)
         {
             const double earthRadius = 6371; // in kilometers
-            double dLat = ToRadians(destinationStation.Latitude - this.Latitude);
-            double dLon = ToRadians(destinationStation.Longitude - this.Longitude);
+            double dLat = ToRadians(destinationStation.Latitude - startingDestination.Latitude);
+            double dLon = ToRadians(destinationStation.Longitude - startingDestination.Longitude);
             double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
-                       Math.Cos(ToRadians(this.Latitude)) * Math.Cos(ToRadians(destinationStation.Latitude)) *
+                       Math.Cos(ToRadians(startingDestination.Latitude)) * Math.Cos(ToRadians(destinationStation.Latitude)) *
                        Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
             double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
             double distance = earthRadius * c;

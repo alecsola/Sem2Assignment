@@ -14,7 +14,7 @@ namespace DataLayer.DataConvertingToObject
         {
             Station station = new Station();
 
-           
+            station.Id = (int)row["StationId"];
             station.Name =(string)row["StationName"];
             station.Latitude = Convert.ToDouble(row["Latitude"]);
             station.Longitude = Convert.ToDouble(row["Longitude"]);
