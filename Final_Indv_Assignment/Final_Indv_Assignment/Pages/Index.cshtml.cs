@@ -18,6 +18,7 @@ namespace Final_Indv_Assignment.Pages
         private readonly StationService _stationService;
         LogInService LS = FactoryService.createlogInUser();
         StationService SS = FactoryService.createStation();
+        TicketService TS = FactoryService.createTicket();
 
 
         [BindProperty]
@@ -37,8 +38,10 @@ namespace Final_Indv_Assignment.Pages
         public double Distance { get; set; }
         [BindProperty]
         public decimal Price { get; set; }
+        [BindProperty]
+        public DateTime DepartureDate { get; set; }
 
-        public Tickets Tickets { get; set; }
+        public Ticket Tickets { get; set; }
 
 
 
@@ -56,16 +59,22 @@ namespace Final_Indv_Assignment.Pages
         {
             get { return SS.GetAllStations(); }
         }
+        public List<Ticket> tickets {
+            get { return TS.GetAllTickets(); } 
+        }
+
         public async Task<IActionResult> OnPostAsync()
         {
             try
             {
                 var startingStation = stations.FirstOrDefault(s => s.Id == StartingStationId);
                 var endingStation = stations.FirstOrDefault(s => s.Id == EndingStationId);
+                var departureDate = DepartureDate;
+                
 
                 if (startingStation != null && endingStation != null)
                 {
-                    Tickets = new Tickets(startingStation, endingStation);
+                    Tickets = new Ticket(startingStation, endingStation, departureDate);
                     Distance = Tickets.Distance;
                     Price = Tickets.Price;
                 }

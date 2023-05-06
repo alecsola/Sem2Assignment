@@ -14,6 +14,7 @@ namespace LogicLayer.Class
         public double Latitude { get; set; }
         public double Longitude { get; set; }
 
+        
 
         public double CalculateDistance(Station destinationStation, Station startingDestination)
         {

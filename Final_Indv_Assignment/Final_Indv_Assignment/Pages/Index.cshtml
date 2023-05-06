@@ -10,6 +10,9 @@
 <body> 
     <div class="WelcomeTitle">
         <h1 class="display-4">Welcome @Model.Username! </h1>
+        @foreach (var ticket in Model.tickets){
+            <p>@ticket.DestinationStation , @ticket.StartingStation , @ticket.DepartureDate</p>
+        }
     </div>
 
     <form method="post">
@@ -32,7 +35,11 @@
                 <option value="@station.Id">@station.Name</option>
             }
         </select>
+        <label for="departure-date">Departure date:</label>
+        <input type="date" id="departure-date" name="departure-date">
 
+        <label for="return-date">Return date:</label>
+        <input type="date" id="return-date" name="return-date">
         
 
         <input type="submit" name="login" value="Login" />

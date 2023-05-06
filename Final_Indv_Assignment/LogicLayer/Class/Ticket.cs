@@ -6,20 +6,24 @@ using System.Threading.Tasks;
 
 namespace LogicLayer.Class
 {
-    public class Tickets
+    public class Ticket
     { 
-       
+        public int Id { get; set; }  
         public Station StartingStation { get; set; }
         public Station DestinationStation { get; set; }
+        public DateTime DepartureDate { get; set; }
+        public DateTime? ReturnDate { get; set; } // Nullable DateTime
         public double Distance { get; set; }
         public decimal Price { get; set; }
 
-        public Tickets(Station startingStation, Station destinationStation)
+        public Ticket(Station startingStation, Station destinationStation, DateTime departureDate)
         {
 
            
             StartingStation = startingStation;
             DestinationStation = destinationStation;
+            DepartureDate = departureDate;
+            
             Distance = StartingStation.CalculateDistance(destinationStation, startingStation);
             CalculatePrice();
         }

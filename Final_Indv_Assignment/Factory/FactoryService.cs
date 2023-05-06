@@ -11,6 +11,7 @@ namespace Factory
         public static SeasonTicketsService seasonTickets { get; } = new SeasonTicketsService(new SeasonTicketDataTraffic());
         public static StationService station { get; } = new StationService(new StationDataTraffic());
 
+        public static TicketService ticket { get; } = new TicketService(new TicketDataTraffic());
         public static LogInService createlogInUser()
         {
             return new LogInService(new UserDataTraffic());
@@ -23,5 +24,10 @@ namespace Factory
         {
             return new StationService(new StationDataTraffic());
         }
+        public static TicketService createTicket()
+        {
+            return new TicketService(new TicketDataTraffic());
+        }
+
     }
 }
