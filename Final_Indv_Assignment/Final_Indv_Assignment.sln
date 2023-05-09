@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicLayer", "LogicLayer\Lo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factory", "Factory\Factory.csproj", "{D12154B6-DABD-41E8-890F-6564F602DC36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{521BA46A-4EDC-4319-9354-09F964078792}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "TestProject1\TestProject1.csproj", "{B585D5CA-2FEB-4BCF-8FC6-A2F332090CF7}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{D12154B6-DABD-41E8-890F-6564F602DC36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D12154B6-DABD-41E8-890F-6564F602DC36}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{D12154B6-DABD-41E8-890F-6564F602DC36}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{521BA46A-4EDC-4319-9354-09F964078792}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{521BA46A-4EDC-4319-9354-09F964078792}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{521BA46A-4EDC-4319-9354-09F964078792}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{521BA46A-4EDC-4319-9354-09F964078792}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B585D5CA-2FEB-4BCF-8FC6-A2F332090CF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B585D5CA-2FEB-4BCF-8FC6-A2F332090CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B585D5CA-2FEB-4BCF-8FC6-A2F332090CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -10,7 +10,7 @@ using LogicLayer.Class;
 
 namespace DataLayer.DataTraffic
 {
-    public class TicketDataTraffic: DataHandler
+    public class TicketDataTraffic: DataHandler ,ITicketDataTraffic
     {
         protected override string cmd
         {

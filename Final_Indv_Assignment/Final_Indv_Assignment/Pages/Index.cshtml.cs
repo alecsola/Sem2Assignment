@@ -74,6 +74,7 @@ namespace Final_Indv_Assignment.Pages
 
                 if (startingStation != null && endingStation != null)
                 {
+                    
                     Tickets = new Ticket(startingStation, endingStation, departureDate);
                     Distance = Tickets.Distance;
                     Price = Tickets.Price;

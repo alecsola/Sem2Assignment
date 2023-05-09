@@ -1,22 +1,40 @@
 using DataLayer.DataTraffic;
 using LogicLayer.Class;
 using LogicLayer.Services;
+using Moq;
 
 namespace TestProject1
 
 {
-    
+
     [TestClass]
     public class SeasonTicketServiceTest
     {
 
-
-        
-        [TestMethod]
-        public void GetAllSeasonTickets()
+        public SeasonTicketServiceTest()
         {
-            
 
+        }
+
+        [TestMethod]
+        public void TestGetAllSeasonTickets()
+        {
+            // Arrange
+            var mockDataTraffic = new Mock<ISeasonTicketDataTraffic>();
+            var expectedTickets = new List<SeasonTickets>
+        {
+            new SeasonTickets ( "A", "A","A","A" ),
+            new SeasonTickets ( "B", "B","B","B" ),
+            new SeasonTickets ( "C", "C","C","C" )
+        };
+            mockDataTraffic.Setup(x => x.GetAllSeasonTickets()).Returns(expectedTickets);
+            var logic = new SeasonTicketsService(mockDataTraffic.Object);
+
+            // Act
+            var result = logic.GetAllSeasonTickets();
+
+            // Assert
+            Assert.AreEqual(expectedTickets, result);
         }
     }
 }
@@ -64,4 +82,3 @@ namespace TestProject1
 //        // Assert
 //        Assert.IsNull(result);
 //    }
-}

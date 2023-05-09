@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "n2iTX2/w7FTT27HKwJiECtq3BGmWmwKA8YOmdQVt8JeLfvwB4SDWAWrrXdhOt/0wrmCuLfnNHC0i6W1BYSwAyw==",
+  "dgSpecHash": "ck6Ne97G1Bt8tcatGJREFjSSFUH04gsS5coDhPmst94V8QPn0cqf8DLUKqMBhWxAfPyZaYV15m1UpDbPaZdEXw==",
   "success": true,
   "projectFilePath": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\TestProject1\\TestProject1.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\solaa\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
@@ -14,6 +15,7 @@
     "C:\\Users\\solaa\\.nuget\\packages\\microsoft.testplatform.testhost\\17.1.0\\microsoft.testplatform.testhost.17.1.0.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\solaa\\.nuget\\packages\\moq\\4.18.4\\moq.4.18.4.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\mstest.testadapter\\2.2.8\\mstest.testadapter.2.2.8.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\mstest.testframework\\2.2.8\\mstest.testframework.2.2.8.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
@@ -47,6 +49,7 @@
     "C:\\Users\\solaa\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.3.0\\system.diagnostics.diagnosticsource.4.3.0.nupkg.sha512",
+    "C:\\Users\\solaa\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\system.diagnostics.textwritertracelistener\\4.3.0\\system.diagnostics.textwritertracelistener.4.3.0.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\system.diagnostics.tools\\4.3.0\\system.diagnostics.tools.4.3.0.nupkg.sha512",
     "C:\\Users\\solaa\\.nuget\\packages\\system.diagnostics.tracesource\\4.3.0\\system.diagnostics.tracesource.4.3.0.nupkg.sha512",

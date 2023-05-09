@@ -14,8 +14,8 @@ namespace DataLayer.DataConvertingToObject
     {
         public static Ticket ConvertRowToTickets(DataRow row)
         {
-            int startingStationId = (int)row["StartingStationId"];
-            int destinationStationId = (int)row["DestinationStationId"];
+            int startingStationId = (int)row["startingId"];
+            int destinationStationId = (int)row["destinationId"];
             DateTime departureDate = (DateTime)row["DepartureDate"];
 
             // Use the StationDataTraffic class to get the starting and destination stations
