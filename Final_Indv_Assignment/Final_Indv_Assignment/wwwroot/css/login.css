@@ -16,6 +16,7 @@
 nav {
     display: flex;
     height: 80px;
+    z-index: 10;
     width: 100%;
     background: transparent;
     align-items: center;
