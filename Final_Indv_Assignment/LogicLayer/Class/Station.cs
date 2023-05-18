@@ -26,7 +26,7 @@ namespace LogicLayer.Class
                        Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
             double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
             double distance = earthRadius * c;
-            return distance;
+            return Math.Round(distance, 2);
         }
 
         private static double ToRadians(double degrees)

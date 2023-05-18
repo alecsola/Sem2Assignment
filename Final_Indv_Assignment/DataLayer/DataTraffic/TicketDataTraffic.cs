@@ -34,7 +34,7 @@ namespace DataLayer.DataTraffic
             return null; // or throw an exception indicating the ticket was not found
         }
 
-        public List<Ticket> GetAllStations()
+        public List<Ticket> GetAllTickets()
         {
             List<Ticket> tickets = new List<Ticket>();
             DataTable table = base.ReadData();
@@ -50,6 +50,24 @@ namespace DataLayer.DataTraffic
         {
             string query = $"INSERT INTO Ticket (StartingStationId, DestinationStationId, DepartureDate)  " + $"VALUES '{ticket.StartingStation}',{ticket.DestinationStation},{ticket.DestinationStation} ";
             return executeQuery(query) == 0 ? false : true;
+        }
+
+        public List<Ticket> GetFilteredTickets(Station startingStation, Station endingStation, string departureDate)
+        {
+            List<Ticket> filteredTickets = new List<Ticket>();
+            DataTable table = base.ReadData();
+            foreach (DataRow dr in table.Rows)
+            {
+                Ticket ticket = DataConvertingTicket.ConvertRowToTickets(dr);
+               
+                    if (ticket.StartingStation == startingStation &&
+                        ticket.DestinationStation == endingStation &&
+                        ticket.DepartureDate == departureDate )
+                    {
+                        filteredTickets.Add(ticket);
+                    }             
+            }
+            return filteredTickets;
         }
 
 

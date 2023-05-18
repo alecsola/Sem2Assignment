@@ -20,7 +20,7 @@ namespace LogicLayer.Services
         }
         public List<Ticket> GetAllTickets()
         {
-            return ticketDataTraffic.GetAllStations();
+            return ticketDataTraffic.GetAllTickets();
         }
         public bool AddTicket(Ticket ticket)
         {
@@ -30,7 +30,20 @@ namespace LogicLayer.Services
         {
             return ticketDataTraffic.GetTicketById(id);
         }
-
+        public List<Ticket> GetAllTicketsByDepartureDate(Station startingStation, Station destinationStation, string departureDate)
+        {
+            List<Ticket> filteredTickets = new List<Ticket>();
+            foreach (Ticket ticket in GetAllTickets())
+            {
+                if( ticket.StartingStation.Name == startingStation.Name
+                                  && ticket.DestinationStation.Name == destinationStation.Name
+                                  && ticket.DepartureDate == departureDate)
+                {
+                    filteredTickets.Add(ticket);
+                }
+            }
+            return filteredTickets;
+        }
 
     }
 }

@@ -16,7 +16,7 @@ namespace DataLayer.DataConvertingToObject
         {
             int startingStationId = (int)row["startingId"];
             int destinationStationId = (int)row["destinationId"];
-            DateTime departureDate = (DateTime)row["DepartureDate"];
+            string departureDate = ((DateTime)row["DepartureDate"]).ToString("yyyy-MM-dd");
 
             // Use the StationDataTraffic class to get the starting and destination stations
             StationDataTraffic stationData = new StationDataTraffic();

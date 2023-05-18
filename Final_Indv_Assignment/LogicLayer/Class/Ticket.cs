@@ -11,12 +11,12 @@ namespace LogicLayer.Class
         public int Id { get; set; }  
         public Station StartingStation { get; set; }
         public Station DestinationStation { get; set; }
-        public DateTime DepartureDate { get; set; }
-        public DateTime? ReturnDate { get; set; } // Nullable DateTime
+        public string DepartureDate { get; set; }
+        public string? ReturnDate { get; set; } // Nullable DateTime
         public double Distance { get; set; }
         public decimal Price { get; set; }
 
-        public Ticket(Station startingStation, Station destinationStation, DateTime departureDate)
+        public Ticket(Station startingStation, Station destinationStation, string departureDate)
         {
 
            

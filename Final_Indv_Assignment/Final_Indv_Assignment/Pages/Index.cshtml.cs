@@ -35,15 +35,20 @@ namespace Final_Indv_Assignment.Pages
         [BindProperty]
         public int EndingStationId { get; set; }
         [BindProperty]
+        public string StartingStationName { get; set; }
+
+        [BindProperty]
+        public string EndingStationName{ get; set; }
+        [BindProperty]
         public double Distance { get; set; }
         [BindProperty]
         public decimal Price { get; set; }
         [BindProperty]
-        public DateTime DepartureDate { get; set; }
-
-        public Ticket Tickets { get; set; }
-
-
+        public string DepartureDate { get; set; }
+        
+        public Ticket Ticket;
+        public List<Ticket> Tickets { get; set; }
+    
 
         public void OnGet()
         {
@@ -59,9 +64,8 @@ namespace Final_Indv_Assignment.Pages
         {
             get { return SS.GetAllStations(); }
         }
-        public List<Ticket> tickets {
-            get { return TS.GetAllTickets(); } 
-        }
+        
+       
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -70,25 +74,34 @@ namespace Final_Indv_Assignment.Pages
                 var startingStation = stations.FirstOrDefault(s => s.Id == StartingStationId);
                 var endingStation = stations.FirstOrDefault(s => s.Id == EndingStationId);
                 var departureDate = DepartureDate;
-                
+
+                // define Tickets here
+                Tickets = new List<Ticket>();
 
                 if (startingStation != null && endingStation != null)
                 {
+
+                    Ticket = new Ticket(startingStation, endingStation, departureDate);
+                    Tickets.AddRange(TS.GetAllTicketsByDepartureDate(startingStation, endingStation, departureDate)); // store result in a variable
                     
-                    Tickets = new Ticket(startingStation, endingStation, departureDate);
-                    Distance = Tickets.Distance;
-                    Price = Tickets.Price;
+                    Distance = Ticket.Distance;
+                    Price = Ticket.Price;
+                    StartingStationName = startingStation.Name;
+                    EndingStationName = endingStation.Name; 
+                    DepartureDate = departureDate;
+
                 }
-                return Page();
+
+                return RedirectToPage("Tickets", new { tickets = Tickets });
             }
             catch
             {
                 ModelState.AddModelError("", "Incorrect username or password. Please try again.");
                 return Page();
             }
-            
 
-            
+
+
         }
     }
 }
