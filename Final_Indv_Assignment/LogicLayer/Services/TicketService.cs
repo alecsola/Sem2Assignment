@@ -30,14 +30,15 @@ namespace LogicLayer.Services
         {
             return ticketDataTraffic.GetTicketById(id);
         }
-        public List<Ticket> GetAllTicketsByDepartureDate(Station startingStation, Station destinationStation, string departureDate)
+        public List<Ticket> GetAllTicketsByDepartureDate(Station startingStation, Station destinationStation, string departureDate, string? time)
         {
             List<Ticket> filteredTickets = new List<Ticket>();
             foreach (Ticket ticket in GetAllTickets())
             {
                 if( ticket.StartingStation.Name == startingStation.Name
                                   && ticket.DestinationStation.Name == destinationStation.Name
-                                  && ticket.DepartureDate == departureDate)
+                                  && ticket.DepartureDate == departureDate
+                                  && (time == null || ticket.Time == time))
                 {
                     filteredTickets.Add(ticket);
                 }

@@ -11,7 +11,7 @@ namespace LogicLayer.Class
 
         public int Id { get; set; }
         public string SeasonTicketName { get; set; }
-        public string Price { get; set; }
+        public decimal Price { get; set; }
         public string Description { get; set; }
 
         public string Image { get; set; }
@@ -19,7 +19,7 @@ namespace LogicLayer.Class
     
 
       
-        public SeasonTickets(string seasonTicketName, string price, string description, string image )
+        public SeasonTickets(string seasonTicketName, decimal price, string description, string image )
         {
             //Id = id;
             SeasonTicketName = seasonTicketName;

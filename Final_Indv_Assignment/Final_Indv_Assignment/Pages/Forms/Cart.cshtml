@@ -1,0 +1,16 @@
+﻿@page
+@model Final_Indv_Assignment.Pages.Forms.CartModel
+@{
+    ViewData["Title"] = "Cart";
+}
+<p>
+    @if(Model.products != null){
+        @foreach(var product in Model.products){
+                    <form method="post" asp-page-handler="AddToCart" asp-route-productId="@product.Id">
+                        <p>@product.Name, @product.Price</p>
+                        <button type="submit">Check Out</button>
+                    </form>
+            }
+    }
+    
+</p>

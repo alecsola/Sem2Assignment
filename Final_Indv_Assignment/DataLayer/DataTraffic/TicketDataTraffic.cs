@@ -16,7 +16,7 @@ namespace DataLayer.DataTraffic
         {
             get
             {
-                return "SELECT t.DepartureDate, t.StartingStationId  AS startingId, s1.StationName AS StartingStation, t.DestinationStationId AS destinationId ,s2.StationName AS DestinationStation FROM Ticket t INNER JOIN Station s1 ON t.StartingStationId = s1.StationID INNER JOIN Station s2 ON t.DestinationStationId = s2.StationID;";
+                return "SELECT t.Id,t.DepartureDate,t.Time, t.StartingStationId  AS startingId, s1.StationName AS StartingStation, t.DestinationStationId AS destinationId ,s2.StationName AS DestinationStation FROM Ticket t INNER JOIN Station s1 ON t.StartingStationId = s1.StationID INNER JOIN Station s2 ON t.DestinationStationId = s2.StationID;";
             }
         }
 
@@ -48,7 +48,7 @@ namespace DataLayer.DataTraffic
         }
         public bool AddTicket(Ticket ticket)
         {
-            string query = $"INSERT INTO Ticket (StartingStationId, DestinationStationId, DepartureDate)  " + $"VALUES '{ticket.StartingStation}',{ticket.DestinationStation},{ticket.DestinationStation} ";
+            string query = $"INSERT INTO Ticket (StartingStationId, DestinationStationId, DepartureDate, Time)  " + $"VALUES '{ticket.StartingStation}',{ticket.DestinationStation},{ticket.DepartureDate},{ticket.Time} ";
             return executeQuery(query) == 0 ? false : true;
         }
 

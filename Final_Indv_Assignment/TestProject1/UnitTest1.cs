@@ -23,9 +23,9 @@ namespace TestProject1
             var mockDataTraffic = new Mock<ISeasonTicketDataTraffic>();
             var expectedTickets = new List<SeasonTickets>
         {
-            new SeasonTickets ( "A", "A","A","A" ),
-            new SeasonTickets ( "B", "B","B","B" ),
-            new SeasonTickets ( "C", "C","C","C" )
+            new SeasonTickets ( "A", 1,"A","A" ),
+            new SeasonTickets ( "B", 1,"B","B" ),
+            new SeasonTickets ( "C", 1,"C","C" )
         };
             mockDataTraffic.Setup(x => x.GetAllSeasonTickets()).Returns(expectedTickets);
             var logic = new SeasonTicketsService(mockDataTraffic.Object);

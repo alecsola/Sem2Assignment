@@ -17,13 +17,15 @@ namespace DataLayer.DataConvertingToObject
             int startingStationId = (int)row["startingId"];
             int destinationStationId = (int)row["destinationId"];
             string departureDate = ((DateTime)row["DepartureDate"]).ToString("yyyy-MM-dd");
+            string time = ((TimeSpan)row["Time"]).ToString("hh\\:mm");
+            int id = (int)row["Id"];
 
             // Use the StationDataTraffic class to get the starting and destination stations
             StationDataTraffic stationData = new StationDataTraffic();
             Station startingStation = stationData.GetStationById(startingStationId);
             Station destinationStation = stationData.GetStationById(destinationStationId);
 
-            Ticket ticket = new Ticket(startingStation, destinationStation, departureDate);
+            Ticket ticket = new Ticket(id,startingStation, destinationStation, departureDate, time);
             return ticket;
 
 

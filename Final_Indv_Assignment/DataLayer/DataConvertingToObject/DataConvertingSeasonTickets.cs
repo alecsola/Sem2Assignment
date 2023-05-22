@@ -13,12 +13,13 @@ namespace DataLayer.DataConvertingToObject
 
         public static SeasonTickets ConvertRowToSeasonTickets(DataRow row)
         {
-            SeasonTickets seasonTickets = new SeasonTickets("", "", "","");
+            
 
-            seasonTickets.SeasonTicketName = (string)row["SeasonTicketName"];
-            seasonTickets.Price = (string)row["Price"];
-            seasonTickets.Description = (string)row["SeasonTicketDescription"];
-            seasonTickets.Image = (string)row["ImageURL"];
+            string SeasonTicketName = (string)row["SeasonTicketName"];
+            decimal Price = (decimal)row["Price"];
+            string Description = (string)row["SeasonTicketDescription"];
+            string Image = (string)row["ImageURL"];
+            SeasonTickets seasonTickets = new SeasonTickets(SeasonTicketName,Price, Description,Image);
 
             return seasonTickets;
             

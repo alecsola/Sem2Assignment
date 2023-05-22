@@ -170,3 +170,4 @@ C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-a
 C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Final_Indv_Assignment\obj\Debug\net6.0\Final_Indv_Assignment.csproj.CopyComplete
 C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Final_Indv_Assignment\obj\Debug\net6.0\Final_Indv_Assignment.genruntimeconfig.cache
 C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Final_Indv_Assignment\obj\Debug\net6.0\ref\Final_Indv_Assignment.dll
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\Final_Indv_Assignment\bin\Debug\net6.0\Newtonsoft.Json.dll

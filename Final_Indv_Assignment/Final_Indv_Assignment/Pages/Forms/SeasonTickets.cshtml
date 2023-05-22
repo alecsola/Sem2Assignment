@@ -38,7 +38,11 @@
                         </p>
                     </div>
                 </div>
-                <button class="buy"> Buy</button>
+
+                <form method="post" asp-page-handler="AddToCart" asp-route-productId="@seasonTickets.Id">
+                    <button class="buy"> Buy</button>
+                </form>
+                
             </div>
         </div>
 

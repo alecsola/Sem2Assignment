@@ -5,9 +5,11 @@ using Factory;
 using Final_Indv_Assignment.Pages.Forms;
 using LogicLayer.Class;
 using LogicLayer.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Identity.Client;
+using Newtonsoft.Json;
 
 namespace Final_Indv_Assignment.Pages
 {
@@ -20,7 +22,8 @@ namespace Final_Indv_Assignment.Pages
         StationService SS = FactoryService.createStation();
         TicketService TS = FactoryService.createTicket();
 
-
+        [BindProperty]
+        public int Id { get; set; }
         [BindProperty]
         public string Username { get; private set; } = string.Empty;
         [BindProperty]
@@ -45,7 +48,9 @@ namespace Final_Indv_Assignment.Pages
         public decimal Price { get; set; }
         [BindProperty]
         public string DepartureDate { get; set; }
-        
+        [BindProperty]
+        public string Time { get; set; }
+
         public Ticket Ticket;
         public List<Ticket> Tickets { get; set; }
     
@@ -74,6 +79,8 @@ namespace Final_Indv_Assignment.Pages
                 var startingStation = stations.FirstOrDefault(s => s.Id == StartingStationId);
                 var endingStation = stations.FirstOrDefault(s => s.Id == EndingStationId);
                 var departureDate = DepartureDate;
+                var time = Time;
+                var id = Id++;
 
                 // define Tickets here
                 Tickets = new List<Ticket>();
@@ -81,18 +88,22 @@ namespace Final_Indv_Assignment.Pages
                 if (startingStation != null && endingStation != null)
                 {
 
-                    Ticket = new Ticket(startingStation, endingStation, departureDate);
-                    Tickets.AddRange(TS.GetAllTicketsByDepartureDate(startingStation, endingStation, departureDate)); // store result in a variable
-                    
+                    Ticket = new Ticket(id,startingStation, endingStation, departureDate,time);
+                    Tickets.AddRange(TS.GetAllTicketsByDepartureDate(startingStation, endingStation, departureDate, time)); // store result in a variable
+                   
                     Distance = Ticket.Distance;
                     Price = Ticket.Price;
                     StartingStationName = startingStation.Name;
                     EndingStationName = endingStation.Name; 
                     DepartureDate = departureDate;
-
+                    Time = time;
+                    var serializedTickets = JsonConvert.SerializeObject(Tickets);
+                    TempData["SerializedTickets"] = serializedTickets;
                 }
 
-                return RedirectToPage("Tickets", new { tickets = Tickets });
+                TempData.Keep("SerializedTickets");
+
+                return RedirectToPage("/Forms/Ticket");
             }
             catch
             {

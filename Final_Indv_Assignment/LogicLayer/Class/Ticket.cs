@@ -15,14 +15,16 @@ namespace LogicLayer.Class
         public string? ReturnDate { get; set; } // Nullable DateTime
         public double Distance { get; set; }
         public decimal Price { get; set; }
+        public string Time { get; set; }
 
-        public Ticket(Station startingStation, Station destinationStation, string departureDate)
+        public Ticket(int id,Station startingStation, Station destinationStation, string departureDate, string time)
         {
 
-           
+            Id= id;
             StartingStation = startingStation;
             DestinationStation = destinationStation;
             DepartureDate = departureDate;
+            Time = time;
             
             Distance = StartingStation.CalculateDistance(destinationStation, startingStation);
             CalculatePrice();
