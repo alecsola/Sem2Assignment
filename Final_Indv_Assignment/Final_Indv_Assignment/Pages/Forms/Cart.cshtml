@@ -12,7 +12,7 @@
         {
             <div class="cart-item">
                 <form method="post" asp-page-handler="AddToCart" asp-route-productId="@product.Id">
-                    <p>@product.Name, @product.Price€</p>
+                    <p>@product.Name --- Price: @product.Price€</p>
                 </form>
                 <form method="post" asp-page-handler="RemoveFromCart" asp-route-productId="@product.Id">
                     <button class="remove" type="submit">Remove</button>

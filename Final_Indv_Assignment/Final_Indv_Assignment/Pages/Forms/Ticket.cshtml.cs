@@ -61,7 +61,7 @@ namespace Final_Indv_Assignment.Pages.Forms
                     {
                         Id = selectedTicket.Id,
                     
-                        Name = $"{selectedTicket.StartingStation.Name} - {selectedTicket.DestinationStation.Name}  Date:{selectedTicket.DepartureDate}, {selectedTicket.Time}",
+                        Name = $"{selectedTicket.StartingStation.Name} - {selectedTicket.DestinationStation.Name} --- Date: {selectedTicket.DepartureDate} {selectedTicket.Time} ---",
                         Price = selectedTicket.Price
                     };
 

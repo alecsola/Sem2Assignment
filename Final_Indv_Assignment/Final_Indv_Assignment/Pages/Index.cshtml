@@ -20,52 +20,46 @@
         }*@
     </div>
 
-<form method="post">
-  <div class="row">
-    <label for="startingStation">Starting Station:</label>
-    <select id="startingStation" name="StartingStationId">
-      <option value="">--Select a station--</option>
-      @foreach (var station in Model.stations)
-      {
-        <option value="@station.Id">@station.Name</option>
+    <div class="form-container">
+        <form method="post">
+            <div class="row">
+                <label for="startingStation">Starting Station:</label>
+                <select id="startingStation" name="StartingStationId">
+                    <option value="">--Select a station--</option>
+                    @foreach (var station in Model.stations)
+                    {
+                        <option value="@station.Id">@station.Name</option>
+                    }
+                </select>
 
-      }
-    </select>
+                <label for="endingStation">Ending Station:</label>
+                <select id="endingStation" name="EndingStationId">
+                    <option value="">--Select a station--</option>
+                    @foreach (var station in Model.stations)
+                    {
+                        <option value="@station.Id">@station.Name</option>
+                    }
+                </select>
+            </div>
 
-    <label for="endingStation">Ending Station:</label>
-    <select id="endingStation" name="EndingStationId">
-      <option value="">--Select a station--</option>
-      @foreach (var station in Model.stations)
-      {
-        <option value="@station.Id">@station.Name</option>
-      }
-    </select>
-  </div>
+            <div class="row">
+                <label for="departureDate">Departure date:</label>
+                <input type="date" id="departureDate" name="DepartureDate">
 
-  <div class="row">
-    <label for="departureDate">Departure date:</label>
-    <input type="date" id="departureDate" name="DepartureDate">
+                <label for="return-date">Return date:</label>
+                <input type="date" id="return-date" name="return-date">
 
-    <label for="return-date">Return date:</label>
-    <input type="date" id="return-date" name="return-date">
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time">
+            </div>
 
-    <label for="time">Time:</label>
-    <input type="time" id="time" name="time">
-  </div>
-
-  <input type="submit" name="login" value="Search" />
-</form> 
+            <input type="submit" name="login" value="Search" />
+        </form>
+    </div>
     
         
    
-     <p> 
-        @if(Model.Tickets !=null){
-            @foreach (var ticket in Model.Tickets)
-            {
-            @ticket.StartingStation.Name  @ticket.DestinationStation.Name  @ticket.DepartureDate
-            }
-        }
-	</p>
+    
 
 
 

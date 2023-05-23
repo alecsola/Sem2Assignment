@@ -172,6 +172,47 @@ span {
 }
 
 
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     /* Adjust the height as needed */
+}
+
+.row {
+    margin-bottom: 20px;
+
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+select,
+input[type="date"],
+input[type="time"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px;
+    margin-bottom: 8px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: white;
+    color: red;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    input[type="submit"]:hover {
+        background-color: white;
+    }
+
 
     .footer {
         margin-bottom:-200px;
