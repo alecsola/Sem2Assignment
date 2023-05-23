@@ -15,7 +15,8 @@ namespace Final_Indv_Assignment.Pages.Forms
         //SeasonTickets seasonTickets = new List<SeasonTickets>();
         [BindProperty]
         public List<Product> products { get; set; }
-
+        [BindProperty]
+        public string formattedprice { get; set; }
 
         private readonly ILogger<IndexModel> _logger;
 
@@ -30,7 +31,7 @@ namespace Final_Indv_Assignment.Pages.Forms
             if (TempData.TryGetValue("SerializedCart", out var serializedCart) && serializedCart is string cartJson)
             {
                 products = JsonConvert.DeserializeObject<List<Product>>(cartJson);
-               
+                SaveProducts();
             }
             
 
@@ -40,11 +41,7 @@ namespace Final_Indv_Assignment.Pages.Forms
         {
 
             products = new List<Product>();
-            if (TempData.TryGetValue("SerializedCart", out var serializedCart) && serializedCart is string cartJson)
-            {
-                products = JsonConvert.DeserializeObject<List<Product>>(cartJson);
-
-            }
+            LoadProducts();
             var selectedTicket = STS.GetSeasonTicketById(productId);
             if (selectedTicket != null)
             {
@@ -53,12 +50,12 @@ namespace Final_Indv_Assignment.Pages.Forms
                     Id = selectedTicket.Id,
 
                     Name = $"{selectedTicket.SeasonTicketName}",
-                    Price = selectedTicket.Price
-                };
+                    Price = Math.Round(selectedTicket.Price)
 
+                };
+                
                 products.Add(product);
-                var SerializedCart = JsonConvert.SerializeObject(products);
-                TempData["SerializedCart"] = SerializedCart;
+                SaveProducts();
             }
 
             return Page();
@@ -66,6 +63,23 @@ namespace Final_Indv_Assignment.Pages.Forms
         public List<SeasonTickets> seasonTickets
         {
             get { return STS.GetAllSeasonTickets(); }
+        }
+
+
+
+
+        public void LoadProducts()
+        {
+            if (TempData.TryGetValue("SerializedCart", out var serializedCart) && serializedCart is string cartJson)
+            {
+                products = JsonConvert.DeserializeObject<List<Product>>(cartJson);
+
+            }
+        }
+        public void SaveProducts()
+        {
+            var SerializedCart = JsonConvert.SerializeObject(products);
+            TempData["SerializedCart"] = SerializedCart;
         }
         
     }

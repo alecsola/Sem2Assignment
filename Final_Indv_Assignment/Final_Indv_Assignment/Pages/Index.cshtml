@@ -28,6 +28,7 @@
       @foreach (var station in Model.stations)
       {
         <option value="@station.Id">@station.Name</option>
+
       }
     </select>
 
@@ -55,8 +56,7 @@
   <input type="submit" name="login" value="Search" />
 </form> 
     
-        <p>Distance: @Model.Distance km</p>
-        <p>Price: @Model.Price€</p>
+        
    
      <p> 
         @if(Model.Tickets !=null){

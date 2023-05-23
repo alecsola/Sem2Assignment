@@ -44,6 +44,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/solaa/Projects/JuanAlejandroSemester2Individual/semester-2-individual-assignment-alec/Final_Indv_Assignment/Final_Indv_Assignment/Pages/Shared/_LayoutCart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRDYXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/solaa/Projects/JuanAlejandroSemester2Individual/semester-2-individual-assignment-alec/Final_Indv_Assignment/Final_Indv_Assignment/Pages/Shared/_LayoutLogIn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRMb2dJbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,6 +58,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/solaa/Projects/JuanAlejandroSemester2Individual/semester-2-individual-assignment-alec/Final_Indv_Assignment/Final_Indv_Assignment/Pages/Shared/_LayoutSeasonTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRTZWFzb25UaWNrZXRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/solaa/Projects/JuanAlejandroSemester2Individual/semester-2-individual-assignment-alec/Final_Indv_Assignment/Final_Indv_Assignment/Pages/Shared/_LayoutTickets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRUaWNrZXRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/solaa/Projects/JuanAlejandroSemester2Individual/semester-2-individual-assignment-alec/Final_Indv_Assignment/Final_Indv_Assignment/Pages/Shared/_ValidationScriptsPartial.cshtml]

@@ -19,9 +19,9 @@ namespace LogicLayer.Class
     
 
       
-        public SeasonTickets(string seasonTicketName, decimal price, string description, string image )
+        public SeasonTickets(int id,string seasonTicketName, decimal price, string description, string image )
         {
-            //Id = id;
+            Id = id;
             SeasonTicketName = seasonTicketName;
             Price = price;
             Description = description;

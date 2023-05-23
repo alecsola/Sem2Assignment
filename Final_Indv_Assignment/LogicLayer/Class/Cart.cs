@@ -8,10 +8,11 @@ namespace LogicLayer.Class
 {
     public class Cart
     {
-        public string UserId { get; set; }
+        public User UserId { get; set; }
         public List<Product> Products { get; set; }
+        
 
-        public Cart()
+        public Cart( )
         {
             Products = new List<Product>();
         }

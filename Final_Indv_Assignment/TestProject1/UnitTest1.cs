@@ -11,10 +11,7 @@ namespace TestProject1
     public class SeasonTicketServiceTest
     {
 
-        public SeasonTicketServiceTest()
-        {
-
-        }
+        
 
         [TestMethod]
         public void TestGetAllSeasonTickets()
@@ -23,9 +20,9 @@ namespace TestProject1
             var mockDataTraffic = new Mock<ISeasonTicketDataTraffic>();
             var expectedTickets = new List<SeasonTickets>
         {
-            new SeasonTickets ( "A", 1,"A","A" ),
-            new SeasonTickets ( "B", 1,"B","B" ),
-            new SeasonTickets ( "C", 1,"C","C" )
+            new SeasonTickets (1, "A", 1,"A","A" ),
+            new SeasonTickets ( 1,"B", 1,"B","B" ),
+            new SeasonTickets (1, "C", 1,"C","C" )
         };
             mockDataTraffic.Setup(x => x.GetAllSeasonTickets()).Returns(expectedTickets);
             var logic = new SeasonTicketsService(mockDataTraffic.Object);
@@ -37,48 +34,50 @@ namespace TestProject1
             Assert.AreEqual(expectedTickets, result);
         }
     }
+    [TestClass]
+    public class StationDistancePriceTest
+    {
+
+        
+
+        [TestMethod]
+        public List<Ticket> GetAllTicketsByDepartureDate(Station startingStation, Station destinationStation, string departureDate, string? time)
+        {
+            // Arrange
+            var mockDataTraffic = new Mock<ITicketDataTraffic>();
+            var expectedTickets = new List<Ticket>();
+            startingStation = new Station
+            {
+                Name = "Amsterdam"
+            };
+            startingStation = new Station
+            {
+                Name = "Den Haag"
+            };
+            List<Ticket> filteredTickets = new List<Ticket>();
+            {
+                new Ticket(1, startingStation, destinationStation, "2023-05-06", "11:00");
+            };
+            mockDataTraffic.Setup(x => x.GetAllTickets()).Returns(expectedTickets);
+            var logic = new TicketService(mockDataTraffic.Object);
+            foreach (Ticket ticket in logic.GetAllTickets())
+            {
+                if (ticket.StartingStation.Name == startingStation.Name
+                                  && ticket.DestinationStation.Name == destinationStation.Name
+                                  && ticket.DepartureDate == departureDate
+                                  && (time == null || ticket.Time == time))
+                {
+                    filteredTickets.Add(ticket);
+                }
+            }
+            return filteredTickets;
+            
+
+            // Act
+            var result = logic.GetAllTickets;
+
+            // Assert
+            Assert.AreEqual(expectedTickets, result);
+        }
+    }
 }
-
-//public class SeasonTicketsServiceTests
-//{
-//    private ISeasonTicketDataTraffic _mockSeasonTicketDataTraffic;
-//    private SeasonTicketsService _seasonTicketService;
-
-//    [SetUp]
-//    public void Setup()
-//    {
-//        // Create a mock of the ISeasonTicketDataTraffic interface using a mocking framework such as Moq
-//        _mockSeasonTicketDataTraffic = Mock.Of<ISeasonTicketDataTraffic>();
-//        _seasonTicketService = new SeasonTicketsService(_mockSeasonTicketDataTraffic);
-//    }
-
-//    [Test]
-//    public void GetSeasonTicketById_ReturnsTicket_WhenTicketExists()
-//    {
-//        // Arrange
-//        var expectedTicket = new SeasonTickets { Id = 1, Name = "Test Ticket" };
-//        Mock.Get(_mockSeasonTicketDataTraffic)
-//            .Setup(m => m.GetSeasonTicketById(1))
-//            .Returns(expectedTicket);
-
-//        // Act
-//        var result = _seasonTicketService.GetSeasonTicketById(1);
-
-//        // Assert
-//        Assert.AreEqual(expectedTicket, result);
-//    }
-
-//    [Test]
-//    public void GetSeasonTicketById_ReturnsNull_WhenTicketDoesNotExist()
-//    {
-//        // Arrange
-//        Mock.Get(_mockSeasonTicketDataTraffic)
-//            .Setup(m => m.GetSeasonTicketById(2))
-//            .Returns((SeasonTickets)null);
-
-//        // Act
-//        var result = _seasonTicketService.GetSeasonTicketById(2);
-
-//        // Assert
-//        Assert.IsNull(result);
-//    }

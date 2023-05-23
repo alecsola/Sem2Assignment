@@ -26,13 +26,54 @@
                 <div class="ticket-info">
                     <p class="title">@seasonTickets.SeasonTicketName</p>
                     <div class="separator"></div>
-                    <p class="price">@seasonTickets.Price</p>
+                    @if (seasonTickets.Price != 0 && seasonTickets.Price != 10)
+                    {
+                    <p class="price">@seasonTickets.Price€</p>
+                    }
+                    @if(seasonTickets.Price==0){
+                            <p class="price">FREE</p>
+                    }
+                    @if(seasonTickets.Price==10){
+                        <p class="price">@seasonTickets.Price€/Month</p>
+                    }
+                    
 
                     <div class="additional-info">
-                        <p class="info">
-                            <i class="fas fa-calendar-alt"></i>
-                            1 Year
-                        </p>
+                        @if(seasonTickets.Id == 1){
+                             <p class="info">
+                                <i class="fas fa-calendar-alt"></i>
+                                1 Year
+                            </p>
+                        }
+                        @if (seasonTickets.Id == 2)
+                        {
+                            <p class="info">
+                                <i class="fas fa-calendar-alt"></i>
+                                6 Months
+                            </p>
+                        }
+                        @if (seasonTickets.Id == 3)
+                        {
+                            <p class="info">
+                                <i class="fas fa-calendar-alt"></i>
+                                1 Month
+                            </p>
+                        }
+                        @if (seasonTickets.Id == 4)
+                        {
+                            <p class="info">
+                                <i class="fas fa-calendar-alt"></i>
+                                Per Month
+                            </p>
+                        }
+                        @if (seasonTickets.Id == 5)
+                        {
+                            <p class="info">
+                                <i class="fas fa-calendar-alt"></i>
+                                Unlimited
+                            </p>
+                        }
+                       
                         <p class="info description">
                             @seasonTickets.Description    <span>More...</span>
                         </p>

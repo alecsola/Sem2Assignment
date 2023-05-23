@@ -61,7 +61,7 @@ namespace Final_Indv_Assignment.Pages
             {
                 Username = HttpContext.Session.GetString("user_name")!;
             }
-            //RegistrationModel.Equals(user, Username);
+           
             
 
         }
@@ -87,32 +87,44 @@ namespace Final_Indv_Assignment.Pages
 
                 if (startingStation != null && endingStation != null)
                 {
-
-                    Ticket = new Ticket(id,startingStation, endingStation, departureDate,time);
-                    Tickets.AddRange(TS.GetAllTicketsByDepartureDate(startingStation, endingStation, departureDate, time)); // store result in a variable
+                    if (startingStation.Name != endingStation.Name)
+                    {
+                        Ticket = new Ticket(id,startingStation, endingStation, departureDate,time);
+                        Tickets.AddRange(TS.GetAllTicketsByDepartureDate(startingStation, endingStation, departureDate, time)); // store result in a variable
                    
-                    Distance = Ticket.Distance;
-                    Price = Ticket.Price;
-                    StartingStationName = startingStation.Name;
-                    EndingStationName = endingStation.Name; 
-                    DepartureDate = departureDate;
-                    Time = time;
-                    var serializedTickets = JsonConvert.SerializeObject(Tickets);
-                    TempData["SerializedTickets"] = serializedTickets;
+                   
+                        StartingStationName = startingStation.Name;
+                        EndingStationName = endingStation.Name; 
+                        DepartureDate = departureDate;
+                        Time = time;
+                        SaveTickets();
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "You can't choose two same stations.");
+                        SaveTickets();
+                        return Page();
+                    }
+                    
                 }
 
-                TempData.Keep("SerializedTickets");
+               
 
                 return RedirectToPage("/Forms/Ticket");
             }
             catch
             {
-                ModelState.AddModelError("", "Incorrect username or password. Please try again.");
+                ModelState.AddModelError("", "Something went wrong");
                 return Page();
             }
 
 
 
+        }
+        public void SaveTickets()
+        {
+            var serializedTickets = JsonConvert.SerializeObject(Tickets);
+            TempData["SerializedTickets"] = serializedTickets;
         }
     }
 }

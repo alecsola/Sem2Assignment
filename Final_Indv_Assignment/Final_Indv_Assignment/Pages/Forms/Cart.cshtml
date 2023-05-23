@@ -2,15 +2,40 @@
 @model Final_Indv_Assignment.Pages.Forms.CartModel
 @{
     ViewData["Title"] = "Cart";
+    Layout = "_LayoutCart";
 }
-<p>
+<p class="titulo">Your Products</p>
+<div class="cart">
+    @if(Model.products != null)
+    {
+        @foreach(var product in Model.products)
+        {
+            <div class="cart-item">
+                <form method="post" asp-page-handler="AddToCart" asp-route-productId="@product.Id">
+                    <p>@product.Name, @product.Price€</p>
+                </form>
+                <form method="post" asp-page-handler="RemoveFromCart" asp-route-productId="@product.Id">
+                    <button class="remove" type="submit">Remove</button>
+                </form>
+            </div>
+        }
+    }
+   
+    @if (Model.totalPrice != 0)
+    {
+        <p class="total-price">Your price to pay: @Model.totalPrice€</p>
+    }
     @if(Model.products != null){
-        @foreach(var product in Model.products){
-                    <form method="post" asp-page-handler="AddToCart" asp-route-productId="@product.Id">
-                        <p>@product.Name, @product.Price</p>
-                        <button type="submit">Check Out</button>
+        if (Model.products.Count !=0){
+            <form method="post" asp-page-handler="Checkout" class="checkout-button">
+                            <button type="submit">Check Out</button>
                     </form>
-            }
+        }
+        else{
+            <p>Cart is empty</p>
+        }
+        
     }
     
-</p>
+    
+</div>

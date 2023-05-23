@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Final_Indv_Assignment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <title>Season Tickets</title>
+    <link rel="stylesheet" href="~/css/Cart.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Final_Indv_Assignment.styles.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="nav-div">
+        <nav>
+            <div class="logo">
+                <h2>Ease<span>Express</span></h2>
+            </div>
+            <input type="checkbox" id="click">
+            <label for="click" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul>
+				<li><a class="active" href="/Index">Home</a></li>
+                <li><a class="normals" href="#">Travel</a></li>
+                <li><a class="normals" href="/Forms/SeasonTickets">Season Tickets</a></li>
+                
+                @if (User.Identity?.IsAuthenticated ?? false)
+                {
+                    <li><a class="normals" href="/Forms/LogOut">Log Out</a></li>
+                }
+                else
+                {
+                    <li><a class="normals" href="/Forms/LogIn">Log In</a></li>
+                }
+            </ul>
+        </nav>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

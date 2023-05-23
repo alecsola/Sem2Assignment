@@ -3,18 +3,23 @@
 @model Final_Indv_Assignment.Pages.Forms.TicketModel
 @{
     ViewData["Title"] = "Tickets";
+    Layout = "_LayoutTickets";
 }
-<p>Tickets Available</p>
+<p class="available">Tickets Available</p>
 <p>
     @if (Model.Tickets != null)
     {
         foreach (var ticket in Model.Tickets)
         {
-            <form method="post" asp-page-handler="AddToCart" asp-route-productId="@ticket.Id">
-                <p>@ticket.StartingStation.Name , @ticket.DestinationStation.Name , @ticket.DepartureDate , @ticket.Price , @ticket.Distance</p>
+            <div class="ticket">
+            <form type="submit" method="post" asp-page-handler="AddToCart" asp-route-productId="@ticket.Id">
+                <p>Date: @ticket.DepartureDate</p> 
+               
+                <p>@ticket.StartingStation.Name - @ticket.DestinationStation.Name.  Time: @ticket.Time  </p>
                 <input type="hidden" name="serializedTickets" value="@JsonConvert.SerializeObject(Model.Tickets)" />
                 <button type="submit">Add to Cart</button>
             </form>
+            </div>
         
         }
     }
