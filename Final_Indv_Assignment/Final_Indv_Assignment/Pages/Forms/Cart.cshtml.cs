@@ -24,6 +24,7 @@ namespace Final_Indv_Assignment.Pages.Forms
             {
                 products = JsonConvert.DeserializeObject <List<Product>>(cartJson);
                 SaveCartToTempData();
+                
 
 
             }
@@ -31,7 +32,11 @@ namespace Final_Indv_Assignment.Pages.Forms
             {
                 Username = HttpContext.Session.GetString("user_name")!;
             }
-            totalPrice = products.Sum(p => p.Price);
+           totalPrice = products.Sum(p => p.Price);
+            
+
+            
+            
 
         }
         public IActionResult OnPostRemoveFromCart(int productId)
@@ -44,10 +49,10 @@ namespace Final_Indv_Assignment.Pages.Forms
                 {
                     products.Remove(productToRemove);
                 }
-
+                totalPrice = products.Sum(p => p.Price);
                 SaveCartToTempData();
 
-                return RedirectToPage("Cart");
+                return Page();
             }
             catch (Exception ex)
             {

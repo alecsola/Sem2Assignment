@@ -13,24 +13,24 @@ namespace DataLayer.DataConvertingToObject
         
         public static User ConvertRowToUser(DataRow row)
         {
-            User user = new User("","","","","","","","","");
+            
             //Roles roles = new Roles();
 
-            user.FirstName = (string)row["FirstName"];
-            user.LastName = (string)row["LastName"];
-            user.Username = (string)row["Username"];
+            string FirstName = (string)row["FirstName"];
+            string LastName = (string)row["LastName"];
+            string Username = (string)row["Username"];
             //user.Password = (string)row["Password"];
-            user.Salt = (string)row["Salt"];
-            user.HashedPassword = (string)row["HashedPassword"];
-            user.Email = (string)row["Email"];
+            string Salt = (string)row["Salt"];
+            string HashedPassword = (string)row["HashedPassword"];
+            string Email = (string)row["Email"];
 
-            user.PhoneNumber = (string)row["PhoneNumber"];
-            user.BirthDate = ((DateTime)row["DateOfBirth"]).ToString("yyyy-MM-dd");
+            string PhoneNumber = (string)row["PhoneNumber"];
+            string BirthDate = ((DateTime)row["DateOfBirth"]).ToString("yyyy-MM-dd");
             
             
-            user.Adress = (string)row["Adress"];
-           // roles.JobId = (int)row["JobId"];
-            
+            string Adress = (string)row["Adress"];
+            // roles.JobId = (int)row["JobId"];
+            User user = new User(FirstName,LastName,Username,Salt,HashedPassword,Email,PhoneNumber,BirthDate,Adress);
 
             return user;
         }

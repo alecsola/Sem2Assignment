@@ -12,13 +12,13 @@ namespace DataLayer.DataConvertingToObject
     {
         public static Station ConvertRowToStation(DataRow row)
         {
-            Station station = new Station();
+            
 
-            station.Id = (int)row["StationId"];
-            station.Name =(string)row["StationName"];
-            station.Latitude = Convert.ToDouble(row["Latitude"]);
-            station.Longitude = Convert.ToDouble(row["Longitude"]);
-           
+            int Id = (int)row["StationId"];
+            string Name =(string)row["StationName"];
+            double Latitude = Convert.ToDouble(row["Latitude"]);
+            double Longitude = Convert.ToDouble(row["Longitude"]);
+           Station station = new Station(Id, Name, Latitude,Longitude);
 
             return station;
         }

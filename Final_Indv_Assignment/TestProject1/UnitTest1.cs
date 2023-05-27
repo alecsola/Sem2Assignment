@@ -46,14 +46,10 @@ namespace TestProject1
             // Arrange
             var mockDataTraffic = new Mock<ITicketDataTraffic>();
             var expectedTickets = new List<Ticket>();
-            startingStation = new Station
-            {
-                Name = "Amsterdam"
-            };
-            startingStation = new Station
-            {
-                Name = "Den Haag"
-            };
+            startingStation = new Station(1, "Amsterdam", 12345.77, 12345.77);
+
+            startingStation = new Station(2, "Den Haag", 12342.55, 54321.88);
+           
             List<Ticket> filteredTickets = new List<Ticket>();
             {
                 new Ticket(1, startingStation, destinationStation, "2023-05-06", "11:00");

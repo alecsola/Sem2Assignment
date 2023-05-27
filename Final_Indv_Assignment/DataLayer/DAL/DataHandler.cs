@@ -23,10 +23,11 @@ namespace DataLayer.DAL
             DataTable result = new DataTable();
             try
             {
-                con.Open();
+                IDbConnection con2 = GetConnection();
+                con2.Open();
                 using (var command = new SqlCommand())
                 {
-                    command.Connection = (SqlConnection)con;
+                    command.Connection = (SqlConnection)con2;
                     //get command
                     command.CommandText = cmd;
                     //get data
@@ -50,10 +51,11 @@ namespace DataLayer.DAL
         {
             try
             {
-                con.Open();
+                IDbConnection con3 = GetConnection();
+                con3.Open();
                 using (var command = new SqlCommand())
                 {
-                    command.Connection = (SqlConnection)con;
+                    command.Connection = (SqlConnection)con3;
                     command.CommandText = query;
                     return command.ExecuteNonQuery();
                 }

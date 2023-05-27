@@ -8,14 +8,16 @@ namespace LogicLayer.Class
 {
     public class Ticket
     { 
-        public int Id { get; set; }  
-        public Station StartingStation { get; set; }
-        public Station DestinationStation { get; set; }
-        public string DepartureDate { get; set; }
-        public string? ReturnDate { get; set; } // Nullable DateTime
-        public double Distance { get; set; }
-        public decimal Price { get; set; }
-        public string Time { get; set; }
+        public int Id { get; private set; }  
+        public Station StartingStation { get; private set; }
+        public Station DestinationStation { get; private set; }
+        public string DepartureDate { get; private set; }
+        public string? ReturnDate { get; private set; } // Nullable DateTime
+        public double Distance { get; private set; }
+        public decimal Price { get; private set; }
+        public string Time { get; private set; }
+
+
 
         public Ticket(int id,Station startingStation, Station destinationStation, string departureDate, string time)
         {
@@ -26,19 +28,19 @@ namespace LogicLayer.Class
             DepartureDate = departureDate;
             Time = time;
             
-            Distance = StartingStation.CalculateDistance(destinationStation, startingStation);
-            CalculatePrice();
+            Distance = StartingStation.CalculateDistance(destinationStation);
+            Price = CalculatePrice();
         }
 
-        private void CalculatePrice()
+        private decimal CalculatePrice()
         {
             const decimal basePrice = 2.50m; // Base price for the ticket
-            const decimal pricePerKm = 0.10m; // Price per kilometer
+            const decimal pricePerKm = 0.30m; // Price per kilometer
 
             decimal distanceInKm = (decimal)Distance; 
             decimal price = basePrice + (distanceInKm * pricePerKm); // Calculate ticket price
 
-            Price = Math.Round(price, 2); // Round the price to two decimal places
+            return Math.Round(price, 2); // Round the price to two decimal places
         }
     }
 }

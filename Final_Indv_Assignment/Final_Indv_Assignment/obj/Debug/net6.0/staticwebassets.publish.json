@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lZPQjsFyG5Y+LTyTqN8MmR3vz7Nokk5FTt0K5Ruyppo=",
+  "Hash": "ECYCrkEbm9d7FpREaW72Coc3EEBt5pe3+YqYYfW2fko=",
   "Source": "Final_Indv_Assignment",
   "BasePath": "_content/Final_Indv_Assignment",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\Final_Indv_Assignment\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Final_Indv_Assignment.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\Final_Indv_Assignment\\wwwroot\\css\\Cart.css",
+      "SourceId": "Final_Indv_Assignment",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\Final_Indv_Assignment\\wwwroot\\",
+      "BasePath": "_content/Final_Indv_Assignment",
+      "RelativePath": "css/Cart.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Cart.css"
     },
     {
       "Identity": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\Final_Indv_Assignment\\wwwroot\\css\\login.css",
@@ -117,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\Final_Indv_Assignment\\wwwroot\\css\\Ticket.css",
+      "SourceId": "Final_Indv_Assignment",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\Final_Indv_Assignment\\wwwroot\\",
+      "BasePath": "_content/Final_Indv_Assignment",
+      "RelativePath": "css/Ticket.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Ticket.css"
     },
     {
       "Identity": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\Final_Indv_Assignment\\wwwroot\\favicon.ico",

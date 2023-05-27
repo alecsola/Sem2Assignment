@@ -139,77 +139,73 @@ span {
     color: red;
     font-weight: bold;
 }
-
-
-.WelcomeTitle {
+.titulo {
     display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 60px);
-    text-align: center;
-    font-size: 3.5vw;
-    max-width: 80vw;
-    margin-left: 120px;
-    margin-top: -210px;
-    margin-bottom: -230px;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
     color: #18537a;
-    font-weight: 100;
 }
 
-@media screen and (min-width: 768px) {
-    .WelcomeTitle {
-        font-size: 3vw;
-        max-width: 70vw;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .WelcomeTitle {
-        font-size: 2.5vw;
-        max-width: 60vw;
-    }
-}
-
-
-.form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-     /* Adjust the height as needed */
-}
-
-.row {
-    margin-bottom: 20px;
-
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-select,
-input[type="date"],
-input[type="time"] {
-    padding: 5px;
-    border-radius: 5px;
+.cart {
     border: 1px solid #ccc;
-    width: 200px;
-    margin-bottom: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-input[type="submit"] {
-    padding: 10px 20px;
-    background-color: white;
+    .cart p {
+        margin: 0;
+    }
+
+    .cart button {
+        background-color: transparent;
+        color: black;
+        border: none;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+    .cart-item p {
+        margin: 0;
+        flex-grow: 1;
+    }
+
+    .cart-item .remove {
+        background-color: #ff5f5f;
+        color: white;
+        margin-left: 20px;
+    }
+
+.total-price {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.checkout-button {
+    margin-top: 10px;
     color: red;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    font-size: 18px;
 }
 
-    input[type="submit"]:hover {
+    .checkout-button:hover {
         background-color: white;
     }
 
