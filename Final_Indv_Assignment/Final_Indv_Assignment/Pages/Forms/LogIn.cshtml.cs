@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace Final_Indv_Assignment.Pages.Shared
 {
@@ -42,6 +43,8 @@ namespace Final_Indv_Assignment.Pages.Shared
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
                 await HttpContext.SignInAsync(claimsPrincipal);
                 HttpContext.Session.SetString("user_name", Username);
+                var serializedUser = JsonConvert.SerializeObject(loggedInUser);
+                TempData["SerializedUser"] = serializedUser;
                 return RedirectToPage("/Index");//,new { username = loggedInUser.Username });
                 
             }
@@ -50,6 +53,12 @@ namespace Final_Indv_Assignment.Pages.Shared
                 ModelState.AddModelError("", "Incorrect username or password. Please try again.");
                 return Page();
             }
+
+
+
+            
+
+
         }
     }
 }

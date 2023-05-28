@@ -13,7 +13,7 @@ namespace DataLayer.DataTraffic
         {
             get
             {
-                return "select u.Adress, u.DateOfBirth , u.Email, u.FirstName, u.LastName,u.Salt, u.HashedPassword, u.PhoneNumber, u.Username from Users u ";
+                return "select u.UserId,u.Adress, u.DateOfBirth , u.Email, u.FirstName, u.LastName,u.Salt, u.HashedPassword, u.PhoneNumber, u.Username from Users u ";
             }
         }
         public List<User> GetAll()

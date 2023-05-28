@@ -9,30 +9,39 @@ namespace Final_Indv_Assignment.Pages.Forms
 {
     public class CartModel : PageModel
     {
-
         [BindProperty]
-        public string Username { get; set; }    
+        public int Id { get; set; }
+        [BindProperty]
+        public int UserId { get; set; }
+       
+       
+        public List<string> ProductName { get; set; }
         [BindProperty]
         public List<Product>products { get; set; }
-        [BindProperty]
-        public decimal totalPrice { get; set; }
-        TicketService TS = FactoryService.createTicket();
+       
+        public string totalPrice { get; set; }
+        
+        PaymentService PS = FactoryService.createPayment();
+        LogInService LS = FactoryService.createlogInUser();
 
         public void OnGet()
         {
             if (TempData.TryGetValue("SerializedCart", out var serializedCart) && serializedCart is string cartJson)
             {
                 products = JsonConvert.DeserializeObject <List<Product>>(cartJson);
+               
                 SaveCartToTempData();
-                
-
 
             }
-            if (HttpContext.Session.Get("user_name") != null)
+            if (TempData.TryGetValue("SerializedUser", out var serializedUser) && serializedUser is string userJson)
             {
-                Username = HttpContext.Session.GetString("user_name")!;
+                User user = JsonConvert.DeserializeObject<User>(userJson);
+                UserId = user.Id;
+                var SerializedUser = JsonConvert.SerializeObject(user);
+                TempData["SerializedUser"] = SerializedUser;
             }
-           totalPrice = products.Sum(p => p.Price);
+
+            totalPrice = (products.Sum(p => p.Price)).ToString();
             
 
             
@@ -49,7 +58,7 @@ namespace Final_Indv_Assignment.Pages.Forms
                 {
                     products.Remove(productToRemove);
                 }
-                totalPrice = products.Sum(p => p.Price);
+                totalPrice = (products.Sum(p => p.Price)).ToString();
                 SaveCartToTempData();
 
                 return Page();
@@ -67,8 +76,22 @@ namespace Final_Indv_Assignment.Pages.Forms
         {
             try
             {
+                if (TempData.TryGetValue("SerializedUser", out var serializedUser) && serializedUser is string userJson)
+                {
+                    User user = JsonConvert.DeserializeObject<User>(userJson);
+                    UserId = user.Id;
+                }
                 LoadCartFromTempData();
-
+                List<string> productNames = new List<string>();
+                totalPrice = (products.Sum(p => p.Price)).ToString();
+                foreach (Product product in products)
+                {
+                    productNames.Add(product.Name);
+                    
+                }
+                Payment payment = new Payment(Id, UserId, totalPrice, productNames);
+                var AddedPayment = PS.AddPayment(payment);
+                
                 products.Clear();
                 
 

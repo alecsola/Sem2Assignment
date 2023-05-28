@@ -57,12 +57,19 @@ namespace Final_Indv_Assignment.Pages
 
         public void OnGet()
         {
-            if(HttpContext.Session.Get("user_name") != null)
+            //if(HttpContext.Session.Get("user_name") != null)
+            //{
+            //    Username = HttpContext.Session.GetString("user_name")!;
+            //}
+            if (TempData.TryGetValue("SerializedUser", out var serializedUser) && serializedUser is string cartJson)
             {
-                Username = HttpContext.Session.GetString("user_name")!;
+                User user = JsonConvert.DeserializeObject<User>(cartJson);
+                Username = user.Username;
+                var SerializedUser = JsonConvert.SerializeObject(user);
+                TempData["SerializedUser"] = SerializedUser;
             }
-           
-            
+
+
 
         }
         public List<Station> stations

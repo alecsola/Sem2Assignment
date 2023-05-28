@@ -16,7 +16,8 @@ namespace Final_Indv_Assignment.Pages.Forms
 
         //[BindProperty]
         //public User User { get; set; }
-
+        [BindProperty]
+        public int Id { get; set; }
         [BindProperty]
         public string FirstName { get; set; }
         [BindProperty]
@@ -48,7 +49,7 @@ namespace Final_Indv_Assignment.Pages.Forms
             
             
             // Call the RegisterUser method to add the user to the data source
-            bool registrationSuccessful = LS.RegisterUser(FirstName, LastName, Username,Password, Email, PhoneNumber, BirthDate, Adress);
+            bool registrationSuccessful = LS.RegisterUser(Id,FirstName, LastName, Username,Password, Email, PhoneNumber, BirthDate, Adress);
                 if (registrationSuccessful)
                 {
                     // Redirect to the login page if registration was successful

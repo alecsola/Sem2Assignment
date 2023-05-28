@@ -2,7 +2,7 @@
 {
     public class User
     {
-        
+        public int Id { get; private set; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public string Username { get; private set; }
@@ -28,8 +28,9 @@
         //    PhoneNumber = phoneNumber;
 
         //}
-        public User(string firstName, string lastName, string username,string salt,string hashedPassword, string email, string phoneNumber, string birthDate, string adress)
+        public User(int id,string firstName, string lastName, string username,string salt,string hashedPassword, string email, string phoneNumber, string birthDate, string adress)
         {
+            Id = id;
             Username = username;
             Salt = salt;
             HashedPassword = hashedPassword;

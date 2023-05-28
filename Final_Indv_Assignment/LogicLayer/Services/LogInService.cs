@@ -57,11 +57,11 @@ namespace LogicLayer.Services
             }
             return null;
         }
-        public bool RegisterUser(string FirstName, string LastName, string Username, string Password, string Email, string PhoneNumber, string BirthDate, string Adress)
+        public bool RegisterUser(int Id,string FirstName, string LastName, string Username, string Password, string Email, string PhoneNumber, string BirthDate, string Adress)
         {
 
             (string salt, string hashedPassword) = CreateSaltAndHash(Password);
-            User user = new User(FirstName, LastName, Username,salt, hashedPassword, Email, PhoneNumber, BirthDate, Adress);
+            User user = new User(Id,FirstName, LastName, Username,salt, hashedPassword, Email, PhoneNumber, BirthDate, Adress);
                 // Check if the user already exists in the data source
                 if (userDataTraffic.GetAll().Any(u => u.Username == Username))
                 {

@@ -15,7 +15,7 @@ namespace DataLayer.DataConvertingToObject
         {
             
             //Roles roles = new Roles();
-
+            int Id = (int)row["UserId"];
             string FirstName = (string)row["FirstName"];
             string LastName = (string)row["LastName"];
             string Username = (string)row["Username"];
@@ -30,7 +30,7 @@ namespace DataLayer.DataConvertingToObject
             
             string Adress = (string)row["Adress"];
             // roles.JobId = (int)row["JobId"];
-            User user = new User(FirstName,LastName,Username,Salt,HashedPassword,Email,PhoneNumber,BirthDate,Adress);
+            User user = new User(Id, FirstName,LastName,Username,Salt,HashedPassword,Email,PhoneNumber,BirthDate,Adress);
 
             return user;
         }
