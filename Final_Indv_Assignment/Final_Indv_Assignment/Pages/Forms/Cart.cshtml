@@ -21,15 +21,33 @@
         }
     }
    
-    @if (Model.totalPrice !="0")
+   @* @if (Model.totalPrice>0 && Model.PriceText ==null)
     {
         <p class="total-price">Your price to pay: @Model.totalPrice€</p>
     }
+    @if (Model.totalPrice == 0 && Model.PriceText!=null)
+    {
+        <p class="total-price">Since you have a Season Ticket, this order is free :)</p>
+    }
+*@
+
     @if(Model.products != null){
         if (Model.products.Count !=0){
-            <form method="post" asp-page-handler="Checkout" class="checkout-button">
+            if (Model.totalPrice > 0 && Model.PriceText == null)
+            {
+                <p class="total-price">Your price to pay: @Model.totalPrice€</p>
+                <form method="post" asp-page-handler="Checkout" class="checkout-button">
                             <button type="submit">Check Out</button>
-                    </form>
+                 </form>
+            }
+            else
+            {
+                <p class="total-price">Since you have a Season Ticket, this order is free :)</p>
+                <form method="post" asp-page-handler="Checkout" class="checkout-button">
+                    <button type="submit">Check Out</button>
+                </form>
+            }
+            
         }
         else{
             <p>Cart is empty</p>

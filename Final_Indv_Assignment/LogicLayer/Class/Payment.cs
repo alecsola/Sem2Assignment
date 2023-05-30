@@ -11,12 +11,12 @@ namespace LogicLayer.Class
         public int Id { get;private set; }
         public int UserId { get; private set; }
      
-        public string Price { get; private set; }
+        public decimal Price { get;  set; }
         public List<string> ProductName { get; private set; }
-        
-        
 
-        public Payment(int id, int userId,string price, List<string> productName )
+
+
+        public Payment(int id, int userId, decimal price, List<string> productName )
         {
             Id = id++;
             UserId = userId;

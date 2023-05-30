@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +21,10 @@ namespace DataLayer.DAL
         public DataTable ReadData()
         {
             DataTable result = new DataTable();
+            IDbConnection? con2 = null;
             try
             {
-                IDbConnection con2 = GetConnection();
+                con2 = GetConnection();
                 con2.Open();
                 using (var command = new SqlCommand())
                 {
@@ -42,21 +43,36 @@ namespace DataLayer.DAL
             }
             finally
             {
-                con.Close();
+                if (con2 != null)
+                {
+                    con2.Close();
+                }
             }
             return result;
         }
 
+        //study this
         public int executeQuery(string query)
         {
+            return executeQuery(query, null);
+        }
+
+        public int executeQuery(string query, SqlParameter[]? sqlParameters)
+        {
+            IDbConnection? con3 = null;
+                
             try
             {
-                IDbConnection con3 = GetConnection();
+                con3 = GetConnection();
                 con3.Open();
                 using (var command = new SqlCommand())
                 {
                     command.Connection = (SqlConnection)con3;
                     command.CommandText = query;
+                    if (sqlParameters != null)
+                    {
+                        command.Parameters.AddRange(sqlParameters);
+                    }
                     return command.ExecuteNonQuery();
                 }
             }
@@ -66,7 +82,11 @@ namespace DataLayer.DAL
             }
             finally
             {
-                con.Close();
+                if(con3 != null)
+                {
+                    con3.Close();
+                }
+                
             }
         }
     }

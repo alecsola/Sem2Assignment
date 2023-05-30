@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using DataLayer.DAL;
 using DataLayer.DataConvertingToObject;
 using LogicLayer.Class;
+using Microsoft.Data.SqlClient;
 
 namespace DataLayer.DataTraffic
 {
@@ -17,7 +18,7 @@ namespace DataLayer.DataTraffic
         {
             get
             {
-                return "select p.Id, u.UserId,u.Username,  p.Price p.ProductName from Payment p inner join Users u ON p.UserId=u.UserId";
+                return "select p.Id, p.Price, u.UserId, u.Username,p.ProductName from Payment p inner join Users u ON p.UserId=u.UserId";
             }
         }
         public Payment GetPaymentById(int id)
@@ -33,6 +34,7 @@ namespace DataLayer.DataTraffic
             }
             return null; // or throw an exception indicating the ticket was not found
         }
+        
         public List<Payment> GetAllPayments()
         {
             List<Payment> payments = new List<Payment>();
@@ -49,8 +51,11 @@ namespace DataLayer.DataTraffic
         {
            
             string productNamesString = string.Join(",", payment.ProductName);
-            string query = $"INSERT INTO Payment (Id,UserId, Price,ProductName) " + $"VALUES ({payment.Id},{payment.UserId},'{payment.Price}','{productNamesString}' )";
-            return executeQuery(query) == 0 ? false : true;
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("Price", payment.Price));
+            string query = $"INSERT INTO Payment (UserId, Price,ProductName) " + $"VALUES ({payment.UserId},@Price,'{productNamesString}' )";
+            
+            return executeQuery(query, parameters.ToArray()) == 0 ? false : true;
         }
     }
 }

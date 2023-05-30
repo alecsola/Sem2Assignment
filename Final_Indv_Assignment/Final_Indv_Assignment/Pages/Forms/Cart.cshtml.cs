@@ -3,6 +3,7 @@ using LogicLayer.Class;
 using LogicLayer.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.FileSystemGlobbing;
 using Newtonsoft.Json;
 
 namespace Final_Indv_Assignment.Pages.Forms
@@ -13,13 +14,14 @@ namespace Final_Indv_Assignment.Pages.Forms
         public int Id { get; set; }
         [BindProperty]
         public int UserId { get; set; }
-       
-       
+        public User user { get; set; }
+        public string PriceText { get; set; }
         public List<string> ProductName { get; set; }
         [BindProperty]
         public List<Product>products { get; set; }
+        public List<Payment> payments { get; set; }
        
-        public string totalPrice { get; set; }
+        public decimal totalPrice { get; set; }
         
         PaymentService PS = FactoryService.createPayment();
         LogInService LS = FactoryService.createlogInUser();
@@ -29,19 +31,29 @@ namespace Final_Indv_Assignment.Pages.Forms
             if (TempData.TryGetValue("SerializedCart", out var serializedCart) && serializedCart is string cartJson)
             {
                 products = JsonConvert.DeserializeObject <List<Product>>(cartJson);
-               
+                totalPrice = (products.Sum(p => p.Price));
                 SaveCartToTempData();
 
             }
             if (TempData.TryGetValue("SerializedUser", out var serializedUser) && serializedUser is string userJson)
             {
-                User user = JsonConvert.DeserializeObject<User>(userJson);
+                user = JsonConvert.DeserializeObject<User>(userJson);
                 UserId = user.Id;
-                var SerializedUser = JsonConvert.SerializeObject(user);
-                TempData["SerializedUser"] = SerializedUser;
+                LoadCartFromTempData();
+                if(CheckIfUserHasSeasonTicket())
+                {
+                    totalPrice = 0;
+                    
+                }
+                else
+                {
+                    totalPrice = (products.Sum(p => p.Price));
+                }
+                SaveCartToTempData();
+                SaveUser();
             }
 
-            totalPrice = (products.Sum(p => p.Price)).ToString();
+            
             
 
             
@@ -52,14 +64,24 @@ namespace Final_Indv_Assignment.Pages.Forms
         {
             try
             {
+                LoadUser();
                 LoadCartFromTempData();
                 var productToRemove = products.FirstOrDefault(p => p.Id == productId);
                 if (productToRemove != null)
                 {
                     products.Remove(productToRemove);
                 }
-                totalPrice = (products.Sum(p => p.Price)).ToString();
+                if (CheckIfUserHasSeasonTicket())
+                {
+                    totalPrice = 0;
+                    PriceText = "Since you have a Season Ticket this order is free.";
+                }
+                else
+                {
+                    totalPrice = (products.Sum(p => p.Price));
+                }
                 SaveCartToTempData();
+                SaveUser();
 
                 return Page();
             }
@@ -76,26 +98,41 @@ namespace Final_Indv_Assignment.Pages.Forms
         {
             try
             {
-                if (TempData.TryGetValue("SerializedUser", out var serializedUser) && serializedUser is string userJson)
-                {
-                    User user = JsonConvert.DeserializeObject<User>(userJson);
-                    UserId = user.Id;
-                }
+                LoadUser();
+                
                 LoadCartFromTempData();
-                List<string> productNames = new List<string>();
-                totalPrice = (products.Sum(p => p.Price)).ToString();
-                foreach (Product product in products)
+                if(UserId != 0)
                 {
-                    productNames.Add(product.Name);
                     
-                }
-                Payment payment = new Payment(Id, UserId, totalPrice, productNames);
-                var AddedPayment = PS.AddPayment(payment);
-                
-                products.Clear();
-                
+                    List<string> productNames = new List<string>();
+                    
+                    if (CheckIfUserHasSeasonTicket())
+                    {
+                        totalPrice = 0;
+                        PriceText = "Since you have a Season Ticket this order is free.";
+                    }
+                    else
+                    {
+                        totalPrice = (products.Sum(p => p.Price));
+                    }
+                    foreach (Product product in products)
+                    {
+                        productNames.Add(product.Name);
+                    
+                    }
+                    
+                    Payment payment = new Payment(Id, UserId, totalPrice, productNames);
+                    var AddedPayment = PS.AddPayment(payment);
+                    totalPrice = 0;
+                    PriceText = null;
+                    products.Clear();
 
-                SaveCartToTempData();
+                    SaveUser();   
+                    SaveCartToTempData();
+                    
+
+                }
+
 
                 return Page();
             }
@@ -126,6 +163,33 @@ namespace Final_Indv_Assignment.Pages.Forms
         {
             var serializedCart = JsonConvert.SerializeObject(products);
             TempData["SerializedCart"] = serializedCart;
+        }
+
+        private void LoadUser()
+        {
+            if (TempData.TryGetValue("SerializedUser", out var serializedUser) && serializedUser is string userJson)
+            {
+                user = JsonConvert.DeserializeObject<User>(userJson);
+                UserId = user.Id;
+            }
+        }
+        private void SaveUser()
+        {
+            var SerializedUser = JsonConvert.SerializeObject(user);
+            TempData["SerializedUser"] = SerializedUser;
+        }
+        private bool CheckIfUserHasSeasonTicket()
+        {
+            if (PS.CheckIfUserProduct(UserId) == true)
+            {
+                totalPrice = 0;
+                PriceText = "Since you have a Season Ticket this order is free.";
+            }
+            else
+            {
+                return false;
+            }
+            return true;
         }
 
     }

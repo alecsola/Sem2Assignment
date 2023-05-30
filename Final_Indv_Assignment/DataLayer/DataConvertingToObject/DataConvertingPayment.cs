@@ -16,14 +16,14 @@ namespace DataLayer.DataConvertingToObject
             int Id = (int)row["Id"];
             int UserId = (int)row["UserId"];
        
-            string Price = (string)row["Price"];
+            decimal Price = (decimal)row["Price"];
             List<string> productNames = new List<string>();
 
             
             string productNamesString = (string)row["ProductName"];
             productNames.AddRange(productNamesString.Split(','));
 
-            Payment payment = new Payment(Id, UserId, Price, productNames);
+            Payment payment = new Payment( Id,UserId, Price, productNames);
             return payment;
         }
     }

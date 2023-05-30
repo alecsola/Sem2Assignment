@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
 
 namespace DataLayer.DAL
 {
@@ -11,6 +12,7 @@ namespace DataLayer.DAL
     {
         DataTable ReadData();
 
+        int executeQuery(string query, SqlParameter[]? sqlParameters);
         int executeQuery(string query);
     }
 }

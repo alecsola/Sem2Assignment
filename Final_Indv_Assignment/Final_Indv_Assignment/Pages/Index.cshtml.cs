@@ -51,6 +51,7 @@ namespace Final_Indv_Assignment.Pages
         [BindProperty]
         public string Time { get; set; }
 
+       
         public Ticket Ticket;
         public List<Ticket> Tickets { get; set; }
     
@@ -63,7 +64,7 @@ namespace Final_Indv_Assignment.Pages
             //}
             if (TempData.TryGetValue("SerializedUser", out var serializedUser) && serializedUser is string cartJson)
             {
-                User user = JsonConvert.DeserializeObject<User>(cartJson);
+                user = JsonConvert.DeserializeObject<User>(cartJson);
                 Username = user.Username;
                 var SerializedUser = JsonConvert.SerializeObject(user);
                 TempData["SerializedUser"] = SerializedUser;
