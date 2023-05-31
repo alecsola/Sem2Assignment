@@ -62,10 +62,16 @@ namespace Final_Indv_Assignment.Pages
             //{
             //    Username = HttpContext.Session.GetString("user_name")!;
             //}
+            
             if (TempData.TryGetValue("SerializedUser", out var serializedUser) && serializedUser is string cartJson)
             {
+                
                 user = JsonConvert.DeserializeObject<User>(cartJson);
-                Username = user.Username;
+                if(user!= null)
+                {
+                    Username = user.Username;
+                }
+                
                 var SerializedUser = JsonConvert.SerializeObject(user);
                 TempData["SerializedUser"] = SerializedUser;
             }

@@ -32,6 +32,7 @@ namespace LogicLayer.Services
         }
         public bool CheckIfUserProduct(int UserId)
         {
+            paymentDataTraffic.UserHasProduct(UserId, "Month Ticket");
             foreach (Payment payment in GetAllPayments())
             {
                 if (payment.UserId == UserId && payment.ProductName.Contains("Month Ticket"))
@@ -40,13 +41,10 @@ namespace LogicLayer.Services
                     payment.Price = 0;
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
+                
                 
             }
-            return true;
+            return false;
         }
 
     }

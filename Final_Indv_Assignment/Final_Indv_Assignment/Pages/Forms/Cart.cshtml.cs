@@ -38,7 +38,12 @@ namespace Final_Indv_Assignment.Pages.Forms
             if (TempData.TryGetValue("SerializedUser", out var serializedUser) && serializedUser is string userJson)
             {
                 user = JsonConvert.DeserializeObject<User>(userJson);
-                UserId = user.Id;
+                if(user != null)
+                {
+                    UserId = user.Id;
+
+                }
+                
                 LoadCartFromTempData();
                 if(CheckIfUserHasSeasonTicket())
                 {
@@ -170,7 +175,11 @@ namespace Final_Indv_Assignment.Pages.Forms
             if (TempData.TryGetValue("SerializedUser", out var serializedUser) && serializedUser is string userJson)
             {
                 user = JsonConvert.DeserializeObject<User>(userJson);
-                UserId = user.Id;
+                if(user != null)
+                { 
+                    UserId = user.Id;
+                }
+               
             }
         }
         private void SaveUser()
