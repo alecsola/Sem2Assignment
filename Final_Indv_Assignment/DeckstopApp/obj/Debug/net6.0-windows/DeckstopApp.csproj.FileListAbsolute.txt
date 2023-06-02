@@ -15,3 +15,5 @@ C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-a
 C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\DeckstopApp.pdb
 C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\DeckstopApp.genruntimeconfig.cache
 C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\ref\DeckstopApp.dll
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\DeckstopApp.Employee.resources
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\DeckstopApp.Properties.Resources.resources
