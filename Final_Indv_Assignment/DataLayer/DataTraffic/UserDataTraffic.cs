@@ -19,7 +19,7 @@ namespace DataLayer.DataTraffic
         public List<User> GetAll()
         {
             List<User> Users = new List<User>();
-            DataTable table = base.ReadData();
+            DataTable table = base.ReadData(cmd);
             foreach (DataRow dr in table.Rows)
             {
                 Users.Add(DataConvertingUser.ConvertRowToUser(dr));

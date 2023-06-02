@@ -10,7 +10,7 @@ namespace DataLayer.DAL
 {
     internal interface IDataHandler
     {
-        DataTable ReadData();
+        DataTable ReadData(string query);
 
         int executeQuery(string query, SqlParameter[]? sqlParameters);
         int executeQuery(string query);

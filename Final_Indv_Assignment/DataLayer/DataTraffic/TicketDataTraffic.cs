@@ -22,7 +22,7 @@ namespace DataLayer.DataTraffic
 
         public Ticket GetTicketById(int id)
         {
-            DataTable table = base.ReadData();
+            DataTable table = base.ReadData(cmd);
             foreach (DataRow dr in table.Rows)
             {
                 Ticket ticket = DataConvertingTicket.ConvertRowToTickets(dr);
@@ -37,7 +37,7 @@ namespace DataLayer.DataTraffic
         public List<Ticket> GetAllTickets()
         {
             List<Ticket> tickets = new List<Ticket>();
-            DataTable table = base.ReadData();
+            DataTable table = base.ReadData(cmd);
             foreach (DataRow dr in table.Rows)
             {
                 tickets.Add(DataConvertingTicket.ConvertRowToTickets(dr));
@@ -55,7 +55,7 @@ namespace DataLayer.DataTraffic
         public List<Ticket> GetFilteredTickets(Station startingStation, Station endingStation, string departureDate)
         {
             List<Ticket> filteredTickets = new List<Ticket>();
-            DataTable table = base.ReadData();
+            DataTable table = base.ReadData(cmd);
             foreach (DataRow dr in table.Rows)
             {
                 Ticket ticket = DataConvertingTicket.ConvertRowToTickets(dr);

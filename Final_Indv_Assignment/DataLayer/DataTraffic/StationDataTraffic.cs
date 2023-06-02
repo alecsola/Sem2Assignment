@@ -22,7 +22,7 @@ namespace DataLayer.DataTraffic
 
         public Station GetStationById(int id)
         {
-            DataTable table = base.ReadData();
+            DataTable table = base.ReadData(cmd);
             foreach (DataRow dr in table.Rows)
             {
                 Station station = DataConvertingStations.ConvertRowToStation(dr);
@@ -36,7 +36,7 @@ namespace DataLayer.DataTraffic
         public List<Station> GetAllStations()
         {
             List<Station> stations = new List<Station>();
-            DataTable table = base.ReadData();
+            DataTable table = base.ReadData(cmd);
             foreach (DataRow dr in table.Rows)
             {
                 stations.Add(DataConvertingStations.ConvertRowToStation(dr));

@@ -23,7 +23,7 @@ namespace DataLayer.DataTraffic
 
         public SeasonTickets GetSeasonTicketById(int id)
         {
-            DataTable table = base.ReadData();
+            DataTable table = base.ReadData(cmd);
             foreach (DataRow dr in table.Rows)
             {
                 SeasonTickets ticket = DataConvertingSeasonTickets.ConvertRowToSeasonTickets(dr);
@@ -37,7 +37,7 @@ namespace DataLayer.DataTraffic
         public List<SeasonTickets> GetAllSeasonTickets()
         {
             List<SeasonTickets> Tickets = new List<SeasonTickets>();
-            DataTable table = base.ReadData();
+            DataTable table = base.ReadData(cmd);
             foreach (DataRow dr in table.Rows)
             {
                 Tickets.Add(DataConvertingSeasonTickets.ConvertRowToSeasonTickets(dr));

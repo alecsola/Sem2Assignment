@@ -18,7 +18,7 @@ namespace DataLayer.DAL
             con = GetConnection();
         }
 
-        public DataTable ReadData()
+        public DataTable ReadData(string query)
         {
             DataTable result = new DataTable();
             IDbConnection? con2 = null;
@@ -30,7 +30,7 @@ namespace DataLayer.DAL
                 {
                     command.Connection = (SqlConnection)con2;
                     //get command
-                    command.CommandText = cmd;
+                    command.CommandText = query;
                     //get data
                     var data = command.ExecuteReader();
                     //fill datatable with querried data

@@ -1,0 +1,17 @@
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\bin\Debug\net6.0-windows\DeckstopApp.exe
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\bin\Debug\net6.0-windows\DeckstopApp.deps.json
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\bin\Debug\net6.0-windows\DeckstopApp.runtimeconfig.json
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\bin\Debug\net6.0-windows\DeckstopApp.dll
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\bin\Debug\net6.0-windows\DeckstopApp.pdb
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\DeckstopApp.csproj.AssemblyReference.cache
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\DeckstopApp.LogIn.resources
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\DeckstopApp.csproj.GenerateResource.cache
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\DeckstopApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\DeckstopApp.AssemblyInfoInputs.cache
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\DeckstopApp.AssemblyInfo.cs
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\DeckstopApp.csproj.CoreCompileInputs.cache
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\DeckstopApp.dll
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\refint\DeckstopApp.dll
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\DeckstopApp.pdb
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\DeckstopApp.genruntimeconfig.cache
+C:\Users\solaa\Projects\JuanAlejandroSemester2Individual\semester-2-individual-assignment-alec\Final_Indv_Assignment\DeckstopApp\obj\Debug\net6.0-windows\ref\DeckstopApp.dll
