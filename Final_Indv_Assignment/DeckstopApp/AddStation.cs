@@ -21,5 +21,10 @@ namespace DeckstopApp
         {
 
         }
+
+        private void AddStation_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
