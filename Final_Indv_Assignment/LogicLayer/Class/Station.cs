@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LogicLayer.Services;
 
 namespace LogicLayer.Class
 {
@@ -14,6 +15,8 @@ namespace LogicLayer.Class
         public double Latitude { get; private set; }
         public double Longitude { get; private set; }
 
+        public StationService stationService { get; private set; }
+        
         public Station(int id, string name, double latitude, double longitude)
         {
             Id = id;

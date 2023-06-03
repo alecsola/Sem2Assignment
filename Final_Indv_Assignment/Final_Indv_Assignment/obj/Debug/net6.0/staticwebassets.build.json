@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "x2ThYZp7OvOBEl7idgpx5kKGhJ8V1bynGjfNzuTcxug=",
+  "Hash": "91WeOBP5xQM9JNqfdfNDehfKuNC0Zi53tSdK+KPC1wA=",
   "Source": "Final_Indv_Assignment",
   "BasePath": "_content/Final_Indv_Assignment",
   "Mode": "Default",
@@ -406,6 +406,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\SeasonTickets\\train4.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\Final_Indv_Assignment\\wwwroot\\Images\\SeasonTickets\\trainn.jpg",
+      "SourceId": "Final_Indv_Assignment",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\Final_Indv_Assignment\\wwwroot\\",
+      "BasePath": "_content/Final_Indv_Assignment",
+      "RelativePath": "Images/SeasonTickets/trainn.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\SeasonTickets\\trainn.jpg"
     },
     {
       "Identity": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\Final_Indv_Assignment\\wwwroot\\Images\\SeasonTickets\\trainpremium.jpg",

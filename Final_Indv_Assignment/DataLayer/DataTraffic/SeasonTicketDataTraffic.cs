@@ -8,6 +8,8 @@ using DataLayer.DAL;
 using DataLayer.DataConvertingToObject;
 using LogicLayer.Class;
 using LogicLayer.Interface;
+using Microsoft.Data.SqlClient;
+using static System.Collections.Specialized.BitVector32;
 
 namespace DataLayer.DataTraffic
 {
@@ -46,8 +48,26 @@ namespace DataLayer.DataTraffic
 
             return Tickets;
         }
+        public bool AddSeasonTicket(SeasonTickets seasonTicket)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("Description", seasonTicket.Description));
 
-
+            string query = $"INSERT INTO SeasonTickets (SeasonTicketName, Price,SeasonTicketDescription,ImageURL)  " + $"VALUES ('{seasonTicket.SeasonTicketName}',{seasonTicket.Price},@Description,'{seasonTicket.Image}') ";
+            return executeQuery(query, parameters.ToArray()) == 0 ? false : true;
+        }
+        public bool UpdateSeasonTicket(int Id, string Name, decimal Price, string Description, string Image)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("Description", Description));
+            string query = $"UPDATE SeasonTickets SET SeasonTicketName='{Name}', Price={Price},SeasonTicketDescription=@Description, ImageURL='{Image}' WHERE SeasonTicketID={Id}";
+            return executeQuery(query, parameters.ToArray()) == 0 ? false : true;
+        }
+        public bool RemoveSeasonTicket(int Id)
+        {
+            string query = $"DELETE FROM SeasonTickets WHERE SeasonTicketID = {Id}";
+            return executeQuery(query) == 0 ? false : true;
+        }
 
 
     }

@@ -25,5 +25,17 @@ namespace LogicLayer.Services
         {
             return this.seasonTicketDataTraffic.GetAllSeasonTickets();
         }
+        public bool AddSeasonTicket(SeasonTickets seasonTicket)
+        {
+            return this.seasonTicketDataTraffic.AddSeasonTicket(seasonTicket);
+        }
+        public bool UpdateSeasonTicket(int Id, string Name, decimal Price, string Description, string Image)
+        {
+            return this.seasonTicketDataTraffic.UpdateSeasonTicket(Id, Name, Price, Description, Image);
+        }
+        public bool RemoveSeasonTicket(int Id)
+        {
+            return this.seasonTicketDataTraffic.RemoveSeasonTicket(Id);
+        }
     }
 }

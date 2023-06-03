@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DataLayer.DAL;
 using DataLayer.DataConvertingToObject;
 using LogicLayer.Class;
+using Microsoft.Data.SqlClient;
 
 namespace DataLayer.DataTraffic
 {
@@ -47,8 +48,25 @@ namespace DataLayer.DataTraffic
         }
         public bool AddStation(Station station)
         {
-            string query = $"INSERT INTO Station (StationName, Latitude, Longitude)  " + $"VALUES '{station.Name}',{station.Latitude},{station.Longitude} ";
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("Latitude", station.Latitude));
+            parameters.Add(new SqlParameter("Longitude", station.Longitude));
+            string query = $"INSERT INTO Station (StationName, Latitude, Longitude)  " + $"VALUES ('{station.Name}',@Latitude,@Longitude) ";
+            return executeQuery(query, parameters.ToArray()) == 0 ? false : true;
+        }
+        public bool UpdateStation(int Id, string Name, decimal Latitude, decimal Longitude)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("Latitude", Latitude));
+            parameters.Add(new SqlParameter("Longitude", Longitude));
+            string query = $"UPDATE Station SET StationName='{Name}', Latitude=@Latitude,Longitude=@Longitude WHERE StationID={Id}";
+            return executeQuery(query, parameters.ToArray()) == 0 ? false : true;
+        }
+        public bool RemoveStation(int Id)
+        {
+            string query = $"DELETE FROM Station WHERE StationID = {Id}";
             return executeQuery(query) == 0 ? false : true;
         }
+
     }
 }
