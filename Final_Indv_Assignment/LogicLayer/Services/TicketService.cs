@@ -26,6 +26,14 @@ namespace LogicLayer.Services
         {
             return ticketDataTraffic.AddTicket(ticket);
         }
+        public bool UpdateTicket(int Id, Station startingStation, Station destinationStation, string departureDate, string Time)
+        {
+            return ticketDataTraffic.UpdateTicket(Id, startingStation, destinationStation, departureDate, Time);
+        }
+        public bool RemoveTicket(int Id)
+        {
+            return ticketDataTraffic.RemoveTicket(Id);
+        }
         public Ticket GetTicketById(int id)
         {
             return ticketDataTraffic.GetTicketById(id);

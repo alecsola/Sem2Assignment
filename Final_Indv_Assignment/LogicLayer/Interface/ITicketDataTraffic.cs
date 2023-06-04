@@ -7,6 +7,8 @@ namespace DataLayer.DataTraffic
         bool AddTicket(Ticket ticket);
         List<Ticket> GetAllTickets();
         Ticket GetTicketById(int id);
+        bool RemoveTicket(int Id);
+        bool UpdateTicket(int Id, Station startingStation, Station destinationStation, string departureDate, string Time);
         List<Ticket> GetFilteredTickets(Station startingStation, Station endingStation, string departureDate);
     }
 }

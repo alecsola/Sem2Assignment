@@ -18,13 +18,20 @@ namespace DeckstopApp
         
         SeasonTicketsService STS = FactoryService.createseasonTickets();
         StationService SS = FactoryService.createStation();
+        TicketService TS = FactoryService.createTicket();
         public int stationId { get; set; }
         public int seasonTicketID { get; set; }
+        public int TicketId { get; set; }
         public Employee()
         {
             InitializeComponent();
+            PopulateComboboxes();
+            
         }
+        public void Checkbox()
+        {
 
+        }
        
         public void RefreshStationList()
         {
@@ -35,6 +42,16 @@ namespace DeckstopApp
         {
             LV_SeasonTicket.Items.Clear();
             FilterSeasonTicket(TB_SeasonTicket_search.Text);
+        }
+        public void RefreshTicketList()
+        {
+            LV_Ticket.Items.Clear();
+            Station startingStation = CB_StartingStation.SelectedItem as Station;
+            Station destinationStation = CB_DestinationStation.SelectedItem as Station;
+
+            FilterTicket(startingStation, destinationStation, null); // or
+            FilterTicket(startingStation, destinationStation, (DateSearch.Value).ToString("yyyy-MM-dd"));
+
         }
         public void FilterStation(string Name)
         {
@@ -64,6 +81,29 @@ namespace DeckstopApp
                 LV_SeasonTicket.Items.Add(seasonTicketInfo);
             }
         }
+
+        public void FilterTicket(Station startingStation, Station destinationStation, string? Date)
+        {
+            var ticketList = TS.GetAllTickets();
+            var selectedStartingStation = ((Station)CB_StartingStation.SelectedItem).Name;
+            
+            
+
+            var filteredTickets = ticketList
+         .OfType<Ticket>()
+         .Where(a =>
+             (startingStation == null || startingStation.Name == "All" || a.StartingStation.Name.Equals(startingStation.Name))
+             && (destinationStation == null || destinationStation.Name == "All" || a.DestinationStation.Name.Equals(destinationStation.Name))
+             && (string.IsNullOrEmpty(Date) || a.DepartureDate == Date));
+
+
+            foreach (Ticket ticket in filteredTickets)
+            {
+                ListViewItem ticketInfo = new ListViewItem(new[] { ticket.StartingStation.Name, ticket.DestinationStation.Name, ticket.DepartureDate, ticket.Time });
+                ticketInfo.Tag = ticket.Id.ToString();
+                LV_Ticket.Items.Add(ticketInfo);
+            }
+        }
         public void ClearTBStation()
         {
             TB_UpdateStation_Name.Text = null;
@@ -76,6 +116,66 @@ namespace DeckstopApp
             TB_UpdateSeasonTicket_Price.Value = 0;
             TB_UpdateSeasonTicket_Description.Text = null;
             TB_UpdateSeasonTicket_Image.Text = null;
+        }
+
+        public void PopulateComboboxes()
+        {
+            
+            List<Station> stationsSearch = SS.GetAllStations();
+            Station None = new Station(-1, "All", 0, 0);
+            stationsSearch.Insert(0, None);
+            List<Station> stationsSearch2 = new List<Station>(stationsSearch);
+            stationsSearch2.Insert(0, None);
+            
+
+            List<Station> stations = SS.GetAllStations();
+            List<Station> stations3 = new List<Station>(stations);
+            List<Station> stations4 = new List<Station>(stations);
+            List<Station> stations5 = new List<Station>(stations);
+            List<Station> stations6 = new List<Station>(stations);
+      
+            
+
+            CB_StartingStation.Items.Clear();
+            CB_StartingStation.DataSource = null;
+            CB_StartingStation.DataSource = stationsSearch;
+            CB_StartingStation.DisplayMember = "Name";
+            CB_StartingStation.ValueMember = "Id";
+
+
+            CB_DestinationStation.Items.Clear();
+            CB_DestinationStation.DataSource = null;
+            CB_DestinationStation.DataSource = stationsSearch2;
+            CB_DestinationStation.DisplayMember = "Name";
+            CB_DestinationStation.ValueMember = "Id";
+
+
+            CB_UpdateTicket_Starting.Items.Clear();
+            CB_UpdateTicket_Starting.DataSource = null;
+            CB_UpdateTicket_Starting.DataSource = stations3;
+            CB_UpdateTicket_Starting.DisplayMember = "Name";
+            CB_UpdateTicket_Starting.ValueMember = "Id";
+
+
+            CB_UpdateTicket_Ending.Items.Clear();
+            CB_UpdateTicket_Ending.DataSource = null;
+            CB_UpdateTicket_Ending.DataSource = stations4;
+            CB_UpdateTicket_Ending.DisplayMember = "Name";
+            CB_UpdateTicket_Ending.ValueMember = "Id";
+
+
+            CB_AddTicket_Starting.Items.Clear();
+            CB_AddTicket_Starting.DataSource = null;
+            CB_AddTicket_Starting.DataSource = stations5;
+            CB_AddTicket_Starting.DisplayMember = "Name";
+            CB_AddTicket_Starting.ValueMember = "Id";
+
+
+            CB_AddTicket_Destination.Items.Clear();
+            CB_AddTicket_Destination.DataSource = null;
+            CB_AddTicket_Destination.DataSource = stations6;
+            CB_AddTicket_Destination.DisplayMember = "Name";
+            CB_AddTicket_Destination.ValueMember = "Id";
         }
 
         //WELCOME PAGE
@@ -231,6 +331,67 @@ namespace DeckstopApp
             ClearTBSeasonTicket();
             RefreshSeasonTicketList();
 
+        }
+
+        //Tickets
+        private void btn_Ticket_search_Click(object sender, EventArgs e)
+        {
+            RefreshTicketList();
+        }
+
+        private void CheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBox.Checked == true)
+            {
+                DateSearch.Enabled = true;
+            }
+            else
+            {
+                DateSearch.Enabled = false;
+            }
+        }
+
+        private void LV_Ticket_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (LV_Ticket.SelectedItems.Count > 0)
+            {
+                List<Ticket> ticketList = TS.GetAllTickets().OfType<Ticket>().ToList();
+
+                Ticket selectedTicket = ticketList.Find(ticket => ticket.Id == Convert.ToInt32(LV_Ticket.SelectedItems[0].Tag));
+
+                //SEASON TICKET
+                TicketId = Convert.ToInt32(LV_Ticket.SelectedItems[0].Tag);
+                CB_UpdateTicket_Starting.Text = selectedTicket.StartingStation.Name;
+                CB_UpdateTicket_Ending.Text = selectedTicket.DestinationStation.Name;
+                TB_UpdateTicket_Date.Text = selectedTicket.DepartureDate;
+                TB_UpdateTicket_Time.Text = selectedTicket.Time;
+                
+            }
+        }
+
+        private void btn_UpdateTicket_Click(object sender, EventArgs e)
+        {
+            Station startingStation = CB_UpdateTicket_Starting.SelectedItem as Station;
+            Station destinationStation = CB_UpdateTicket_Ending.SelectedItem as Station;
+            string DepartureDate = TB_UpdateTicket_Date.Text;
+            string Time = TB_UpdateTicket_Time.Text;
+            TS.UpdateTicket(TicketId, startingStation, destinationStation, DepartureDate, Time);
+            RefreshTicketList();
+        }
+
+        private void btn_RemoveTicket_Click(object sender, EventArgs e)
+        {
+            TS.RemoveTicket(TicketId);
+            RefreshTicketList();
+        }
+
+        private void btn_AddTicket_Click(object sender, EventArgs e)
+        {
+            Station startingStation = CB_AddTicket_Starting.SelectedItem as Station;
+            Station destinationStation = CB_AddTicket_Destination.SelectedItem as Station;
+            Ticket ticket = new Ticket(TicketId, startingStation, destinationStation, TB_AddTicket_Date.Text, TB_AddTicket_Time.Text);
+            TS.AddTicket(ticket);
+            RefreshTicketList();
         }
     }
 }

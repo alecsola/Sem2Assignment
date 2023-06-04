@@ -48,7 +48,17 @@ namespace DataLayer.DataTraffic
         }
         public bool AddTicket(Ticket ticket)
         {
-            string query = $"INSERT INTO Ticket (StartingStationId, DestinationStationId, DepartureDate, Time)  " + $"VALUES '{ticket.StartingStation}',{ticket.DestinationStation},{ticket.DepartureDate},{ticket.Time} ";
+            string query = $"INSERT INTO Ticket (StartingStationId, DestinationStationId, DepartureDate, Time)  " + $"VALUES ({ticket.StartingStation.Id},{ticket.DestinationStation.Id},'{ticket.DepartureDate}','{ticket.Time}') ";
+            return executeQuery(query) == 0 ? false : true;
+        }
+        public bool UpdateTicket(int Id, Station startingStation, Station destinationStation, string departureDate, string Time)
+        {
+            string query = $"UPDATE Ticket SET StartingStationId={startingStation.Id},DestinationStationId={destinationStation.Id},DepartureDate='{departureDate}', Time='{Time}' WHERE Id={Id}";
+            return executeQuery(query) == 0 ? false : true;
+        }
+        public bool RemoveTicket(int Id)
+        {
+            string query = $"DELETE FROM Ticket WHERE Id = {Id}";
             return executeQuery(query) == 0 ? false : true;
         }
 
