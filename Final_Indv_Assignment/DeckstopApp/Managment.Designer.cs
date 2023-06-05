@@ -106,6 +106,16 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.TB_AddTicket_Time = new System.Windows.Forms.TextBox();
+            this.TB_AddTicket_Date = new System.Windows.Forms.DateTimePicker();
+            this.CB_AddTicket_Destination = new System.Windows.Forms.ComboBox();
+            this.CB_AddTicket_Starting = new System.Windows.Forms.ComboBox();
+            this.btn_AddTicket = new System.Windows.Forms.Button();
             this.CheckBox = new System.Windows.Forms.CheckBox();
             this.label41 = new System.Windows.Forms.Label();
             this.DateSearch = new System.Windows.Forms.DateTimePicker();
@@ -135,16 +145,6 @@
             this.Time = new System.Windows.Forms.ColumnHeader();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.TB_AddTicket_Time = new System.Windows.Forms.TextBox();
-            this.TB_AddTicket_Date = new System.Windows.Forms.DateTimePicker();
-            this.CB_AddTicket_Destination = new System.Windows.Forms.ComboBox();
-            this.CB_AddTicket_Starting = new System.Windows.Forms.ComboBox();
-            this.btn_AddTicket = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.MainMenu.SuspendLayout();
             this.StationManagment.SuspendLayout();
@@ -162,9 +162,9 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TB_UpdateSeasonTicket_Price)).BeginInit();
             this.tabPage1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox6.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1058,6 +1058,114 @@
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Ticket";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label31);
+            this.groupBox5.Controls.Add(this.label32);
+            this.groupBox5.Controls.Add(this.label33);
+            this.groupBox5.Controls.Add(this.label34);
+            this.groupBox5.Controls.Add(this.TB_AddTicket_Time);
+            this.groupBox5.Controls.Add(this.TB_AddTicket_Date);
+            this.groupBox5.Controls.Add(this.CB_AddTicket_Destination);
+            this.groupBox5.Controls.Add(this.CB_AddTicket_Starting);
+            this.groupBox5.Controls.Add(this.btn_AddTicket);
+            this.groupBox5.Location = new System.Drawing.Point(1367, 266);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(460, 515);
+            this.groupBox5.TabIndex = 50;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Add Ticket";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label31.Location = new System.Drawing.Point(253, 228);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(61, 30);
+            this.label31.TabIndex = 44;
+            this.label31.Text = "Time";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label32.Location = new System.Drawing.Point(20, 228);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(162, 30);
+            this.label32.TabIndex = 43;
+            this.label32.Text = "Departure Date";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label33.Location = new System.Drawing.Point(253, 90);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(193, 30);
+            this.label33.TabIndex = 42;
+            this.label33.Text = "Destination Station";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label34.Location = new System.Drawing.Point(20, 90);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(159, 30);
+            this.label34.TabIndex = 41;
+            this.label34.Text = "Starting Station";
+            // 
+            // TB_AddTicket_Time
+            // 
+            this.TB_AddTicket_Time.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TB_AddTicket_Time.Location = new System.Drawing.Point(253, 261);
+            this.TB_AddTicket_Time.Name = "TB_AddTicket_Time";
+            this.TB_AddTicket_Time.Size = new System.Drawing.Size(193, 36);
+            this.TB_AddTicket_Time.TabIndex = 40;
+            this.TB_AddTicket_Time.Text = "00:00";
+            // 
+            // TB_AddTicket_Date
+            // 
+            this.TB_AddTicket_Date.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TB_AddTicket_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.TB_AddTicket_Date.Location = new System.Drawing.Point(20, 261);
+            this.TB_AddTicket_Date.Name = "TB_AddTicket_Date";
+            this.TB_AddTicket_Date.Size = new System.Drawing.Size(199, 36);
+            this.TB_AddTicket_Date.TabIndex = 39;
+            this.TB_AddTicket_Date.Value = new System.DateTime(2023, 6, 4, 0, 0, 0, 0);
+            // 
+            // CB_AddTicket_Destination
+            // 
+            this.CB_AddTicket_Destination.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CB_AddTicket_Destination.FormattingEnabled = true;
+            this.CB_AddTicket_Destination.Location = new System.Drawing.Point(253, 129);
+            this.CB_AddTicket_Destination.Name = "CB_AddTicket_Destination";
+            this.CB_AddTicket_Destination.Size = new System.Drawing.Size(193, 38);
+            this.CB_AddTicket_Destination.TabIndex = 38;
+            // 
+            // CB_AddTicket_Starting
+            // 
+            this.CB_AddTicket_Starting.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CB_AddTicket_Starting.FormattingEnabled = true;
+            this.CB_AddTicket_Starting.Location = new System.Drawing.Point(20, 130);
+            this.CB_AddTicket_Starting.Name = "CB_AddTicket_Starting";
+            this.CB_AddTicket_Starting.Size = new System.Drawing.Size(199, 38);
+            this.CB_AddTicket_Starting.TabIndex = 31;
+            // 
+            // btn_AddTicket
+            // 
+            this.btn_AddTicket.BackColor = System.Drawing.Color.Red;
+            this.btn_AddTicket.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_AddTicket.ForeColor = System.Drawing.Color.White;
+            this.btn_AddTicket.Location = new System.Drawing.Point(128, 390);
+            this.btn_AddTicket.Name = "btn_AddTicket";
+            this.btn_AddTicket.Size = new System.Drawing.Size(243, 43);
+            this.btn_AddTicket.TabIndex = 30;
+            this.btn_AddTicket.Text = "Add Ticket";
+            this.btn_AddTicket.UseVisualStyleBackColor = false;
+            this.btn_AddTicket.Click += new System.EventHandler(this.btn_AddTicket_Click);
+            // 
             // CheckBox
             // 
             this.CheckBox.AutoSize = true;
@@ -1151,11 +1259,11 @@
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Segoe UI Semibold", 20.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label35.Location = new System.Drawing.Point(653, 207);
+            this.label35.Location = new System.Drawing.Point(746, 207);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(378, 46);
+            this.label35.Size = new System.Drawing.Size(259, 46);
             this.label35.TabIndex = 32;
-            this.label35.Text = "Update a Season Ticket";
+            this.label35.Text = "Update a Ticket";
             // 
             // groupBox6
             // 
@@ -1283,11 +1391,11 @@
             // 
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Segoe UI Semibold", 20.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label40.Location = new System.Drawing.Point(1436, 217);
+            this.label40.Location = new System.Drawing.Point(1508, 207);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(329, 46);
+            this.label40.Size = new System.Drawing.Size(210, 46);
             this.label40.TabIndex = 30;
-            this.label40.Text = "Add a Season Ticket";
+            this.label40.Text = "Add a Ticket";
             // 
             // LV_Ticket
             // 
@@ -1348,114 +1456,6 @@
             this.label30.TabIndex = 6;
             this.label30.Text = "Ease";
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.label31);
-            this.groupBox5.Controls.Add(this.label32);
-            this.groupBox5.Controls.Add(this.label33);
-            this.groupBox5.Controls.Add(this.label34);
-            this.groupBox5.Controls.Add(this.TB_AddTicket_Time);
-            this.groupBox5.Controls.Add(this.TB_AddTicket_Date);
-            this.groupBox5.Controls.Add(this.CB_AddTicket_Destination);
-            this.groupBox5.Controls.Add(this.CB_AddTicket_Starting);
-            this.groupBox5.Controls.Add(this.btn_AddTicket);
-            this.groupBox5.Location = new System.Drawing.Point(1367, 266);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(460, 515);
-            this.groupBox5.TabIndex = 50;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Add Ticket";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label31.Location = new System.Drawing.Point(253, 228);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(61, 30);
-            this.label31.TabIndex = 44;
-            this.label31.Text = "Time";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label32.Location = new System.Drawing.Point(20, 228);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(162, 30);
-            this.label32.TabIndex = 43;
-            this.label32.Text = "Departure Date";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label33.Location = new System.Drawing.Point(253, 90);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(193, 30);
-            this.label33.TabIndex = 42;
-            this.label33.Text = "Destination Station";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label34.Location = new System.Drawing.Point(20, 90);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(159, 30);
-            this.label34.TabIndex = 41;
-            this.label34.Text = "Starting Station";
-            // 
-            // TB_AddTicket_Time
-            // 
-            this.TB_AddTicket_Time.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TB_AddTicket_Time.Location = new System.Drawing.Point(253, 261);
-            this.TB_AddTicket_Time.Name = "TB_AddTicket_Time";
-            this.TB_AddTicket_Time.Size = new System.Drawing.Size(193, 36);
-            this.TB_AddTicket_Time.TabIndex = 40;
-            this.TB_AddTicket_Time.Text = "00:00";
-            // 
-            // TB_AddTicket_Date
-            // 
-            this.TB_AddTicket_Date.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TB_AddTicket_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.TB_AddTicket_Date.Location = new System.Drawing.Point(20, 261);
-            this.TB_AddTicket_Date.Name = "TB_AddTicket_Date";
-            this.TB_AddTicket_Date.Size = new System.Drawing.Size(199, 36);
-            this.TB_AddTicket_Date.TabIndex = 39;
-            this.TB_AddTicket_Date.Value = new System.DateTime(2023, 6, 4, 0, 0, 0, 0);
-            // 
-            // CB_AddTicket_Destination
-            // 
-            this.CB_AddTicket_Destination.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CB_AddTicket_Destination.FormattingEnabled = true;
-            this.CB_AddTicket_Destination.Location = new System.Drawing.Point(253, 129);
-            this.CB_AddTicket_Destination.Name = "CB_AddTicket_Destination";
-            this.CB_AddTicket_Destination.Size = new System.Drawing.Size(193, 38);
-            this.CB_AddTicket_Destination.TabIndex = 38;
-            // 
-            // CB_AddTicket_Starting
-            // 
-            this.CB_AddTicket_Starting.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CB_AddTicket_Starting.FormattingEnabled = true;
-            this.CB_AddTicket_Starting.Location = new System.Drawing.Point(20, 130);
-            this.CB_AddTicket_Starting.Name = "CB_AddTicket_Starting";
-            this.CB_AddTicket_Starting.Size = new System.Drawing.Size(199, 38);
-            this.CB_AddTicket_Starting.TabIndex = 31;
-            // 
-            // btn_AddTicket
-            // 
-            this.btn_AddTicket.BackColor = System.Drawing.Color.Red;
-            this.btn_AddTicket.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_AddTicket.ForeColor = System.Drawing.Color.White;
-            this.btn_AddTicket.Location = new System.Drawing.Point(128, 390);
-            this.btn_AddTicket.Name = "btn_AddTicket";
-            this.btn_AddTicket.Size = new System.Drawing.Size(243, 43);
-            this.btn_AddTicket.TabIndex = 30;
-            this.btn_AddTicket.Text = "Add Ticket";
-            this.btn_AddTicket.UseVisualStyleBackColor = false;
-            this.btn_AddTicket.Click += new System.EventHandler(this.btn_AddTicket_Click);
-            // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1490,11 +1490,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.TB_UpdateSeasonTicket_Price)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }

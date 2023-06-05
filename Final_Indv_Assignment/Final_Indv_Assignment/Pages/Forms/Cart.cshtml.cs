@@ -189,7 +189,9 @@ namespace Final_Indv_Assignment.Pages.Forms
         }
         private bool CheckIfUserHasSeasonTicket()
         {
-            if (PS.CheckIfUserProduct(UserId) == true)
+            List<Payment>payments = new List<Payment>();
+            payments = PS.CheckIfUserProduct(UserId);
+            if(payments.Count > 0)
             {
                 totalPrice = 0;
                 PriceText = "Since you have a Season Ticket this order is free.";

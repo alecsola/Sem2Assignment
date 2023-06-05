@@ -34,24 +34,17 @@ namespace LogicLayer.Services
         {
             return ticketDataTraffic.RemoveTicket(Id);
         }
+        public bool RemoveTicketByStation(Station station)
+        {
+            return ticketDataTraffic.RemoveTicketByStation(station);
+        }
         public Ticket GetTicketById(int id)
         {
             return ticketDataTraffic.GetTicketById(id);
         }
-        public List<Ticket> GetAllTicketsByDepartureDate(Station startingStation, Station destinationStation, string departureDate, string? time)
+        public List<Ticket> GetFilteredTickets(Station startingStation, Station endingStation, string departureDate, string? Time)
         {
-            List<Ticket> filteredTickets = new List<Ticket>();
-            foreach (Ticket ticket in GetAllTickets())
-            {
-                if( ticket.StartingStation.Name == startingStation.Name
-                                  && ticket.DestinationStation.Name == destinationStation.Name
-                                  && ticket.DepartureDate == departureDate
-                                  && (time == null || ticket.Time == time))
-                {
-                    filteredTickets.Add(ticket);
-                }
-            }
-            return filteredTickets;
+            return ticketDataTraffic.GetFilteredTickets(startingStation, endingStation, departureDate, Time);
         }
 
     }

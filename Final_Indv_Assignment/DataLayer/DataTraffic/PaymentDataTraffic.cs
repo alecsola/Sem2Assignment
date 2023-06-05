@@ -47,25 +47,17 @@ namespace DataLayer.DataTraffic
 
             return payments;
         }
-        public bool HasUserSeasonTicket(int UserId)
+        public List<Payment> HasUserSeasonTicket(int UserId)
         {
             List<Payment> payments = new List<Payment>();
-            string query = $"Select p.Id, p.Price,p.UserId, p.ProductName from Payment p WHERE p.ProductName='Month Ticket' or p.ProductName='Gold Ticket' or p.ProductName='Premium Ticket' or p.ProductName='Child Ticket' or p.ProductName = 'Young Ticket' ";
+            string query = $"SELECT p.Id, p.Price, p.UserId, p.ProductName FROM Payment p WHERE (p.ProductName='Month Ticket' OR p.ProductName='Gold Ticket' OR p.ProductName='Premium Ticket' OR p.ProductName='Child Ticket' OR p.ProductName='Young Ticket') AND p.UserId ={UserId} ;";
             DataTable table = base.ReadData(query);
             foreach (DataRow dr in table.Rows)
             {
                 payments.Add(DataConvertingPayment.ConvertRowToPayment(dr));
             }
-            foreach (Payment payment in payments)
-            {
-                if (payment.UserId == UserId)
-                {
 
-                    payment.Price = 0;
-                    return true;
-                }
-            }
-            return false;
+            return payments;
         }
         public bool AddPayment(Payment payment)
         {

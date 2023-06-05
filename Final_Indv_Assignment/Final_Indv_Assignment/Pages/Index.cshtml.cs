@@ -104,7 +104,7 @@ namespace Final_Indv_Assignment.Pages
                     if (startingStation.Name != endingStation.Name)
                     {
                         Ticket = new Ticket(id,startingStation, endingStation, departureDate,time);
-                        Tickets.AddRange(TS.GetAllTicketsByDepartureDate(startingStation, endingStation, departureDate, time)); // store result in a variable
+                        Tickets.AddRange(TS.GetFilteredTickets(startingStation, endingStation, departureDate, time)); // store result in a variable
                    
                    
                         StartingStationName = startingStation.Name;
@@ -120,6 +120,10 @@ namespace Final_Indv_Assignment.Pages
                         return Page();
                     }
                     
+                }
+                else
+                {
+                    return Page();
                 }
 
                

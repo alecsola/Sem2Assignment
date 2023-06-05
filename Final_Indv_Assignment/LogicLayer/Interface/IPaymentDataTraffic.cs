@@ -7,6 +7,6 @@ namespace DataLayer.DataTraffic
         bool AddPayment(Payment payment);
         List<Payment> GetAllPayments();
         Payment GetPaymentById(int id);
-        public bool HasUserSeasonTicket(int UserId);
+        public List<Payment> HasUserSeasonTicket(int UserId);
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 using Factory;
 using LogicLayer.Class;
 using LogicLayer.Services;
@@ -28,10 +29,7 @@ namespace DeckstopApp
             PopulateComboboxes();
             
         }
-        public void Checkbox()
-        {
-
-        }
+        
        
         public void RefreshStationList()
         {
@@ -48,7 +46,7 @@ namespace DeckstopApp
             LV_Ticket.Items.Clear();
             Station startingStation = CB_StartingStation.SelectedItem as Station;
             Station destinationStation = CB_DestinationStation.SelectedItem as Station;
-
+            
             FilterTicket(startingStation, destinationStation, null); // or
             FilterTicket(startingStation, destinationStation, (DateSearch.Value).ToString("yyyy-MM-dd"));
 
@@ -207,61 +205,151 @@ namespace DeckstopApp
 
         private void LV_Station_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (LV_Station.SelectedItems.Count > 0)
+            try
             {
-                List<Station> stationList = SS.GetAllStations().OfType<Station>().ToList();
+                if (LV_Station.SelectedItems.Count > 0)
+                {
+                    List<Station> stationList = SS.GetAllStations().OfType<Station>().ToList();
 
-                Station selectedStation = stationList.Find(station => station.Id == Convert.ToInt32(LV_Station.SelectedItems[0].Tag));
+                    Station selectedStation = stationList.Find(station => station.Id == Convert.ToInt32(LV_Station.SelectedItems[0].Tag));
 
-                //Station
-                stationId = Convert.ToInt32(LV_Station.SelectedItems[0].Tag);
-                TB_UpdateStation_Name.Text = selectedStation.Name;
-                TB_UpdateStation_Latitude.Value = (decimal)selectedStation.Latitude;
-                TB_UpdateStation_Longitude.Value = (decimal)selectedStation.Longitude;
+                    //Station
+                    stationId = Convert.ToInt32(LV_Station.SelectedItems[0].Tag);
+                    TB_UpdateStation_Name.Text = selectedStation.Name;
+                    TB_UpdateStation_Latitude.Value = (decimal)selectedStation.Latitude;
+                    TB_UpdateStation_Longitude.Value = (decimal)selectedStation.Longitude;
+                }
             }
+            catch
+            {
+                MessageBox.Show("There was a problem");
+            }
+            
 
         }
 
         private void btn_UpdateStation_update_Click(object sender, EventArgs e)
         {
-            string Name = TB_UpdateStation_Name.Text;
-            decimal Latitude = TB_UpdateStation_Latitude.Value;
-            decimal Longitude = TB_UpdateStation_Longitude.Value;
+            try
+            {
+                if (LV_Station.SelectedItems.Count > 0)
+                {
+                    if (TB_UpdateStation_Name.Text.Length > 0 && TB_UpdateStation_Latitude.Value > 0 && TB_UpdateStation_Longitude.Value > 0)
+                    {
+                        string Name = TB_UpdateStation_Name.Text;
+                        decimal Latitude = TB_UpdateStation_Latitude.Value;
+                        decimal Longitude = TB_UpdateStation_Longitude.Value;
 
-            SS.UpdateStation(stationId,Name, Latitude, Longitude);
-            RefreshStationList();
+                        SS.UpdateStation(stationId, Name, Latitude, Longitude);
+                        MessageBox.Show("You have updated a Station");
+                        RefreshStationList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("You haven't entered the fields correctly");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nothing was selected");
+                }
+                    
+                    
+            }
+            catch
+            {
+                MessageBox.Show("There was an error trying to update the Station");
+            }
+            
         }
 
         private void Add_Station_Click(object sender, EventArgs e)
         {
-            Station station = new Station(stationId, TB_AddStation_Name.Text, (double)TB_AddStation_Latitude.Value, (double)TB_AddStation_Longitude.Value);
-            SS.AddStation(station);
-            RefreshStationList();
+            try
+            {
+                if (TB_AddStation_Name.Text.Length > 0 && TB_AddStation_Latitude.Value > 0 && TB_AddStation_Longitude.Value > 0)
+                {
+                    Station station = new Station(stationId, TB_AddStation_Name.Text, (double)TB_AddStation_Latitude.Value, (double)TB_AddStation_Longitude.Value);
+                    SS.AddStation(station);
+                    MessageBox.Show("You have succesfully added a Station");
+                    RefreshStationList();
+                }
+                else
+                {
+                    MessageBox.Show("You haven't entered the fields correctly");
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("There was an unexpected error while adding a station");
+            }
         }
 
         private void btn_Remove_Station_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (LV_Station.SelectedItems.Count > 0)
+                {
+                    if (TB_UpdateStation_Name.Text.Length > 0 && TB_UpdateStation_Latitude.Value > 0 && TB_UpdateStation_Longitude.Value > 0)
+                    {
+                        Station station = new Station(stationId, TB_UpdateStation_Name.Text, (double)TB_UpdateStation_Latitude.Value, (double)TB_UpdateStation_Longitude.Value);
+                        TS.RemoveTicketByStation(station);
+                        SS.RemoveStation(stationId);
+                        RefreshStationList();
+                        MessageBox.Show("You have removed a Station");
+                        ClearTBStation();
+                    }
+                    else
+                    {
+                        MessageBox.Show("You haven't entered the fields correctly");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nothing was selected");
+                }
+                   
+                
+            }
+            catch
+            {
+                MessageBox.Show("You first have to remove the tickets where the station is involved");
+            }
             
-            SS.RemoveStation(stationId);
-            RefreshStationList();
-            ClearTBStation();
+           
         }
+
+
 
 
         //SeasonTickets
 
         private void btn_UpdateSeasonTicket_OpenFile_Click(object sender, EventArgs e)
         {
-            OpenFileDialog open = new OpenFileDialog();
-            if (open.ShowDialog() == DialogResult.OK)
+            try
             {
-                string fileName = open.FileName;
-                string relativePath = "\\" + Path.Combine("Images", "SeasonTickets", Path.GetFileName(fileName));
+                OpenFileDialog open = new OpenFileDialog();
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    string fileName = open.FileName;
+                    string relativePath = "\\" + Path.Combine("Images", "SeasonTickets", Path.GetFileName(fileName));
 
-                TB_UpdateSeasonTicket_Image.Text = relativePath;
+                    TB_UpdateSeasonTicket_Image.Text = relativePath;
 
-                // Save relativePath to your database
+                    // Save relativePath to your database
+                }
+                else
+                {
+                    MessageBox.Show("There was a problem");
+                }
             }
+            catch
+            {
+                MessageBox.Show("There was an error");
+            }
+            
         }
 
         private void btn_SeasonTicket_search_Click(object sender, EventArgs e)
@@ -295,20 +383,62 @@ namespace DeckstopApp
 
         private void btn_updateSeasonTicket_Click(object sender, EventArgs e)
         {
-            string Name = TB_UpdateSeasonTicket_Name.Text;
-            decimal Price = TB_UpdateSeasonTicket_Price.Value;
-            string Description = TB_UpdateSeasonTicket_Description.Text;
-            string Image = TB_UpdateSeasonTicket_Image.Text;
+            try
+            {
+                if (LV_SeasonTicket.SelectedItems.Count > 0)
+                {
+                    if (TB_UpdateSeasonTicket_Name.Text != null && TB_UpdateSeasonTicket_Price.Value > 0 && TB_UpdateSeasonTicket_Description.Text != null && TB_UpdateSeasonTicket_Image.Text != null)
+                    {
+                        string Name = TB_UpdateSeasonTicket_Name.Text;
+                        decimal Price = TB_UpdateSeasonTicket_Price.Value;
+                        string Description = TB_UpdateSeasonTicket_Description.Text;
+                        string Image = TB_UpdateSeasonTicket_Image.Text;
 
-            STS.UpdateSeasonTicket(seasonTicketID,Name,Price,Description,Image);
-            RefreshSeasonTicketList();
+                        STS.UpdateSeasonTicket(seasonTicketID, Name, Price, Description, Image);
+                        MessageBox.Show("You have updated a Season Ticket");
+                        RefreshSeasonTicketList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("You haven't put the correct fields");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nothing was selected");
+                }
+                   
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong");
+            }
+           
+            
         }
 
         private void btn_AddSeasonTicket_Click(object sender, EventArgs e)
         {
-            SeasonTickets seasonTicket = new SeasonTickets(seasonTicketID, TB_AddSeasonTicket_Name.Text, TB_AddSeasonTicket_Price.Value, TB_AddSeasonTicket_Description.Text, TB_AddSeasonTicket_Image.Text);
-            STS.AddSeasonTicket(seasonTicket);
-            RefreshSeasonTicketList();
+            try
+            {
+                if (TB_AddSeasonTicket_Name.Text != null && TB_AddSeasonTicket_Price.Value > 0 && TB_AddSeasonTicket_Description.Text != null && TB_AddSeasonTicket_Image.Text != null)
+                {
+                    SeasonTickets seasonTicket = new SeasonTickets(seasonTicketID, TB_AddSeasonTicket_Name.Text, TB_AddSeasonTicket_Price.Value, TB_AddSeasonTicket_Description.Text, TB_AddSeasonTicket_Image.Text);
+                    STS.AddSeasonTicket(seasonTicket);
+                    MessageBox.Show("You have added a Season Ticket");
+                    RefreshSeasonTicketList();
+                }
+                else
+                {
+                    MessageBox.Show("You haven't entered the fields correctly");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong");
+            }
+           
+            
         }
 
         private void btn_AddSeasonTicket_OpenFile_Click(object sender, EventArgs e)
@@ -327,11 +457,40 @@ namespace DeckstopApp
 
         private void btn_RemoveSeasonTicket_Click(object sender, EventArgs e)
         {
-            STS.RemoveSeasonTicket(seasonTicketID);
-            ClearTBSeasonTicket();
-            RefreshSeasonTicketList();
+            try
+            {
+                if (LV_SeasonTicket.SelectedItems.Count > 0)
+                {
+                    if (TB_UpdateSeasonTicket_Name.Text != null && TB_UpdateSeasonTicket_Price.Value > 0 && TB_UpdateSeasonTicket_Description.Text != null && TB_UpdateSeasonTicket_Image.Text != null)
+                    {
+                        STS.RemoveSeasonTicket(seasonTicketID);
+                        ClearTBSeasonTicket();
+                        MessageBox.Show("You have removed a season ticket");
+                        RefreshSeasonTicketList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("You didn't input the fields correctly");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nothing was selected");
+                }
+                    
+
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong");
+            }
+            
+                
 
         }
+
+
+
 
         //Tickets
         private void btn_Ticket_search_Click(object sender, EventArgs e)
@@ -371,27 +530,100 @@ namespace DeckstopApp
 
         private void btn_UpdateTicket_Click(object sender, EventArgs e)
         {
-            Station startingStation = CB_UpdateTicket_Starting.SelectedItem as Station;
-            Station destinationStation = CB_UpdateTicket_Ending.SelectedItem as Station;
-            string DepartureDate = TB_UpdateTicket_Date.Text;
-            string Time = TB_UpdateTicket_Time.Text;
-            TS.UpdateTicket(TicketId, startingStation, destinationStation, DepartureDate, Time);
-            RefreshTicketList();
+            try
+            {
+                if (LV_Ticket.SelectedItems.Count > 0)
+                {
+                    if (CB_UpdateTicket_Starting.Text != null && CB_UpdateTicket_Ending.Text != null)
+                    {
+                        if (CB_UpdateTicket_Starting.Text != CB_UpdateTicket_Ending.Text)
+                        {
+                            Station startingStation = CB_UpdateTicket_Starting.SelectedItem as Station;
+                            Station destinationStation = CB_UpdateTicket_Ending.SelectedItem as Station;
+                            string DepartureDate = TB_UpdateTicket_Date.Text;
+                            string Time = TB_UpdateTicket_Time.Text;
+                            TS.UpdateTicket(TicketId, startingStation, destinationStation, DepartureDate, Time);
+                            MessageBox.Show("You have succesfully updated a Ticket");
+                            RefreshTicketList();
+                        }
+                        else
+                        {
+                            MessageBox.Show("You can't have two same stations");
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("The fields weren't filled correctly");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nothing was selected");
+                }
+                    
+            }
+            catch
+            {
+                MessageBox.Show("There was an error");
+            }
+            
+            
         }
 
         private void btn_RemoveTicket_Click(object sender, EventArgs e)
         {
-            TS.RemoveTicket(TicketId);
-            RefreshTicketList();
+            try
+            {
+                if (LV_Ticket.SelectedItems.Count > 0)
+                {
+                    TS.RemoveTicket(TicketId);
+                    MessageBox.Show("You have removed a ticket");
+
+                    RefreshTicketList();
+                }
+                else
+                {
+                    MessageBox.Show("Nothing is selected");
+                }
+                    
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong");
+            }
+            
         }
 
         private void btn_AddTicket_Click(object sender, EventArgs e)
         {
-            Station startingStation = CB_AddTicket_Starting.SelectedItem as Station;
-            Station destinationStation = CB_AddTicket_Destination.SelectedItem as Station;
-            Ticket ticket = new Ticket(TicketId, startingStation, destinationStation, TB_AddTicket_Date.Text, TB_AddTicket_Time.Text);
-            TS.AddTicket(ticket);
-            RefreshTicketList();
+            try
+            {
+                if (CB_AddTicket_Starting.Text != null && CB_AddTicket_Destination.Text != null)
+                {
+                    if (CB_AddTicket_Starting.Text != CB_AddTicket_Destination.Text)
+                    {
+                        Station startingStation = CB_AddTicket_Starting.SelectedItem as Station;
+                        Station destinationStation = CB_AddTicket_Destination.SelectedItem as Station;
+                        Ticket ticket = new Ticket(TicketId, startingStation, destinationStation, TB_AddTicket_Date.Text, TB_AddTicket_Time.Text);
+                        TS.AddTicket(ticket);
+                        RefreshTicketList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("You can't have two same stations");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The fields are not correct");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong");
+            }
+            
         }
     }
 }

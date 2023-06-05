@@ -61,22 +61,46 @@ namespace DataLayer.DataTraffic
             string query = $"DELETE FROM Ticket WHERE Id = {Id}";
             return executeQuery(query) == 0 ? false : true;
         }
-
-        public List<Ticket> GetFilteredTickets(Station startingStation, Station endingStation, string departureDate)
+        public bool RemoveTicketByStation(Station station)
         {
-            List<Ticket> filteredTickets = new List<Ticket>();
-            DataTable table = base.ReadData(cmd);
+            string query = $"DELETE FROM Ticket WHERE StartingStationId = {station.Id} or DestinationStationId={station.Id}";
+            return executeQuery(query) == 0 ? false : true;
+        }
+        public List<Payment> HasUserSeasonTicket(int UserId)
+        {
+            List<Payment> payments = new List<Payment>();
+            string query = $"SELECT p.Id, p.Price, p.UserId, p.ProductName FROM Payment p WHERE (p.ProductName='Month Ticket' OR p.ProductName='Gold Ticket' OR p.ProductName='Premium Ticket' OR p.ProductName='Child Ticket' OR p.ProductName='Young Ticket') AND p.UserId ={UserId} ;";
+            DataTable table = base.ReadData(query);
             foreach (DataRow dr in table.Rows)
             {
-                Ticket ticket = DataConvertingTicket.ConvertRowToTickets(dr);
-               
-                    if (ticket.StartingStation == startingStation &&
-                        ticket.DestinationStation == endingStation &&
-                        ticket.DepartureDate == departureDate )
-                    {
-                        filteredTickets.Add(ticket);
-                    }             
+                payments.Add(DataConvertingPayment.ConvertRowToPayment(dr));
             }
+
+            return payments;
+        }
+        public List<Ticket> GetFilteredTickets(Station startingStation, Station endingStation, string departureDate,string?Time)
+        {
+            List<Ticket> filteredTickets = new List<Ticket>();
+            if (Time != null)
+            {
+                string query = $"SELECT t.Id, t.DepartureDate, t.Time, t.StartingStationId AS startingId, s1.StationName AS StartingStation, t.DestinationStationId AS destinationId, s2.StationName AS DestinationStation \r\nFROM Ticket t INNER JOIN Station s1 \r\n\tON t.StartingStationId = s1.StationID \r\n\t\tINNER JOIN Station s2\r\n\t\tON t.DestinationStationId = s2.StationID\r\nWHERE t.StartingStationId={startingStation.Id} and t.DestinationStationId={endingStation.Id} and DepartureDate='{departureDate}' and t.Time = '{Time}';";
+                DataTable table = base.ReadData(query);
+                foreach (DataRow dr in table.Rows)
+                {
+                    filteredTickets.Add(DataConvertingTicket.ConvertRowToTickets(dr));
+                }
+            }
+            else
+            {
+                string query = $"SELECT t.Id, t.DepartureDate, t.Time, t.StartingStationId AS startingId, s1.StationName AS StartingStation, t.DestinationStationId AS destinationId, s2.StationName AS DestinationStation \r\nFROM Ticket t INNER JOIN Station s1 \r\n\tON t.StartingStationId = s1.StationID \r\n\t\tINNER JOIN Station s2\r\n\t\tON t.DestinationStationId = s2.StationID\r\nWHERE t.StartingStationId={startingStation.Id} and t.DestinationStationId={endingStation.Id} and DepartureDate='{departureDate}';";
+                DataTable table = base.ReadData(query);
+                foreach (DataRow dr in table.Rows)
+                {
+                    filteredTickets.Add(DataConvertingTicket.ConvertRowToTickets(dr));
+                }
+            }
+           
+            
             return filteredTickets;
         }
 

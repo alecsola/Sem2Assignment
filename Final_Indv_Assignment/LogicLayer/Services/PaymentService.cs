@@ -30,13 +30,9 @@ namespace LogicLayer.Services
         {
             return paymentDataTraffic.GetPaymentById(id);
         }
-        public bool CheckIfUserProduct(int UserId)
+        public List<Payment>CheckIfUserProduct(int UserId)
         {
-            if (paymentDataTraffic.HasUserSeasonTicket(UserId) ==true) 
-            {
-                return true;
-            }
-            return false;
+            return paymentDataTraffic.HasUserSeasonTicket(UserId);
             
         }
 
