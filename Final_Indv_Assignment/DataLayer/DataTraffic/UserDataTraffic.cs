@@ -13,10 +13,10 @@ namespace DataLayer.DataTraffic
         {
             get
             {
-                return "select u.UserId,u.Adress, u.DateOfBirth , u.Email, u.FirstName, u.LastName,u.Salt, u.HashedPassword, u.PhoneNumber, u.Username from Users u ";
+                return "select u.UserId,u.Adress, u.DateOfBirth , u.Email, u.FirstName, u.LastName,u.Salt, u.HashedPassword, u.PhoneNumber, u.Username,u.RoleId from Users u";
             }
         }
-        public List<User> GetAll()
+        public List<User> GetAllCostumers()
         {
             List<User> Users = new List<User>();
             DataTable table = base.ReadData(cmd);
@@ -36,6 +36,17 @@ namespace DataLayer.DataTraffic
                 $"VALUES ('{user.FirstName}', '{user.LastName}', '{user.Username}','{user.Salt}','{user.HashedPassword}', '{user.Email}', '{user.Adress}', '{user.BirthDate}' , {user.PhoneNumber} );";
             return executeQuery(query) == 0 ? false : true;
 
+        }
+        public List<User> GetEmployees()
+        {
+            List<User> Users = new List<User>();
+            string query = "select u.UserId,u.Adress, u.DateOfBirth , u.Email, u.FirstName, u.LastName,u.Salt, u.HashedPassword, u.PhoneNumber, u.Username,u.RoleId from Users u Where u.RoleId=1\r\n";
+            DataTable table = base.ReadData(query);
+            foreach (DataRow dr in table.Rows)
+            {
+                Users.Add(DataConvertingUser.ConvertRowToUser(dr));
+            }
+            return Users;
         }
 
         

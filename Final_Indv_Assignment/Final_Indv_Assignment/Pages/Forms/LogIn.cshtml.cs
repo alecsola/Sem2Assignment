@@ -32,7 +32,7 @@ namespace Final_Indv_Assignment.Pages.Shared
         
         public async Task<IActionResult> OnPostAsync()
         {
-            User loggedInUser = (LS.ValidateUserCredentials(Username, Password));
+            User loggedInUser = (LS.ValidateUserCredentials(Username, Password,"2"));
 
             if(ModelState.IsValid && loggedInUser != null)
             {

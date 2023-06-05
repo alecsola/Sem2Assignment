@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.MainMenu = new System.Windows.Forms.TabPage();
+            this.btn_TicketManagment = new System.Windows.Forms.Button();
             this.btn_Welcome_SeasonTicketManagment = new System.Windows.Forms.Button();
             this.btn_Welcome_StationManagment = new System.Windows.Forms.Button();
             this.lb_welcome = new System.Windows.Forms.Label();
@@ -105,7 +106,7 @@
             this.label27 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Ticket = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -145,6 +146,10 @@
             this.Time = new System.Windows.Forms.ColumnHeader();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
+            this.btn_logout1 = new System.Windows.Forms.Button();
+            this.btn_logout2 = new System.Windows.Forms.Button();
+            this.btn_logout3 = new System.Windows.Forms.Button();
+            this.bt_logout4 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.MainMenu.SuspendLayout();
             this.StationManagment.SuspendLayout();
@@ -161,7 +166,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TB_AddSeasonTicket_Price)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TB_UpdateSeasonTicket_Price)).BeginInit();
-            this.tabPage1.SuspendLayout();
+            this.Ticket.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox6.SuspendLayout();
@@ -172,7 +177,7 @@
             this.tabControl1.Controls.Add(this.MainMenu);
             this.tabControl1.Controls.Add(this.StationManagment);
             this.tabControl1.Controls.Add(this.SeasonTicketManagment);
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.Ticket);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -182,6 +187,8 @@
             // MainMenu
             // 
             this.MainMenu.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.MainMenu.Controls.Add(this.btn_logout1);
+            this.MainMenu.Controls.Add(this.btn_TicketManagment);
             this.MainMenu.Controls.Add(this.btn_Welcome_SeasonTicketManagment);
             this.MainMenu.Controls.Add(this.btn_Welcome_StationManagment);
             this.MainMenu.Controls.Add(this.lb_welcome);
@@ -193,6 +200,19 @@
             this.MainMenu.Size = new System.Drawing.Size(1842, 883);
             this.MainMenu.TabIndex = 0;
             this.MainMenu.Text = "Main Menu";
+            // 
+            // btn_TicketManagment
+            // 
+            this.btn_TicketManagment.BackColor = System.Drawing.Color.Red;
+            this.btn_TicketManagment.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_TicketManagment.ForeColor = System.Drawing.Color.White;
+            this.btn_TicketManagment.Location = new System.Drawing.Point(824, 656);
+            this.btn_TicketManagment.Name = "btn_TicketManagment";
+            this.btn_TicketManagment.Size = new System.Drawing.Size(502, 75);
+            this.btn_TicketManagment.TabIndex = 7;
+            this.btn_TicketManagment.Text = "Ticket Managment";
+            this.btn_TicketManagment.UseVisualStyleBackColor = false;
+            this.btn_TicketManagment.Click += new System.EventHandler(this.btn_TicketManagment_Click);
             // 
             // btn_Welcome_SeasonTicketManagment
             // 
@@ -256,6 +276,7 @@
             // StationManagment
             // 
             this.StationManagment.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.StationManagment.Controls.Add(this.btn_logout2);
             this.StationManagment.Controls.Add(this.label17);
             this.StationManagment.Controls.Add(this.btn_Station_search);
             this.StationManagment.Controls.Add(this.label16);
@@ -623,6 +644,7 @@
             // SeasonTicketManagment
             // 
             this.SeasonTicketManagment.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.SeasonTicketManagment.Controls.Add(this.btn_logout3);
             this.SeasonTicketManagment.Controls.Add(this.pictureBox2);
             this.SeasonTicketManagment.Controls.Add(this.groupBox4);
             this.SeasonTicketManagment.Controls.Add(this.label18);
@@ -1032,31 +1054,32 @@
             this.label10.TabIndex = 4;
             this.label10.Text = "Ease";
             // 
-            // tabPage1
+            // Ticket
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.tabPage1.Controls.Add(this.groupBox5);
-            this.tabPage1.Controls.Add(this.CheckBox);
-            this.tabPage1.Controls.Add(this.label41);
-            this.tabPage1.Controls.Add(this.DateSearch);
-            this.tabPage1.Controls.Add(this.label42);
-            this.tabPage1.Controls.Add(this.label43);
-            this.tabPage1.Controls.Add(this.CB_DestinationStation);
-            this.tabPage1.Controls.Add(this.CB_StartingStation);
-            this.tabPage1.Controls.Add(this.btn_Ticket_search);
-            this.tabPage1.Controls.Add(this.pictureBox3);
-            this.tabPage1.Controls.Add(this.label35);
-            this.tabPage1.Controls.Add(this.groupBox6);
-            this.tabPage1.Controls.Add(this.label40);
-            this.tabPage1.Controls.Add(this.LV_Ticket);
-            this.tabPage1.Controls.Add(this.label29);
-            this.tabPage1.Controls.Add(this.label30);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1842, 883);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "Ticket";
+            this.Ticket.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.Ticket.Controls.Add(this.bt_logout4);
+            this.Ticket.Controls.Add(this.groupBox5);
+            this.Ticket.Controls.Add(this.CheckBox);
+            this.Ticket.Controls.Add(this.label41);
+            this.Ticket.Controls.Add(this.DateSearch);
+            this.Ticket.Controls.Add(this.label42);
+            this.Ticket.Controls.Add(this.label43);
+            this.Ticket.Controls.Add(this.CB_DestinationStation);
+            this.Ticket.Controls.Add(this.CB_StartingStation);
+            this.Ticket.Controls.Add(this.btn_Ticket_search);
+            this.Ticket.Controls.Add(this.pictureBox3);
+            this.Ticket.Controls.Add(this.label35);
+            this.Ticket.Controls.Add(this.groupBox6);
+            this.Ticket.Controls.Add(this.label40);
+            this.Ticket.Controls.Add(this.LV_Ticket);
+            this.Ticket.Controls.Add(this.label29);
+            this.Ticket.Controls.Add(this.label30);
+            this.Ticket.Location = new System.Drawing.Point(4, 29);
+            this.Ticket.Name = "Ticket";
+            this.Ticket.Padding = new System.Windows.Forms.Padding(3);
+            this.Ticket.Size = new System.Drawing.Size(1842, 883);
+            this.Ticket.TabIndex = 3;
+            this.Ticket.Text = "Ticket";
             // 
             // groupBox5
             // 
@@ -1456,6 +1479,58 @@
             this.label30.TabIndex = 6;
             this.label30.Text = "Ease";
             // 
+            // btn_logout1
+            // 
+            this.btn_logout1.BackColor = System.Drawing.Color.Red;
+            this.btn_logout1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_logout1.ForeColor = System.Drawing.Color.White;
+            this.btn_logout1.Location = new System.Drawing.Point(1719, 6);
+            this.btn_logout1.Name = "btn_logout1";
+            this.btn_logout1.Size = new System.Drawing.Size(117, 44);
+            this.btn_logout1.TabIndex = 8;
+            this.btn_logout1.Text = "Logout";
+            this.btn_logout1.UseVisualStyleBackColor = false;
+            this.btn_logout1.Click += new System.EventHandler(this.btn_logout1_Click);
+            // 
+            // btn_logout2
+            // 
+            this.btn_logout2.BackColor = System.Drawing.Color.Red;
+            this.btn_logout2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_logout2.ForeColor = System.Drawing.Color.White;
+            this.btn_logout2.Location = new System.Drawing.Point(1725, 0);
+            this.btn_logout2.Name = "btn_logout2";
+            this.btn_logout2.Size = new System.Drawing.Size(117, 44);
+            this.btn_logout2.TabIndex = 21;
+            this.btn_logout2.Text = "Logout";
+            this.btn_logout2.UseVisualStyleBackColor = false;
+            this.btn_logout2.Click += new System.EventHandler(this.btn_logout2_Click);
+            // 
+            // btn_logout3
+            // 
+            this.btn_logout3.BackColor = System.Drawing.Color.Red;
+            this.btn_logout3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_logout3.ForeColor = System.Drawing.Color.White;
+            this.btn_logout3.Location = new System.Drawing.Point(1722, 3);
+            this.btn_logout3.Name = "btn_logout3";
+            this.btn_logout3.Size = new System.Drawing.Size(117, 44);
+            this.btn_logout3.TabIndex = 30;
+            this.btn_logout3.Text = "Logout";
+            this.btn_logout3.UseVisualStyleBackColor = false;
+            this.btn_logout3.Click += new System.EventHandler(this.btn_logout3_Click);
+            // 
+            // bt_logout4
+            // 
+            this.bt_logout4.BackColor = System.Drawing.Color.Red;
+            this.bt_logout4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.bt_logout4.ForeColor = System.Drawing.Color.White;
+            this.bt_logout4.Location = new System.Drawing.Point(1722, 0);
+            this.bt_logout4.Name = "bt_logout4";
+            this.bt_logout4.Size = new System.Drawing.Size(117, 44);
+            this.bt_logout4.TabIndex = 51;
+            this.bt_logout4.Text = "Logout";
+            this.bt_logout4.UseVisualStyleBackColor = false;
+            this.bt_logout4.Click += new System.EventHandler(this.bt_logout4_Click);
+            // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1465,6 +1540,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Employee";
             this.Text = "AddStation";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabControl1.ResumeLayout(false);
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
@@ -1488,8 +1564,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TB_UpdateSeasonTicket_Price)).EndInit();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.Ticket.ResumeLayout(false);
+            this.Ticket.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -1577,7 +1653,7 @@
         private ColumnHeader Longitude;
         private Button btn_Remove_Station;
         private Button btn_RemoveSeasonTicket;
-        private TabPage tabPage1;
+        private TabPage Ticket;
         private Button btn_Ticket_search;
         private PictureBox pictureBox3;
         private Label label35;
@@ -1617,5 +1693,10 @@
         private ComboBox CB_AddTicket_Destination;
         private ComboBox CB_AddTicket_Starting;
         private Button btn_AddTicket;
+        private Button btn_TicketManagment;
+        private Button btn_logout1;
+        private Button btn_logout2;
+        private Button btn_logout3;
+        private Button bt_logout4;
     }
 }

@@ -26,24 +26,15 @@ namespace DataLayer.DataConvertingToObject
 
             string PhoneNumber = (string)row["PhoneNumber"];
             string BirthDate = ((DateTime)row["DateOfBirth"]).ToString("yyyy-MM-dd");
-            
+            string roleId = ((int)row["RoleId"]).ToString();
             
             string Adress = (string)row["Adress"];
             // roles.JobId = (int)row["JobId"];
-            User user = new User(Id, FirstName,LastName,Username,Salt,HashedPassword,Email,PhoneNumber,BirthDate,Adress);
+            User user = new User(Id, FirstName,LastName,Username,Salt,HashedPassword,Email,PhoneNumber,BirthDate,Adress,roleId);
 
             return user;
         }
 
-        public static List<User> ConvertTableToList(DataTable table)
-        {
-            List<User> userList = new List<User>();
-            foreach (DataRow row in table.Rows)
-            {
-                User user = ConvertRowToUser(row);
-                userList.Add(user);
-            }
-            return userList;
-        }
+       
     }
 }

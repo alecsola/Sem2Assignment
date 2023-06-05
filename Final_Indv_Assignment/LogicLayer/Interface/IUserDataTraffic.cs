@@ -5,7 +5,9 @@ namespace LogicLayer.Interface
     public interface IUserDataTraffic
     {
         bool AddUser(User user);
-        List<User> GetAll();
-        
+        List<User> GetAllCostumers();
+        List<User> GetEmployees();
+
+
     }
 }

@@ -20,14 +20,16 @@ namespace DeckstopApp
         SeasonTicketsService STS = FactoryService.createseasonTickets();
         StationService SS = FactoryService.createStation();
         TicketService TS = FactoryService.createTicket();
+        
         public int stationId { get; set; }
         public int seasonTicketID { get; set; }
         public int TicketId { get; set; }
-        public Employee()
+        public Employee(User loggedInUser)
         {
             InitializeComponent();
             PopulateComboboxes();
-            
+            lb_welcome.Text = $"Welcome {loggedInUser.FirstName} {loggedInUser.LastName}";
+
         }
         
        
@@ -185,6 +187,10 @@ namespace DeckstopApp
         private void btn_Welcome_SeasonTicketManagment_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = SeasonTicketManagment;
+        }
+        private void btn_TicketManagment_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = Ticket;
         }
 
 
@@ -624,6 +630,29 @@ namespace DeckstopApp
                 MessageBox.Show("Something went wrong");
             }
             
+        }
+
+
+        //LOGOUT
+
+        private void btn_logout1_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void btn_logout2_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void btn_logout3_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void bt_logout4_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }

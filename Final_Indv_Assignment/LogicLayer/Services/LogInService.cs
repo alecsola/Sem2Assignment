@@ -24,55 +24,64 @@ namespace LogicLayer.Services
             this.userDataTraffic = userDataTraffic
              ?? throw new ArgumentNullException(nameof(userDataTraffic));
         }
-        public List<User> GetAllUsers()
+        public List<User> GetAllCostumers()
         {
-            return userDataTraffic.GetAll();
+            return userDataTraffic.GetAllCostumers();
         }
         public bool AddUser(User user)
         {
             return userDataTraffic.AddUser(user);
         }
-        public User? ValidateUserCredentials(string username, string password)
+
+        public User ValidateUserCredentials(string username, string password, string roleId)
         {
+            List<User> users;
 
-            List<User> users = new List<User>();
-            
-            users.AddRange(userDataTraffic.GetAll());
-            User? matchedUser = null;
-
-            foreach (User user in users)
+            if (roleId != null)
             {
-                if (user.Username == username)
-                {
-                    // Hash the provided password using the salt stored in the user object
-
-                    string hashedPassword = CreateHash(user.Salt, password);
-                    // Compare the hashed password with the one stored in the user object
-                    if (hashedPassword == user.HashedPassword)
-                    {
-                       //matchedUser = new User(user.FirstName, user.LastName, user.Username, user.Salt, user.HashedPassword, user.Email, user.PhoneNumber, user.BirthDate, user.Adress);
-                        return user;
-                    }
-                }
+                users = userDataTraffic.GetAllCostumers();
             }
+            else
+            {
+                users = userDataTraffic.GetEmployees();
+            }
+                
+
+            User user = users.FirstOrDefault(u => u.Username == username);
+
+            if (user != null && CreateHash(user.Salt, password) == user.HashedPassword)
+            {
+                return user;
+            }
+               
+
             return null;
         }
-        public bool RegisterUser(int Id,string FirstName, string LastName, string Username, string Password, string Email, string PhoneNumber, string BirthDate, string Adress)
+
+        public bool RegisterUser(int id, string firstName, string lastName, string username, string password, string email, string phoneNumber, string birthDate, string address, string roleId)
         {
+            List<User> users;
 
-            (string salt, string hashedPassword) = CreateSaltAndHash(Password);
-            User user = new User(Id,FirstName, LastName, Username,salt, hashedPassword, Email, PhoneNumber, BirthDate, Adress);
-                // Check if the user already exists in the data source
-                if (userDataTraffic.GetAll().Any(u => u.Username == Username))
-                {
-                    return false; // User already exists, return false
-                }
+            if (roleId == null)
+            {
+                users = userDataTraffic.GetAllCostumers();
+            }
+            else
+            {
+                users = userDataTraffic.GetEmployees();
+            }
+               
 
-                // Add the user to the data source
-                return AddUser(user);
-            
+            if (users.Any(u => u.Username == username))
+            {
+                return false;
+            }
+            (string salt, string hashedPassword) = CreateSaltAndHash(password);
+            User user = new User(id, firstName, lastName, username, salt, hashedPassword, email, phoneNumber, birthDate, address, roleId);
+
+            // Add the user to the data source
+            return AddUser(user);
         }
-
         public static (string Salt, string HashedPassword) CreateSaltAndHash(string password)
         {
             byte[] salt_bytes = RandomNumberGenerator.GetBytes(keySize);

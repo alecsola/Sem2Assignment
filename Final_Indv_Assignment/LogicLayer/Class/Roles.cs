@@ -6,20 +6,15 @@ using System.Threading.Tasks;
 
 namespace LogicLayer.Class
 {
-	//public class Roles :User
+	//public class Roles : User
 	//{
-		//public int JobId { get; set; }
-		//public string JobName { get; set; }
+	//	public int JobId { get; set; }
+	//	public string JobName { get; set; }
 
-		//public Roles(int jobId, string jobName, string username, string password, string firstName, string lastName, string email, DateTime birthDate, string adress, int phoneNumber) : base(username, password, firstName, lastName, email, birthDate, adress, phoneNumber)
-		//{
-		//	JobId = jobId;
-		//	JobName = jobName;
-		//}
-		//public Roles()
-		//{
-		//	JobId = 0;
-		//	JobName = "";
-		//}
+	//	public Roles(int jobId, string jobName, int id, string username, string password, string salt, string firstName, string lastName, string email, string birthDate, string adress, string phoneNumber) : base(id, firstName, lastName, username, salt, password, email, phoneNumber, adress, birthDate,)
+	//	{
+	//		JobId = jobId;
+	//		JobName = jobName;
+	//	}
 	//}
 }

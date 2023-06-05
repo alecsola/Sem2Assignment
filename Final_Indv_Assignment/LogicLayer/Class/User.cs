@@ -13,6 +13,7 @@
         public string Adress { get; private set; }
         public string PhoneNumber { get; private set; }
         public string BirthDate { get; private set; }
+        public string RoleId { get; private set; }  
    
 
 
@@ -28,7 +29,7 @@
         //    PhoneNumber = phoneNumber;
 
         //}
-        public User(int id,string firstName, string lastName, string username,string salt,string hashedPassword, string email, string phoneNumber, string birthDate, string adress)
+        public User(int id,string firstName, string lastName, string username,string salt,string hashedPassword, string email, string phoneNumber, string birthDate, string adress,string? roleId)
         {
             Id = id;
             Username = username;
@@ -40,6 +41,7 @@
             BirthDate = birthDate;
             Adress = adress;
             PhoneNumber = phoneNumber;
+            RoleId = roleId;
           
         }
 
