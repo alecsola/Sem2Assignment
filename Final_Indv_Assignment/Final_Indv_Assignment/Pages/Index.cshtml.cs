@@ -16,8 +16,7 @@ namespace Final_Indv_Assignment.Pages
     public class IndexModel : PageModel
     {
         public User user;
-        private readonly LogInService _loginService;
-        private readonly StationService _stationService;
+        
         LogInService LS = FactoryService.createlogInUser();
         StationService SS = FactoryService.createStation();
         TicketService TS = FactoryService.createTicket();
@@ -61,7 +60,7 @@ namespace Final_Indv_Assignment.Pages
             //if(HttpContext.Session.Get("user_name") != null)
             //{
             //    Username = HttpContext.Session.GetString("user_name")!;
-            //}
+            //}56
             
             if (TempData.TryGetValue("SerializedUser", out var serializedUser) && serializedUser is string cartJson)
             {
@@ -99,7 +98,7 @@ namespace Final_Indv_Assignment.Pages
                 // define Tickets here
                 Tickets = new List<Ticket>();
 
-                if (startingStation != null && endingStation != null)
+                if (startingStation != null && endingStation != null && departureDate !=null)
                 {
                     if (startingStation.Name != endingStation.Name)
                     {
@@ -115,7 +114,8 @@ namespace Final_Indv_Assignment.Pages
                     }
                     else
                     {
-                        ModelState.AddModelError("", "You can't choose two same stations.");
+                        ModelState.Clear();
+                        ModelState.AddModelError("Error", "You can't choose two same stations.");
                         SaveTickets();
                         return Page();
                     }
@@ -123,15 +123,27 @@ namespace Final_Indv_Assignment.Pages
                 }
                 else
                 {
+                    ModelState.Clear();
+                    ModelState.AddModelError("Error", "You haven't chosen the fields correctly");
                     return Page();
                 }
 
                
-
-                return RedirectToPage("/Forms/Ticket");
+                if(Tickets.Count > 0)
+                {
+                    return RedirectToPage("/Forms/Ticket");
+                }
+                else
+                {
+                    ModelState.Clear();
+                    ModelState.AddModelError("", "No tickets found.");
+                    return Page();
+                }
+                
             }
             catch
             {
+                ModelState.Clear();
                 ModelState.AddModelError("", "Something went wrong");
                 return Page();
             }
@@ -143,6 +155,8 @@ namespace Final_Indv_Assignment.Pages
         {
             var serializedTickets = JsonConvert.SerializeObject(Tickets);
             TempData["SerializedTickets"] = serializedTickets;
+            
+
         }
     }
 }

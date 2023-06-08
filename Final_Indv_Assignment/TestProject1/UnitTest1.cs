@@ -11,7 +11,7 @@ namespace TestProject1
     public class SeasonTicketServiceTest
     {
 
-        
+
 
         [TestMethod]
         public void TestGetAllSeasonTickets()
@@ -33,47 +33,39 @@ namespace TestProject1
             // Assert
             Assert.AreEqual(expectedTickets, result);
         }
-    }
-    [TestClass]
-    public class StationDistancePriceTest
-    {
-
-        
-
         [TestMethod]
-        public List<Ticket> GetAllTicketsByDepartureDate(Station startingStation, Station destinationStation, string departureDate, string? time)
+        public void CalculateDistance()
         {
             // Arrange
-            var mockDataTraffic = new Mock<ITicketDataTraffic>();
-            var expectedTickets = new List<Ticket>();
-            startingStation = new Station(1, "Amsterdam", 12345.77, 12345.77);
-
-            startingStation = new Station(2, "Den Haag", 12342.55, 54321.88);
-           
-            List<Ticket> filteredTickets = new List<Ticket>();
-            {
-                new Ticket(1, startingStation, destinationStation, "2023-05-06", "11:00");
-            };
-            mockDataTraffic.Setup(x => x.GetAllTickets()).Returns(expectedTickets);
-            var logic = new TicketService(mockDataTraffic.Object);
-            foreach (Ticket ticket in logic.GetAllTickets())
-            {
-                if (ticket.StartingStation.Name == startingStation.Name
-                                  && ticket.DestinationStation.Name == destinationStation.Name
-                                  && ticket.DepartureDate == departureDate
-                                  && (time == null || ticket.Time == time))
-                {
-                    filteredTickets.Add(ticket);
-                }
-            }
-            return filteredTickets;
-            
+            Station station1 = new Station(1, "Station A", 0, 0);
+            Station station2 = new Station(2, "Station B", 0.1, 0.1);
 
             // Act
-            var result = logic.GetAllTickets;
+            double distance = station1.CalculateDistance(station2);
 
             // Assert
-            Assert.AreEqual(expectedTickets, result);
+            double expectedDistance = 15.73; 
+            double delta = 1.0; // Adjust the delta value as needed
+            Assert.AreEqual(expectedDistance, distance, delta);
         }
+        [TestMethod]
+        public void CalculatePrice()
+        {
+            // Arrange
+            Station startingStation = new Station(1, "Station A", 0, 0);
+            Station destinationStation = new Station(2, "Station B", 0.1, 0.1);
+            Ticket ticket = new Ticket(1, startingStation, destinationStation, "2023-06-06", "12:00");
+
+            // Act
+            decimal price = ticket.CalculatePrice();
+            decimal distanceInKm = (decimal)ticket.Distance;
+            decimal expectedPrice = 2.50m + (distanceInKm * 0.30m);
+            expectedPrice = Math.Round(expectedPrice, 2);
+            // Assert
+            Assert.AreEqual(expectedPrice, price);
+        }
+       
+
     }
 }
+

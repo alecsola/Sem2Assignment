@@ -20,15 +20,25 @@
 				<label asp-for="Password" class="form-label">Password </label>
 				<span class="text-danger" asp-validation-for="Password"> </span>
 				<input type="password" asp-for="Password" class="form-control"required value="" >
-			
-			
-				<div class="separator"></div>
-				<input type="submit" name="" value="Sign Up" formaction="/Forms/Registration" />
 
-				<input type="submit" name="login" value="Login" />
-				<a asp-area="" asp-page="/Forms/Registration">Sign Up</a>
-				<a href="#">Lost your password?</a><br>
-				<a href="#">Don't have an account?</a>
+
+			<div class="separator"></div>
+			
+			<div class="buttons">
+				<form method="post" asp-page-handler="LogIn">
+					<button class="login" type="submit">Log In</button>
+				</form>
+				<form method="post" asp-page-handler="SignUp">
+					<button class="SignUp" type="submit">Sign Up</button>
+				</form>
+
+			</div>
+			@if (!ModelState.IsValid)
+			{
+			<div class="error-message">
+				@Html.ValidationSummary()
+			</div>
+			}
 			</form>
 		</div>
 	</div>

@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.MainMenu = new System.Windows.Forms.TabPage();
+            this.btn_RegisterEmployee = new System.Windows.Forms.Button();
+            this.btn_logout1 = new System.Windows.Forms.Button();
             this.btn_TicketManagment = new System.Windows.Forms.Button();
             this.btn_Welcome_SeasonTicketManagment = new System.Windows.Forms.Button();
             this.btn_Welcome_StationManagment = new System.Windows.Forms.Button();
@@ -38,6 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.StationManagment = new System.Windows.Forms.TabPage();
+            this.btn_logout2 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.btn_Station_search = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
@@ -69,6 +72,7 @@
             this.TB_AddStation_Latitude = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.SeasonTicketManagment = new System.Windows.Forms.TabPage();
+            this.btn_logout3 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btn_AddSeasonTicket_OpenFile = new System.Windows.Forms.Button();
@@ -107,6 +111,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.Ticket = new System.Windows.Forms.TabPage();
+            this.label54 = new System.Windows.Forms.Label();
+            this.bt_logout4 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -146,10 +152,30 @@
             this.Time = new System.Windows.Forms.ColumnHeader();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.btn_logout1 = new System.Windows.Forms.Button();
-            this.btn_logout2 = new System.Windows.Forms.Button();
-            this.btn_logout3 = new System.Windows.Forms.Button();
-            this.bt_logout4 = new System.Windows.Forms.Button();
+            this.Register = new System.Windows.Forms.TabPage();
+            this.label55 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.btn_Register = new System.Windows.Forms.Button();
+            this.label53 = new System.Windows.Forms.Label();
+            this.TB_Register_BirthDate = new System.Windows.Forms.DateTimePicker();
+            this.label52 = new System.Windows.Forms.Label();
+            this.TB_Register_PhoneNumber = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.TB_Register_Email = new System.Windows.Forms.TextBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.TB_Register_Adress = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.TB_Register_LastName = new System.Windows.Forms.TextBox();
+            this.TB_Register_FirstName = new System.Windows.Forms.TextBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.TB_Register_Password = new System.Windows.Forms.TextBox();
+            this.TB_Register_Username = new System.Windows.Forms.TextBox();
+            this.btn_logout5 = new System.Windows.Forms.Button();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.MainMenu.SuspendLayout();
             this.StationManagment.SuspendLayout();
@@ -170,6 +196,9 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox6.SuspendLayout();
+            this.Register.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -178,6 +207,7 @@
             this.tabControl1.Controls.Add(this.StationManagment);
             this.tabControl1.Controls.Add(this.SeasonTicketManagment);
             this.tabControl1.Controls.Add(this.Ticket);
+            this.tabControl1.Controls.Add(this.Register);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -187,6 +217,7 @@
             // MainMenu
             // 
             this.MainMenu.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.MainMenu.Controls.Add(this.btn_RegisterEmployee);
             this.MainMenu.Controls.Add(this.btn_logout1);
             this.MainMenu.Controls.Add(this.btn_TicketManagment);
             this.MainMenu.Controls.Add(this.btn_Welcome_SeasonTicketManagment);
@@ -201,12 +232,38 @@
             this.MainMenu.TabIndex = 0;
             this.MainMenu.Text = "Main Menu";
             // 
+            // btn_RegisterEmployee
+            // 
+            this.btn_RegisterEmployee.BackColor = System.Drawing.Color.Red;
+            this.btn_RegisterEmployee.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_RegisterEmployee.ForeColor = System.Drawing.Color.White;
+            this.btn_RegisterEmployee.Location = new System.Drawing.Point(819, 674);
+            this.btn_RegisterEmployee.Name = "btn_RegisterEmployee";
+            this.btn_RegisterEmployee.Size = new System.Drawing.Size(502, 75);
+            this.btn_RegisterEmployee.TabIndex = 9;
+            this.btn_RegisterEmployee.Text = "Register Employee";
+            this.btn_RegisterEmployee.UseVisualStyleBackColor = false;
+            this.btn_RegisterEmployee.Click += new System.EventHandler(this.btn_RegisterEmployee_Click);
+            // 
+            // btn_logout1
+            // 
+            this.btn_logout1.BackColor = System.Drawing.Color.Red;
+            this.btn_logout1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_logout1.ForeColor = System.Drawing.Color.White;
+            this.btn_logout1.Location = new System.Drawing.Point(1719, 6);
+            this.btn_logout1.Name = "btn_logout1";
+            this.btn_logout1.Size = new System.Drawing.Size(117, 44);
+            this.btn_logout1.TabIndex = 8;
+            this.btn_logout1.Text = "Logout";
+            this.btn_logout1.UseVisualStyleBackColor = false;
+            this.btn_logout1.Click += new System.EventHandler(this.btn_logout1_Click);
+            // 
             // btn_TicketManagment
             // 
             this.btn_TicketManagment.BackColor = System.Drawing.Color.Red;
             this.btn_TicketManagment.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_TicketManagment.ForeColor = System.Drawing.Color.White;
-            this.btn_TicketManagment.Location = new System.Drawing.Point(824, 656);
+            this.btn_TicketManagment.Location = new System.Drawing.Point(819, 554);
             this.btn_TicketManagment.Name = "btn_TicketManagment";
             this.btn_TicketManagment.Size = new System.Drawing.Size(502, 75);
             this.btn_TicketManagment.TabIndex = 7;
@@ -219,7 +276,7 @@
             this.btn_Welcome_SeasonTicketManagment.BackColor = System.Drawing.Color.Red;
             this.btn_Welcome_SeasonTicketManagment.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Welcome_SeasonTicketManagment.ForeColor = System.Drawing.Color.White;
-            this.btn_Welcome_SeasonTicketManagment.Location = new System.Drawing.Point(824, 541);
+            this.btn_Welcome_SeasonTicketManagment.Location = new System.Drawing.Point(819, 439);
             this.btn_Welcome_SeasonTicketManagment.Name = "btn_Welcome_SeasonTicketManagment";
             this.btn_Welcome_SeasonTicketManagment.Size = new System.Drawing.Size(502, 75);
             this.btn_Welcome_SeasonTicketManagment.TabIndex = 6;
@@ -232,7 +289,7 @@
             this.btn_Welcome_StationManagment.BackColor = System.Drawing.Color.Red;
             this.btn_Welcome_StationManagment.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Welcome_StationManagment.ForeColor = System.Drawing.Color.White;
-            this.btn_Welcome_StationManagment.Location = new System.Drawing.Point(824, 428);
+            this.btn_Welcome_StationManagment.Location = new System.Drawing.Point(819, 326);
             this.btn_Welcome_StationManagment.Name = "btn_Welcome_StationManagment";
             this.btn_Welcome_StationManagment.Size = new System.Drawing.Size(502, 75);
             this.btn_Welcome_StationManagment.TabIndex = 5;
@@ -244,7 +301,7 @@
             // 
             this.lb_welcome.AutoSize = true;
             this.lb_welcome.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_welcome.Location = new System.Drawing.Point(772, 175);
+            this.lb_welcome.Location = new System.Drawing.Point(657, 135);
             this.lb_welcome.Name = "lb_welcome";
             this.lb_welcome.Size = new System.Drawing.Size(295, 81);
             this.lb_welcome.TabIndex = 4;
@@ -295,6 +352,19 @@
             this.StationManagment.Size = new System.Drawing.Size(1842, 883);
             this.StationManagment.TabIndex = 1;
             this.StationManagment.Text = "Station";
+            // 
+            // btn_logout2
+            // 
+            this.btn_logout2.BackColor = System.Drawing.Color.Red;
+            this.btn_logout2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_logout2.ForeColor = System.Drawing.Color.White;
+            this.btn_logout2.Location = new System.Drawing.Point(1725, 0);
+            this.btn_logout2.Name = "btn_logout2";
+            this.btn_logout2.Size = new System.Drawing.Size(117, 44);
+            this.btn_logout2.TabIndex = 21;
+            this.btn_logout2.Text = "Logout";
+            this.btn_logout2.UseVisualStyleBackColor = false;
+            this.btn_logout2.Click += new System.EventHandler(this.btn_logout2_Click);
             // 
             // label17
             // 
@@ -662,6 +732,19 @@
             this.SeasonTicketManagment.Size = new System.Drawing.Size(1842, 883);
             this.SeasonTicketManagment.TabIndex = 2;
             this.SeasonTicketManagment.Text = "Season Ticket";
+            // 
+            // btn_logout3
+            // 
+            this.btn_logout3.BackColor = System.Drawing.Color.Red;
+            this.btn_logout3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_logout3.ForeColor = System.Drawing.Color.White;
+            this.btn_logout3.Location = new System.Drawing.Point(1722, 3);
+            this.btn_logout3.Name = "btn_logout3";
+            this.btn_logout3.Size = new System.Drawing.Size(117, 44);
+            this.btn_logout3.TabIndex = 30;
+            this.btn_logout3.Text = "Logout";
+            this.btn_logout3.UseVisualStyleBackColor = false;
+            this.btn_logout3.Click += new System.EventHandler(this.btn_logout3_Click);
             // 
             // pictureBox2
             // 
@@ -1057,6 +1140,7 @@
             // Ticket
             // 
             this.Ticket.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.Ticket.Controls.Add(this.label54);
             this.Ticket.Controls.Add(this.bt_logout4);
             this.Ticket.Controls.Add(this.groupBox5);
             this.Ticket.Controls.Add(this.CheckBox);
@@ -1080,6 +1164,30 @@
             this.Ticket.Size = new System.Drawing.Size(1842, 883);
             this.Ticket.TabIndex = 3;
             this.Ticket.Text = "Ticket";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Segoe UI Semibold", 25.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(83)))), ((int)(((byte)(122)))));
+            this.label54.Location = new System.Drawing.Point(832, 32);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(381, 57);
+            this.label54.TabIndex = 52;
+            this.label54.Text = "Ticket Managment";
+            // 
+            // bt_logout4
+            // 
+            this.bt_logout4.BackColor = System.Drawing.Color.Red;
+            this.bt_logout4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.bt_logout4.ForeColor = System.Drawing.Color.White;
+            this.bt_logout4.Location = new System.Drawing.Point(1722, 0);
+            this.bt_logout4.Name = "bt_logout4";
+            this.bt_logout4.Size = new System.Drawing.Size(117, 44);
+            this.bt_logout4.TabIndex = 51;
+            this.bt_logout4.Text = "Logout";
+            this.bt_logout4.UseVisualStyleBackColor = false;
+            this.bt_logout4.Click += new System.EventHandler(this.bt_logout4_Click);
             // 
             // groupBox5
             // 
@@ -1359,7 +1467,7 @@
             // TB_UpdateTicket_Date
             // 
             this.TB_UpdateTicket_Date.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TB_UpdateTicket_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.TB_UpdateTicket_Date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.TB_UpdateTicket_Date.Location = new System.Drawing.Point(20, 261);
             this.TB_UpdateTicket_Date.Name = "TB_UpdateTicket_Date";
             this.TB_UpdateTicket_Date.Size = new System.Drawing.Size(199, 36);
@@ -1479,57 +1587,263 @@
             this.label30.TabIndex = 6;
             this.label30.Text = "Ease";
             // 
-            // btn_logout1
+            // Register
             // 
-            this.btn_logout1.BackColor = System.Drawing.Color.Red;
-            this.btn_logout1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_logout1.ForeColor = System.Drawing.Color.White;
-            this.btn_logout1.Location = new System.Drawing.Point(1719, 6);
-            this.btn_logout1.Name = "btn_logout1";
-            this.btn_logout1.Size = new System.Drawing.Size(117, 44);
-            this.btn_logout1.TabIndex = 8;
-            this.btn_logout1.Text = "Logout";
-            this.btn_logout1.UseVisualStyleBackColor = false;
-            this.btn_logout1.Click += new System.EventHandler(this.btn_logout1_Click);
+            this.Register.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.Register.Controls.Add(this.label55);
+            this.Register.Controls.Add(this.groupBox8);
+            this.Register.Controls.Add(this.groupBox7);
+            this.Register.Controls.Add(this.btn_logout5);
+            this.Register.Controls.Add(this.label44);
+            this.Register.Controls.Add(this.label45);
+            this.Register.Location = new System.Drawing.Point(4, 29);
+            this.Register.Name = "Register";
+            this.Register.Padding = new System.Windows.Forms.Padding(3);
+            this.Register.Size = new System.Drawing.Size(1842, 883);
+            this.Register.TabIndex = 4;
+            this.Register.Text = "Register";
             // 
-            // btn_logout2
+            // label55
             // 
-            this.btn_logout2.BackColor = System.Drawing.Color.Red;
-            this.btn_logout2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_logout2.ForeColor = System.Drawing.Color.White;
-            this.btn_logout2.Location = new System.Drawing.Point(1725, 0);
-            this.btn_logout2.Name = "btn_logout2";
-            this.btn_logout2.Size = new System.Drawing.Size(117, 44);
-            this.btn_logout2.TabIndex = 21;
-            this.btn_logout2.Text = "Logout";
-            this.btn_logout2.UseVisualStyleBackColor = false;
-            this.btn_logout2.Click += new System.EventHandler(this.btn_logout2_Click);
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Segoe UI Semibold", 25.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(83)))), ((int)(((byte)(122)))));
+            this.label55.Location = new System.Drawing.Point(800, 68);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(376, 57);
+            this.label55.TabIndex = 55;
+            this.label55.Text = "Register Employee";
             // 
-            // btn_logout3
+            // groupBox8
             // 
-            this.btn_logout3.BackColor = System.Drawing.Color.Red;
-            this.btn_logout3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_logout3.ForeColor = System.Drawing.Color.White;
-            this.btn_logout3.Location = new System.Drawing.Point(1722, 3);
-            this.btn_logout3.Name = "btn_logout3";
-            this.btn_logout3.Size = new System.Drawing.Size(117, 44);
-            this.btn_logout3.TabIndex = 30;
-            this.btn_logout3.Text = "Logout";
-            this.btn_logout3.UseVisualStyleBackColor = false;
-            this.btn_logout3.Click += new System.EventHandler(this.btn_logout3_Click);
+            this.groupBox8.Controls.Add(this.btn_Register);
+            this.groupBox8.Controls.Add(this.label53);
+            this.groupBox8.Controls.Add(this.TB_Register_BirthDate);
+            this.groupBox8.Controls.Add(this.label52);
+            this.groupBox8.Controls.Add(this.TB_Register_PhoneNumber);
+            this.groupBox8.Controls.Add(this.label51);
+            this.groupBox8.Controls.Add(this.TB_Register_Email);
+            this.groupBox8.Controls.Add(this.label50);
+            this.groupBox8.Controls.Add(this.TB_Register_Adress);
+            this.groupBox8.Controls.Add(this.label48);
+            this.groupBox8.Controls.Add(this.label49);
+            this.groupBox8.Controls.Add(this.TB_Register_LastName);
+            this.groupBox8.Controls.Add(this.TB_Register_FirstName);
+            this.groupBox8.Location = new System.Drawing.Point(847, 227);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(777, 516);
+            this.groupBox8.TabIndex = 54;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Details";
             // 
-            // bt_logout4
+            // btn_Register
             // 
-            this.bt_logout4.BackColor = System.Drawing.Color.Red;
-            this.bt_logout4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.bt_logout4.ForeColor = System.Drawing.Color.White;
-            this.bt_logout4.Location = new System.Drawing.Point(1722, 0);
-            this.bt_logout4.Name = "bt_logout4";
-            this.bt_logout4.Size = new System.Drawing.Size(117, 44);
-            this.bt_logout4.TabIndex = 51;
-            this.bt_logout4.Text = "Logout";
-            this.bt_logout4.UseVisualStyleBackColor = false;
-            this.bt_logout4.Click += new System.EventHandler(this.bt_logout4_Click);
+            this.btn_Register.BackColor = System.Drawing.Color.Red;
+            this.btn_Register.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Register.ForeColor = System.Drawing.Color.White;
+            this.btn_Register.Location = new System.Drawing.Point(654, 466);
+            this.btn_Register.Name = "btn_Register";
+            this.btn_Register.Size = new System.Drawing.Size(117, 44);
+            this.btn_Register.TabIndex = 55;
+            this.btn_Register.Text = "Register";
+            this.btn_Register.UseVisualStyleBackColor = false;
+            this.btn_Register.Click += new System.EventHandler(this.btn_Register_Click);
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label53.Location = new System.Drawing.Point(460, 219);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(135, 30);
+            this.label53.TabIndex = 64;
+            this.label53.Text = "Date of Birth";
+            // 
+            // TB_Register_BirthDate
+            // 
+            this.TB_Register_BirthDate.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TB_Register_BirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.TB_Register_BirthDate.Location = new System.Drawing.Point(460, 252);
+            this.TB_Register_BirthDate.Name = "TB_Register_BirthDate";
+            this.TB_Register_BirthDate.Size = new System.Drawing.Size(270, 36);
+            this.TB_Register_BirthDate.TabIndex = 63;
+            this.TB_Register_BirthDate.Value = new System.DateTime(2023, 6, 6, 0, 0, 0, 0);
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label52.Location = new System.Drawing.Point(460, 327);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(160, 30);
+            this.label52.TabIndex = 62;
+            this.label52.Text = "Phone Number";
+            // 
+            // TB_Register_PhoneNumber
+            // 
+            this.TB_Register_PhoneNumber.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TB_Register_PhoneNumber.Location = new System.Drawing.Point(460, 362);
+            this.TB_Register_PhoneNumber.Name = "TB_Register_PhoneNumber";
+            this.TB_Register_PhoneNumber.Size = new System.Drawing.Size(270, 36);
+            this.TB_Register_PhoneNumber.TabIndex = 61;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label51.Location = new System.Drawing.Point(59, 327);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(64, 30);
+            this.label51.TabIndex = 60;
+            this.label51.Text = "Email";
+            // 
+            // TB_Register_Email
+            // 
+            this.TB_Register_Email.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TB_Register_Email.Location = new System.Drawing.Point(59, 362);
+            this.TB_Register_Email.Name = "TB_Register_Email";
+            this.TB_Register_Email.Size = new System.Drawing.Size(270, 36);
+            this.TB_Register_Email.TabIndex = 59;
+            this.TB_Register_Email.Text = "@gmail.com";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label50.Location = new System.Drawing.Point(460, 103);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(78, 30);
+            this.label50.TabIndex = 58;
+            this.label50.Text = "Adress";
+            // 
+            // TB_Register_Adress
+            // 
+            this.TB_Register_Adress.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TB_Register_Adress.Location = new System.Drawing.Point(460, 138);
+            this.TB_Register_Adress.Name = "TB_Register_Adress";
+            this.TB_Register_Adress.Size = new System.Drawing.Size(270, 36);
+            this.TB_Register_Adress.TabIndex = 57;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label48.Location = new System.Drawing.Point(59, 217);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(114, 30);
+            this.label48.TabIndex = 56;
+            this.label48.Text = "Last Name";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label49.Location = new System.Drawing.Point(51, 102);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(117, 30);
+            this.label49.TabIndex = 55;
+            this.label49.Text = "First Name";
+            // 
+            // TB_Register_LastName
+            // 
+            this.TB_Register_LastName.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TB_Register_LastName.Location = new System.Drawing.Point(59, 252);
+            this.TB_Register_LastName.Name = "TB_Register_LastName";
+            this.TB_Register_LastName.Size = new System.Drawing.Size(270, 36);
+            this.TB_Register_LastName.TabIndex = 54;
+            // 
+            // TB_Register_FirstName
+            // 
+            this.TB_Register_FirstName.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TB_Register_FirstName.Location = new System.Drawing.Point(59, 138);
+            this.TB_Register_FirstName.Name = "TB_Register_FirstName";
+            this.TB_Register_FirstName.Size = new System.Drawing.Size(270, 36);
+            this.TB_Register_FirstName.TabIndex = 0;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label47);
+            this.groupBox7.Controls.Add(this.label46);
+            this.groupBox7.Controls.Add(this.TB_Register_Password);
+            this.groupBox7.Controls.Add(this.TB_Register_Username);
+            this.groupBox7.Location = new System.Drawing.Point(391, 366);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(438, 377);
+            this.groupBox7.TabIndex = 53;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Log In";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label47.Location = new System.Drawing.Point(54, 211);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(103, 30);
+            this.label47.TabIndex = 56;
+            this.label47.Text = "Password";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label46.Location = new System.Drawing.Point(46, 74);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(111, 30);
+            this.label46.TabIndex = 55;
+            this.label46.Text = "Username";
+            // 
+            // TB_Register_Password
+            // 
+            this.TB_Register_Password.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TB_Register_Password.Location = new System.Drawing.Point(54, 246);
+            this.TB_Register_Password.Name = "TB_Register_Password";
+            this.TB_Register_Password.Size = new System.Drawing.Size(270, 36);
+            this.TB_Register_Password.TabIndex = 54;
+            // 
+            // TB_Register_Username
+            // 
+            this.TB_Register_Username.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TB_Register_Username.Location = new System.Drawing.Point(54, 110);
+            this.TB_Register_Username.Name = "TB_Register_Username";
+            this.TB_Register_Username.Size = new System.Drawing.Size(270, 36);
+            this.TB_Register_Username.TabIndex = 0;
+            // 
+            // btn_logout5
+            // 
+            this.btn_logout5.BackColor = System.Drawing.Color.Red;
+            this.btn_logout5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_logout5.ForeColor = System.Drawing.Color.White;
+            this.btn_logout5.Location = new System.Drawing.Point(1725, 0);
+            this.btn_logout5.Name = "btn_logout5";
+            this.btn_logout5.Size = new System.Drawing.Size(117, 44);
+            this.btn_logout5.TabIndex = 52;
+            this.btn_logout5.Text = "Logout";
+            this.btn_logout5.UseVisualStyleBackColor = false;
+            this.btn_logout5.Click += new System.EventHandler(this.btn_logout5__Click);
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.BackColor = System.Drawing.Color.Transparent;
+            this.label44.Font = new System.Drawing.Font("Segoe UI Semibold", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label44.ForeColor = System.Drawing.Color.Red;
+            this.label44.Location = new System.Drawing.Point(94, 3);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(167, 57);
+            this.label44.TabIndex = 9;
+            this.label44.Text = "Express";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.BackColor = System.Drawing.Color.Transparent;
+            this.label45.Font = new System.Drawing.Font("Segoe UI Semibold", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label45.Location = new System.Drawing.Point(2, 3);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(109, 57);
+            this.label45.TabIndex = 8;
+            this.label45.Text = "Ease";
             // 
             // Employee
             // 
@@ -1571,6 +1885,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.Register.ResumeLayout(false);
+            this.Register.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1698,5 +2018,31 @@
         private Button btn_logout2;
         private Button btn_logout3;
         private Button bt_logout4;
+        private Label label54;
+        private TabPage Register;
+        private Label label55;
+        private GroupBox groupBox8;
+        private Button btn_Register;
+        private Label label53;
+        private DateTimePicker TB_Register_BirthDate;
+        private Label label52;
+        private TextBox TB_Register_PhoneNumber;
+        private Label label51;
+        private TextBox TB_Register_Email;
+        private Label label50;
+        private TextBox TB_Register_Adress;
+        private Label label48;
+        private Label label49;
+        private TextBox TB_Register_LastName;
+        private TextBox TB_Register_FirstName;
+        private GroupBox groupBox7;
+        private Label label47;
+        private Label label46;
+        private TextBox TB_Register_Password;
+        private TextBox TB_Register_Username;
+        private Button btn_logout5;
+        private Label label44;
+        private Label label45;
+        private Button btn_RegisterEmployee;
     }
 }

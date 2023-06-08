@@ -11,6 +11,8 @@ using System.Windows.Forms.Design;
 using Factory;
 using LogicLayer.Class;
 using LogicLayer.Services;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DeckstopApp
 {
@@ -20,10 +22,12 @@ namespace DeckstopApp
         SeasonTicketsService STS = FactoryService.createseasonTickets();
         StationService SS = FactoryService.createStation();
         TicketService TS = FactoryService.createTicket();
+        LogInService LS = FactoryService.createlogInUser();
         
         public int stationId { get; set; }
         public int seasonTicketID { get; set; }
         public int TicketId { get; set; }
+        public int UserId { get; set; }
         public Employee(User loggedInUser)
         {
             InitializeComponent();
@@ -32,7 +36,10 @@ namespace DeckstopApp
 
         }
         
-       
+       public void RefreshComboboxes()
+        {
+            PopulateComboboxes();
+        }
         public void RefreshStationList()
         {
             LV_Station.Items.Clear();
@@ -48,9 +55,16 @@ namespace DeckstopApp
             LV_Ticket.Items.Clear();
             Station startingStation = CB_StartingStation.SelectedItem as Station;
             Station destinationStation = CB_DestinationStation.SelectedItem as Station;
+            if (!DateSearch.Enabled)
+            {
+                FilterTicket(startingStation, destinationStation, null);
+            }
+            else
+            {
+                FilterTicket(startingStation, destinationStation, (DateSearch.Value).ToString("yyyy-MM-dd"));
+            }
+          
             
-            FilterTicket(startingStation, destinationStation, null); // or
-            FilterTicket(startingStation, destinationStation, (DateSearch.Value).ToString("yyyy-MM-dd"));
 
         }
         public void FilterStation(string Name)
@@ -84,9 +98,10 @@ namespace DeckstopApp
 
         public void FilterTicket(Station startingStation, Station destinationStation, string? Date)
         {
+            
             var ticketList = TS.GetAllTickets();
             var selectedStartingStation = ((Station)CB_StartingStation.SelectedItem).Name;
-            
+           
             
 
             var filteredTickets = ticketList
@@ -125,7 +140,7 @@ namespace DeckstopApp
             Station None = new Station(-1, "All", 0, 0);
             stationsSearch.Insert(0, None);
             List<Station> stationsSearch2 = new List<Station>(stationsSearch);
-            stationsSearch2.Insert(0, None);
+           
             
 
             List<Station> stations = SS.GetAllStations();
@@ -136,46 +151,41 @@ namespace DeckstopApp
       
             
 
-            CB_StartingStation.Items.Clear();
-            CB_StartingStation.DataSource = null;
+            
             CB_StartingStation.DataSource = stationsSearch;
             CB_StartingStation.DisplayMember = "Name";
             CB_StartingStation.ValueMember = "Id";
 
 
-            CB_DestinationStation.Items.Clear();
-            CB_DestinationStation.DataSource = null;
+           
             CB_DestinationStation.DataSource = stationsSearch2;
             CB_DestinationStation.DisplayMember = "Name";
             CB_DestinationStation.ValueMember = "Id";
 
 
-            CB_UpdateTicket_Starting.Items.Clear();
-            CB_UpdateTicket_Starting.DataSource = null;
+          
             CB_UpdateTicket_Starting.DataSource = stations3;
             CB_UpdateTicket_Starting.DisplayMember = "Name";
             CB_UpdateTicket_Starting.ValueMember = "Id";
 
 
-            CB_UpdateTicket_Ending.Items.Clear();
-            CB_UpdateTicket_Ending.DataSource = null;
+            
             CB_UpdateTicket_Ending.DataSource = stations4;
             CB_UpdateTicket_Ending.DisplayMember = "Name";
             CB_UpdateTicket_Ending.ValueMember = "Id";
 
 
-            CB_AddTicket_Starting.Items.Clear();
-            CB_AddTicket_Starting.DataSource = null;
+          
             CB_AddTicket_Starting.DataSource = stations5;
             CB_AddTicket_Starting.DisplayMember = "Name";
             CB_AddTicket_Starting.ValueMember = "Id";
 
 
-            CB_AddTicket_Destination.Items.Clear();
-            CB_AddTicket_Destination.DataSource = null;
+            
             CB_AddTicket_Destination.DataSource = stations6;
             CB_AddTicket_Destination.DisplayMember = "Name";
             CB_AddTicket_Destination.ValueMember = "Id";
+            stationsSearch.Clear();
         }
 
         //WELCOME PAGE
@@ -191,6 +201,10 @@ namespace DeckstopApp
         private void btn_TicketManagment_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = Ticket;
+        }
+        private void btn_RegisterEmployee_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = Register;
         }
 
 
@@ -249,6 +263,7 @@ namespace DeckstopApp
                         SS.UpdateStation(stationId, Name, Latitude, Longitude);
                         MessageBox.Show("You have updated a Station");
                         RefreshStationList();
+                        RefreshComboboxes();
                     }
                     else
                     {
@@ -279,6 +294,7 @@ namespace DeckstopApp
                     SS.AddStation(station);
                     MessageBox.Show("You have succesfully added a Station");
                     RefreshStationList();
+                    RefreshComboboxes();
                 }
                 else
                 {
@@ -306,6 +322,7 @@ namespace DeckstopApp
                         RefreshStationList();
                         MessageBox.Show("You have removed a Station");
                         ClearTBStation();
+                        RefreshComboboxes();
                     }
                     else
                     {
@@ -427,7 +444,7 @@ namespace DeckstopApp
         {
             try
             {
-                if (TB_AddSeasonTicket_Name.Text != null && TB_AddSeasonTicket_Price.Value > 0 && TB_AddSeasonTicket_Description.Text != null && TB_AddSeasonTicket_Image.Text != null)
+                if (TB_AddSeasonTicket_Name.Text != null && TB_AddSeasonTicket_Description.Text != null && TB_AddSeasonTicket_Image.Text != null)
                 {
                     SeasonTickets seasonTicket = new SeasonTickets(seasonTicketID, TB_AddSeasonTicket_Name.Text, TB_AddSeasonTicket_Price.Value, TB_AddSeasonTicket_Description.Text, TB_AddSeasonTicket_Image.Text);
                     STS.AddSeasonTicket(seasonTicket);
@@ -467,7 +484,7 @@ namespace DeckstopApp
             {
                 if (LV_SeasonTicket.SelectedItems.Count > 0)
                 {
-                    if (TB_UpdateSeasonTicket_Name.Text != null && TB_UpdateSeasonTicket_Price.Value > 0 && TB_UpdateSeasonTicket_Description.Text != null && TB_UpdateSeasonTicket_Image.Text != null)
+                    if (TB_UpdateSeasonTicket_Name.Text != null && TB_UpdateSeasonTicket_Description.Text != null && TB_UpdateSeasonTicket_Image.Text != null)
                     {
                         STS.RemoveSeasonTicket(seasonTicketID);
                         ClearTBSeasonTicket();
@@ -546,7 +563,7 @@ namespace DeckstopApp
                         {
                             Station startingStation = CB_UpdateTicket_Starting.SelectedItem as Station;
                             Station destinationStation = CB_UpdateTicket_Ending.SelectedItem as Station;
-                            string DepartureDate = TB_UpdateTicket_Date.Text;
+                            string DepartureDate = TB_UpdateTicket_Date.Value.ToString("yyyy-MM-dd");
                             string Time = TB_UpdateTicket_Time.Text;
                             TS.UpdateTicket(TicketId, startingStation, destinationStation, DepartureDate, Time);
                             MessageBox.Show("You have succesfully updated a Ticket");
@@ -611,8 +628,10 @@ namespace DeckstopApp
                     {
                         Station startingStation = CB_AddTicket_Starting.SelectedItem as Station;
                         Station destinationStation = CB_AddTicket_Destination.SelectedItem as Station;
-                        Ticket ticket = new Ticket(TicketId, startingStation, destinationStation, TB_AddTicket_Date.Text, TB_AddTicket_Time.Text);
+                        
+                        Ticket ticket = new Ticket(TicketId, startingStation, destinationStation, TB_AddTicket_Date.Value.ToString("yyyy-MM-dd"), TB_AddTicket_Time.Text);
                         TS.AddTicket(ticket);
+                        MessageBox.Show("You have added a ticket");
                         RefreshTicketList();
                     }
                     else
@@ -654,5 +673,39 @@ namespace DeckstopApp
         {
             Application.Restart();
         }
+        private void btn_logout5__Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+       
+
+
+        //REGISTER
+        private void btn_Register_Click(object sender, EventArgs e)
+        {
+            if(TB_Register_Password.Text.Length > 6)
+            {
+                bool registrationSuccessful = LS.RegisterUser(UserId, TB_Register_FirstName.Text, TB_Register_LastName.Text, TB_Register_Username.Text, TB_Register_Password.Text, TB_Register_Email.Text, TB_Register_PhoneNumber.Text, TB_Register_BirthDate.Value.ToString("yyyy-MM-dd"), TB_Register_Adress.Text, "1");
+                if (registrationSuccessful)
+                {
+                    // Redirect to the login page if registration was successful
+
+                    MessageBox.Show("You have added an Employee");
+
+                }
+                else
+                {
+                    MessageBox.Show("Employee couldn't be added");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Password must have 6 characters");
+            }
+            
+        }
+
+        
     }
 }

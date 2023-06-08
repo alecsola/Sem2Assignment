@@ -32,8 +32,8 @@ namespace DataLayer.DataTraffic
         }
         public bool AddUser(User user)
         {
-            string query = $"INSERT INTO Users ( FirstName, LastName, Username, Salt, HashedPassword, Email, Adress, DateOfBirth, PhoneNumber)  " +
-                $"VALUES ('{user.FirstName}', '{user.LastName}', '{user.Username}','{user.Salt}','{user.HashedPassword}', '{user.Email}', '{user.Adress}', '{user.BirthDate}' , {user.PhoneNumber} );";
+            string query = $"INSERT INTO Users ( FirstName, LastName, Username, Salt, HashedPassword, Email, Adress, DateOfBirth, PhoneNumber,RoleId)  " +
+                $"VALUES ('{user.FirstName}', '{user.LastName}', '{user.Username}','{user.Salt}','{user.HashedPassword}', '{user.Email}', '{user.Adress}', '{user.BirthDate}' , {user.PhoneNumber}, {user.RoleId} );";
             return executeQuery(query) == 0 ? false : true;
 
         }

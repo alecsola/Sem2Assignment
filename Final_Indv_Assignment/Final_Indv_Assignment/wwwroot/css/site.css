@@ -213,6 +213,11 @@ input[type="submit"] {
         background-color: white;
     }
 
+.error-message {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: red;
+}
+
 
     .footer {
         margin-bottom:-200px;

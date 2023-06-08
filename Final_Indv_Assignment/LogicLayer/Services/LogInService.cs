@@ -62,7 +62,7 @@ namespace LogicLayer.Services
         {
             List<User> users;
 
-            if (roleId == null)
+            if (roleId == "2")
             {
                 users = userDataTraffic.GetAllCostumers();
             }

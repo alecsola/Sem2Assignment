@@ -148,6 +148,7 @@ input[type="checkbox"] {
 .logo {
     margin-right: auto;
     font-weight: bold;
+    color: black;
     cursor: pointer;
 }
 
@@ -316,7 +317,14 @@ body {
 .buy:hover {
     background-color: rgba(255,255,255,0.2);
 }
-
+.error-message {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: red;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 20px;
+}
 
 .footer {
     font-family: 'Source Sans Pro', sans-serif;

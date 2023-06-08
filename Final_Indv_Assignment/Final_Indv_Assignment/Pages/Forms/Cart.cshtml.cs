@@ -127,6 +127,7 @@ namespace Final_Indv_Assignment.Pages.Forms
                     }
                     
                     Payment payment = new Payment(Id, UserId, totalPrice, productNames);
+                    
                     var AddedPayment = PS.AddPayment(payment);
                     totalPrice = 0;
                     PriceText = null;
@@ -136,6 +137,14 @@ namespace Final_Indv_Assignment.Pages.Forms
                     SaveCartToTempData();
                     
 
+                }
+                else
+                {
+                    ModelState.Clear();
+                    ModelState.AddModelError("", "You have to login first.");
+                    totalPrice = (products.Sum(p => p.Price));
+                    SaveCartToTempData();
+                    return Page();
                 }
 
 
@@ -190,7 +199,7 @@ namespace Final_Indv_Assignment.Pages.Forms
         private bool CheckIfUserHasSeasonTicket()
         {
             List<Payment>payments = new List<Payment>();
-            payments = PS.CheckIfUserProduct(UserId);
+            payments = PS.CheckIfUserSeasonTicket(UserId);
             if(payments.Count > 0)
             {
                 totalPrice = 0;

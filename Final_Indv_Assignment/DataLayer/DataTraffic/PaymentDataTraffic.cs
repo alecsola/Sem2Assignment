@@ -50,7 +50,7 @@ namespace DataLayer.DataTraffic
         public List<Payment> HasUserSeasonTicket(int UserId)
         {
             List<Payment> payments = new List<Payment>();
-            string query = $"SELECT p.Id, p.Price, p.UserId, p.ProductName FROM Payment p WHERE (p.ProductName='Month Ticket' OR p.ProductName='Gold Ticket' OR p.ProductName='Premium Ticket' OR p.ProductName='Child Ticket' OR p.ProductName='Young Ticket') AND p.UserId ={UserId} ;";
+            string query = $"SELECT p.Id, p.Price, p.UserId, p.ProductName FROM Payment p WHERE ProductName IN (SELECT ProductName FROM dbo.SeasonTickets st WHERE st.SeasonTicketName = ProductName) and UserId ={UserId} ;";
             DataTable table = base.ReadData(query);
             foreach (DataRow dr in table.Rows)
             {
@@ -62,9 +62,11 @@ namespace DataLayer.DataTraffic
         public bool AddPayment(Payment payment)
         {
            
+
             string productNamesString = string.Join(",", payment.ProductName);
             List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("Price", payment.Price));
+            
             string query = $"INSERT INTO Payment (UserId, Price,ProductName) " + $"VALUES ({payment.UserId},@Price,'{productNamesString}' )";
             
             return executeQuery(query, parameters.ToArray()) == 0 ? false : true;

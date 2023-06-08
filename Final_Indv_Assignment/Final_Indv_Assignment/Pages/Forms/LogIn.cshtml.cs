@@ -9,13 +9,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using Microsoft.Identity.Client;
 
 namespace Final_Indv_Assignment.Pages.Shared
 {
     public class LogInModel : PageModel
     {
         public User user;
-        private readonly LogInService _loginService;
+        
         LogInService LS = FactoryService.createlogInUser();
 
         [BindProperty]
@@ -25,11 +26,13 @@ namespace Final_Indv_Assignment.Pages.Shared
         [BindProperty]
         
         public string Password { get; set; }
-        
-        public void OnGet()
+
+        public IActionResult OnPostSignUp()
         {
+            return RedirectToPage("/Forms/Registration");
         }
-        
+
+
         public async Task<IActionResult> OnPostAsync()
         {
             User loggedInUser = (LS.ValidateUserCredentials(Username, Password,"2"));
@@ -50,11 +53,12 @@ namespace Final_Indv_Assignment.Pages.Shared
             }
             else
             {
+                ModelState.Clear();
                 ModelState.AddModelError("", "Incorrect username or password. Please try again.");
                 return Page();
             }
 
-
+            
 
             
 

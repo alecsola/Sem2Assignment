@@ -48,6 +48,7 @@ namespace DataLayer.DataTraffic
         }
         public bool AddTicket(Ticket ticket)
         {
+            
             string query = $"INSERT INTO Ticket (StartingStationId, DestinationStationId, DepartureDate, Time)  " + $"VALUES ({ticket.StartingStation.Id},{ticket.DestinationStation.Id},'{ticket.DepartureDate}','{ticket.Time}') ";
             return executeQuery(query) == 0 ? false : true;
         }

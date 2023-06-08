@@ -133,6 +133,7 @@ input[type="checkbox"] {
 .logo {
     margin-right: auto;
     font-weight: bold;
+    color:black;
     cursor:pointer;
 }
 span {

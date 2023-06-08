@@ -32,7 +32,7 @@ namespace LogicLayer.Class
             Price = CalculatePrice();
         }
 
-        private decimal CalculatePrice()
+        public decimal CalculatePrice()
         {
             const decimal basePrice = 2.50m; // Base price for the ticket
             const decimal pricePerKm = 0.30m; // Price per kilometer

@@ -208,10 +208,14 @@ span {
     .checkout-button:hover {
         background-color: white;
     }
-
+.error-message {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: red;
+    margin-top: 20px;
+}
 
     .footer {
-        margin-bottom:-200px;
+        margin-top:390px;
         font-family: 'Source Sans Pro', sans-serif;
     }
 

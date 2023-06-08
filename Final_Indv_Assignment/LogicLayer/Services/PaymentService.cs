@@ -12,11 +12,12 @@ namespace LogicLayer.Services
     public class PaymentService
     {
         private IPaymentDataTraffic paymentDataTraffic;
+        
 
 
         public PaymentService(IPaymentDataTraffic paymentDataTraffic)
         {
-            this.paymentDataTraffic = paymentDataTraffic ?? throw new ArgumentNullException(nameof(paymentDataTraffic));
+            this.paymentDataTraffic = paymentDataTraffic?? throw new ArgumentNullException(nameof(paymentDataTraffic));
         }
         public bool AddPayment(Payment payment)
         {
@@ -30,10 +31,10 @@ namespace LogicLayer.Services
         {
             return paymentDataTraffic.GetPaymentById(id);
         }
-        public List<Payment>CheckIfUserProduct(int UserId)
+        public List<Payment>CheckIfUserSeasonTicket(int UserId)
         {
             return paymentDataTraffic.HasUserSeasonTicket(UserId);
-            
+
         }
 
     }

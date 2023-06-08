@@ -7,9 +7,14 @@
 }
 
     <div class="titulo">
-        <h1><b>Season Tickets</b></h1>
-   
-
+        <h1><b>Season Tickets</b></h1></div>
+    
+@if (!ModelState.IsValid)
+    {
+        <div class="error-message">
+            @Html.ValidationSummary()
+        </div>
+    }
 
 
 <div id="container" class="container">

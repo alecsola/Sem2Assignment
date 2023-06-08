@@ -12,11 +12,16 @@ namespace Final_Indv_Assignment.Pages.Forms
        
         private SeasonTicketsService seasonTicketsService;
         SeasonTicketsService STS = FactoryService.createseasonTickets();
+        
+        PaymentService PS = FactoryService.createPayment();
+        
         //SeasonTickets seasonTickets = new List<SeasonTickets>();
         [BindProperty]
         public List<Product> products { get; set; }
-        [BindProperty]
-        public string formattedprice { get; set; }
+        public User user;
+        public int UserId;
+        public List<Payment>payments { get; set; }
+        
 
         private readonly ILogger<IndexModel> _logger;
 
@@ -33,37 +38,65 @@ namespace Final_Indv_Assignment.Pages.Forms
                 products = JsonConvert.DeserializeObject<List<Product>>(cartJson);
                 SaveProducts();
             }
-            
-
-
-        }
-        public IActionResult OnPostAddToCart(int productId)
-        {
-
-            products = new List<Product>();
-            LoadProducts();
-            var selectedTicket = STS.GetSeasonTicketById(productId);
-            if (selectedTicket != null)
+            if (TempData.TryGetValue("SerializedUser", out var serializedUser) && serializedUser is string userJson)
             {
-                var product = new Product
+                user = JsonConvert.DeserializeObject<User>(userJson);
+                if (user != null)
                 {
-                    Id = selectedTicket.Id,
+                    UserId = user.Id;
 
-                    Name = $"{selectedTicket.SeasonTicketName}",
-                    Price = Math.Round(selectedTicket.Price)
-
-                };
-                
-                products.Add(product);
-                SaveProducts();
+                }
+                SaveUser();
             }
 
-            return Page();
+
+
         }
         public List<SeasonTickets> seasonTickets
         {
             get { return STS.GetAllSeasonTickets(); }
         }
+        public IActionResult OnPostAddToCart(int productId)
+        {
+            payments = new List<Payment>();
+            products = new List<Product>();
+            LoadProducts();
+            LoadUser();
+            payments = PS.CheckIfUserSeasonTicket(UserId);
+            if (payments.Count == 0)
+            {
+                var selectedTicket = STS.GetSeasonTicketById(productId);
+                if (selectedTicket != null)
+                {
+                    var product = new Product
+                    {
+                        Id = selectedTicket.Id,
+
+                        Name = $"{selectedTicket.SeasonTicketName}",
+                        Price = Math.Round(selectedTicket.Price)
+
+                    };
+      
+                    products.Add(product);
+                    SaveProducts();
+                    SaveUser();
+                }
+                return Page();
+            }
+            else
+            {
+                ModelState.Clear();
+                ModelState.AddModelError("", "You already have a Season Ticket to your name.");
+                SaveProducts();
+                SaveUser();
+                return Page();
+                
+            }
+           
+
+            
+        }
+        
 
 
 
@@ -81,6 +114,26 @@ namespace Final_Indv_Assignment.Pages.Forms
             var SerializedCart = JsonConvert.SerializeObject(products);
             TempData["SerializedCart"] = SerializedCart;
         }
+        private void LoadUser()
+        {
+            if (TempData.TryGetValue("SerializedUser", out var serializedUser) && serializedUser is string userJson)
+            {
+                user = JsonConvert.DeserializeObject<User>(userJson);
+                if (user != null)
+                {
+                    UserId = user.Id;
+                }
+
+            }
+        }
+        private void SaveUser()
+        {
+            var SerializedUser = JsonConvert.SerializeObject(user);
+            TempData["SerializedUser"] = SerializedUser;
+        }
         
+
+
+
     }
 }

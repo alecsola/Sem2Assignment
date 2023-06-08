@@ -49,7 +49,7 @@ namespace Final_Indv_Assignment.Pages.Forms
             
             
             // Call the RegisterUser method to add the user to the data source
-            bool registrationSuccessful = LS.RegisterUser(Id,FirstName, LastName, Username,Password, Email, PhoneNumber, BirthDate, Adress,null);
+            bool registrationSuccessful = LS.RegisterUser(Id,FirstName, LastName, Username,Password, Email, PhoneNumber, BirthDate, Adress,"2");
                 if (registrationSuccessful)
                 {
                     // Redirect to the login page if registration was successful
@@ -59,9 +59,9 @@ namespace Final_Indv_Assignment.Pages.Forms
                 }
                 else
                 {
-                    // Display an error message if registration failed
-                    ViewData["ErrorMessage"] = "Registration failed. Please try again with a different username.";
-                    return Page();
+                ModelState.Clear();
+                ModelState.AddModelError("", "This user already exists, try another one");
+                return Page();
                 }
 
         }

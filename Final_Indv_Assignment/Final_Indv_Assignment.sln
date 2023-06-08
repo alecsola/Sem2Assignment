@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factory", "Factory\Factory.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "TestProject1\TestProject1.csproj", "{B585D5CA-2FEB-4BCF-8FC6-A2F332090CF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeckstopApp", "DeckstopApp\DeckstopApp.csproj", "{367A2561-259F-4394-9D40-0A8C803A6B40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopApp", "DeckstopApp\DesktopApp.csproj", "{367A2561-259F-4394-9D40-0A8C803A6B40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

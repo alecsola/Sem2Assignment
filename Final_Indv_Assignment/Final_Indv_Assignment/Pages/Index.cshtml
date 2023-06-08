@@ -50,8 +50,13 @@
                 <label for="time">Time:</label>
                 <input type="time" id="time" name="time">
             </div>
-
-            <input type="submit" name="login" value="Search" />
+            @if (!ModelState.IsValid)
+            {
+                <div class="error-message">
+                    @Html.ValidationSummary()
+                </div>
+            }
+            <input type="submit" name="search" value="Search" />
         </form>
     </div>
     

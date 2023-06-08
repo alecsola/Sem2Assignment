@@ -2398,9 +2398,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\DeckstopApp\\DeckstopApp.csproj",
-      "projectName": "DeckstopApp",
-      "projectPath": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\DeckstopApp\\DeckstopApp.csproj",
+      "projectUniqueName": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\DeckstopApp\\DesktopApp.csproj",
+      "projectName": "DesktopApp",
+      "projectPath": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\DeckstopApp\\DesktopApp.csproj",
       "packagesPath": "C:\\Users\\solaa\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\solaa\\Projects\\JuanAlejandroSemester2Individual\\semester-2-individual-assignment-alec\\Final_Indv_Assignment\\DeckstopApp\\obj\\",
       "projectStyle": "PackageReference",
